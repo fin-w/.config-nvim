@@ -1,0 +1,13 @@
+# an attempt to make debugging simpler
+snippet dbg
+    qDebug() << "${0}";
+
+# auto braces
+snippet {
+    {
+        ${0}
+    }
+
+# auto brackets
+snippet (
+    (${0})
