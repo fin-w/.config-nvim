@@ -9,4 +9,9 @@ return {
     { 'nucc/git-select-branch', dependencies = { 'nvim-telescope/telescope.nvim' }, },  -- telescope pick git branches
     'nvim-treesitter/nvim-treesitter',                                                  -- better syntax highlighting
     'nvim-treesitter/nvim-treesitter-context',                                          -- display location context at top
+    'neovim/nvim-lspconfig',                                                            -- sensible config for built-in neovim LS
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
 }
