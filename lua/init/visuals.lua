@@ -1,4 +1,4 @@
-vim.cmd.colorscheme 'midnight'      -- dark colour scheme
+vim.cmd.colorscheme 'midnight' -- dark colour scheme
 vim.cmd([[
     set updatetime=1000             " after this time, the word under the cursor is highlighted (and the swap file saved? i think?)
     set termguicolors               " use real colours
@@ -50,4 +50,3 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 vim.diagnostic.config {
     float = { border = _border }
 }
-
