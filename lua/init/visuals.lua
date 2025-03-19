@@ -27,9 +27,6 @@ vim.opt.diffopt:append({
     'foldcolumn:0',
 })
 
--- Enable LSP inlay hinting
-vim.lsp.inlay_hint.enable()
-
 
 -- BORDERS
 -- Border around LSP hover etc

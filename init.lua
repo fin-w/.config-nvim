@@ -6,7 +6,6 @@ require('init.misc')
 require('init.visuals')
 require('init.keymaps')
 require('init.lsp')
-require('init.restore')
 
 require('config.boole')
 require('config.gitsigns')
@@ -15,4 +14,5 @@ require('config.telescope')
 require('config.lspconfig')
 require('config.nvim_cmp')
 require('config.lualine')
--- vim.lsp.enable('rust_analyzer') -- this should trigger the lsp/rust_analyzer.lua file config to run and should set up the autocmd on buffer open i think but it doesn't https://lsp-zero.netlify.app/blog/lsp-config-without-plugins.html
+
+require('init.restore')
