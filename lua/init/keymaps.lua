@@ -56,4 +56,3 @@ vim.keymap.set('n', '<leader>bb', '<cmd>tab term ./buildit<enter>i')
 vim.keymap.set('n', '<leader>br', '<cmd>tab term ./buildit -r<enter>i')
 vim.keymap.set('n', '<leader>ba', '<cmd>tab term ./buildit -a<enter>i')
 vim.keymap.set('n', '<leader>be', '<cmd>tab term ./buildit -e<enter>i')
-
