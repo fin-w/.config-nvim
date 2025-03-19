@@ -56,11 +56,43 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set(mode, lhs, rhs, opts)
         end
 
+        -- Highlight a value across the doc when hovering over it somewhere for a few secs
+        vim.cmd [[
+            silent hi! LspReferenceRead
+            silent hi! LspReferenceText
+            silent hi! LspReferenceWrite
+        ]]
+
+        if client:supports_method('textDocument/documentHighlight') then
+            vim.api.nvim_create_augroup('lsp_document_highlight', {
+                clear = false
+            })
+
+            vim.api.nvim_clear_autocmds({
+                buffer = args.buf,
+                group = 'lsp_document_highlight',
+            })
+
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+                group = 'lsp_document_highlight',
+                buffer = args.buf,
+                callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+                group = 'lsp_document_highlight',
+                buffer = args.buf,
+                callback = vim.lsp.buf.clear_references,
+            })
+        end
+
         -- Displays hover information about the symbol under the cursor
         bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
 
         -- Jump to the definition
-        bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+        if client:supports_method('textDocument/definition') then
+            bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+        end
 
         -- Jump to declaration
         bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
@@ -96,29 +128,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- All diagnostics across current buffer
         -- fileproject
         bufmap('n', 'ga', '<cmd>lua vim.diagnostic.setqflist()<cr>')
-
-        -- Highlight a value across the doc when hovering over it somewhere for a few secs
-        vim.cmd [[
-            silent hi! LspReferenceRead
-            silent hi! LspReferenceText
-            silent hi! LspReferenceWrite
-        ]]
-        vim.api.nvim_create_augroup('lsp_document_highlight', {
-            clear = false
-        })
-        vim.api.nvim_clear_autocmds({
-            buffer = args.buf,
-            group = 'lsp_document_highlight',
-        })
-        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-            group = 'lsp_document_highlight',
-            buffer = args.buf,
-            callback = vim.lsp.buf.document_highlight,
-        })
-        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-            group = 'lsp_document_highlight',
-            buffer = args.buf,
-            callback = vim.lsp.buf.clear_references,
-        })
     end,
 })
