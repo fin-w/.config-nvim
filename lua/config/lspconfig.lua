@@ -13,6 +13,14 @@ lspconfig.rust_analyzer.setup({
 
 lspconfig.lua_ls.setup({
     capabilities = lsp_capabilities,
+    -- Get rid of lua errors https://www.reddit.com/r/neovim/comments/p0p0kr/solved_undefined_global_vim_error/
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
 })
 
 -- npm install --save vscode-html-languageservice
@@ -31,6 +39,10 @@ lspconfig.eslint.setup({
 })
 
 lspconfig.cssls.setup({
+    capabilities = lsp_capabilities,
+})
+
+lspconfig.fish_lsp.setup({
     capabilities = lsp_capabilities,
 })
 

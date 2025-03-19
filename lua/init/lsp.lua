@@ -9,18 +9,6 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
--- may not be needed at all?
--- vim.lsp.config('*', {
---     capabilities = {
---         textDocument = {
---             semanticTokens = {
---                 multilineTokenSupport = true,
---             }
---         }
---     },
---     root_markers = { '.git' },
--- })
-
 -- Formatting settings: first set up custom variable to hold whether the buffer uses autoformatting
 -- Disable formatting
 vim.api.nvim_create_user_command('FormatDisable', function(args)
@@ -50,14 +38,6 @@ end, {
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        -- if client:supports_method('textDocument/implementation') then
-        --     -- Create a keymap for vim.lsp.buf.implementation
-        -- end
-
-        -- if client:supports_method('textDocument/completion') then
-        --     -- Enable auto-completion
-        --     vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-        -- end
 
         if client:supports_method('textDocument/formatting') then
             -- Format the current buffer on save
