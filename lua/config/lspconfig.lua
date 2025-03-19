@@ -34,9 +34,14 @@ lspconfig.ts_ls.setup({
 })
 
 -- npm install -g vscode-langservers-extracted
-lspconfig.eslint.setup({
+lspconfig.jsonls.setup({
     capabilities = lsp_capabilities,
 })
+
+-- npm install -g vscode-langservers-extracted
+-- lspconfig.eslint.setup({
+--     capabilities = lsp_capabilities,
+-- })
 
 lspconfig.cssls.setup({
     capabilities = lsp_capabilities,
