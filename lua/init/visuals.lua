@@ -47,3 +47,21 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 vim.diagnostic.config {
     float = { border = _border }
 }
+
+-- INLINE DIAGNOSTICS
+-- Icon in front of inline diagnostics
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = '🞉',
+    }
+})
+
+-- Diagnostics colours in line numbers rather than in a separate gutter
+for _, diag in ipairs({ 'Error', 'Warn', 'Info', 'Hint' }) do
+    vim.fn.sign_define('DiagnosticSign' .. diag, {
+        text = '',
+        texthl = 'DiagnosticSign' .. diag,
+        linehl = '',
+        numhl = 'DiagnosticSign' .. diag,
+    })
+end
