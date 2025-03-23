@@ -14,4 +14,5 @@ return {
     'hrsh7th/cmp-nvim-lsp',                                                                                -- without this nvim-cmp displays two dropdowns
     'L3MON4D3/LuaSnip',                                                                                    -- needed for completion from nvim-cmp e.g. function names
     'saadparwaiz1/cmp_luasnip',                                                                            -- needed for luasnip
+    'rafamadriz/friendly-snippets',                                                                        -- lots of vscode-like snippets
 }
