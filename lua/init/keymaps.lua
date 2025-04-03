@@ -50,7 +50,7 @@ vim.keymap.set('n', '<leader>gdm', '<cmd>tab G diff master<cr>')
 -- rebase onto git main
 vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<cr>')
 -- git blame whole file
-vim.keymap.set('n', '<leader>bla', '<cmd>Gitsigns blame<cr>')
+vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<cr>')
 -- open terminal
 vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
 -- open terminal and build / run project
