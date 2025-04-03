@@ -11,8 +11,8 @@ vim.cmd([[
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')
 vim.keymap.set('n', '<ScrollWheelDown>', '2j')
-vim.keymap.set('i', '<ScrollWheelUp>', '2k')
-vim.keymap.set('i', '<ScrollWheelDown>', '2j')
+vim.keymap.set('i', '<ScrollWheelUp>', '<C-o>2k')
+vim.keymap.set('i', '<ScrollWheelDown>', '<C-o>2j')
 -- jump up and down a doc by word under cursor
 vim.keymap.set('n', '<pageup>', '#')
 vim.keymap.set('n', '<pagedown>', '*')
