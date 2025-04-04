@@ -13,6 +13,7 @@ require('boole').setup({
         { 'show',     'hide' },
         { 'true',     'false' },
         { 'min',      'max' },
+        { 'start',    'end',       'stop' },
         { 'minimum',  'maximum' },
         { 'vertical', 'horizontal' },
     }
