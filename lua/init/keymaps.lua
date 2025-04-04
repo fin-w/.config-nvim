@@ -21,10 +21,10 @@ vim.keymap.set('n', 'gm', '[[k0f(b')
 -- paste over a word from buffer without yanking the word
 vim.keymap.set('n', '<leader>p', 'viwP')
 -- pick the left buffer or right buffer in a git merge conflict view?
-vim.keymap.set('n', '<leader>gch', '<cmd>diffget //2<cr>')
-vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<cr>')
+vim.keymap.set('n', '<leader>gch', '<cmd>diffget //2<enter>')
+vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<enter>')
 -- go to next marker of git merge conflict in file
-vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<cr>')
+vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<enter>')
 -- open fugitive in a new tab
 vim.keymap.set('n', '<leader>gg', '<cmd>tab G<enter>')
 -- push current branch to origin
@@ -40,17 +40,17 @@ vim.keymap.set('n', '<leader>gl', '<cmd>tab G log<enter>')
 -- open list of current branches to switch to
 vim.api.nvim_set_keymap('n', '<leader>gss', '<cmd>GitSelectBranch<CR>', { noremap = true, silent = true })
 -- switch to git main branch
-vim.keymap.set('n', '<leader>gsm', '<cmd>G switch master<cr>')
+vim.keymap.set('n', '<leader>gsm', '<cmd>G switch master<enter>')
 -- git pull
-vim.keymap.set('n', '<leader>guu', '<cmd>G pull<cr>')
+vim.keymap.set('n', '<leader>guu', '<cmd>G pull<enter>')
 -- open current diff of HEAD compared to git previous commit
-vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<cr>')
+vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<enter>')
 -- open current diff of fork compared to git main
-vim.keymap.set('n', '<leader>gdm', '<cmd>tab G diff master<cr>')
+vim.keymap.set('n', '<leader>gdm', '<cmd>tab G diff master<enter>')
 -- rebase onto git main
-vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<cr>')
+vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<enter>')
 -- git blame whole file
-vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<cr>')
+vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
 -- open terminal
 vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
 -- open terminal and build / run project
