@@ -16,5 +16,6 @@ require('boole').setup({
         { 'start',    'end',       'stop' },
         { 'minimum',  'maximum' },
         { 'vertical', 'horizontal' },
+        { 'let',      'const',     'var' },
     }
 })
