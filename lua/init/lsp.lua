@@ -51,18 +51,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
             })
         end
 
-        local bufmap = function(mode, lhs, rhs)
-            local opts = { buffer = true }
-            vim.keymap.set(mode, lhs, rhs, opts)
-        end
-
-        -- Highlight a value across the doc when hovering over it somewhere for a few secs
-        vim.cmd [[
-            silent hi! LspReferenceRead
-            silent hi! LspReferenceText
-            silent hi! LspReferenceWrite
-        ]]
-
         if client:supports_method('textDocument/documentHighlight') then
             vim.api.nvim_create_augroup('lsp_document_highlight', {
                 clear = false
@@ -86,47 +74,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
             })
         end
 
-        -- Displays hover information about the symbol under the cursor
-        bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-
-        -- Jump to the definition
         if client:supports_method('textDocument/definition') then
-            bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+            vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { buffer = true })
         end
 
-        -- Jump to declaration
-        bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-
-        -- Lists all the implementations for the symbol under the cursor
-        bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-
-        -- Jumps to the definition of the type symbol
-        bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-
-        -- Lists all the references
-        -- NOTE this is done by telescope instead
-        -- bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-
-        -- Displays a function's signature information
-        bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-
-        -- Renames all references to the symbol under the cursor
-        bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
-
-        -- Selects a code action available at the current cursor position
-        bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-
-        -- Show diagnostics in a floating window
-        bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
-
-        -- Move to the previous diagnostic
-        bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-
-        -- Move to the next diagnostic
-        bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-
-        -- All diagnostics across current buffer
-        -- fileproject
-        bufmap('n', 'ga', '<cmd>lua vim.diagnostic.setqflist()<cr>')
+        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { buffer = true })
+        vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, { buffer = true })
+        vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { buffer = true })
+        vim.keymap.set('n', 'go', function() vim.lsp.buf.type_definition() end, { buffer = true })
+        vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help() end, { buffer = true })
+        vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, { buffer = true })
+        vim.keymap.set('n', 'ga', function() vim.diagnostic.setqflist() end, { buffer = true })
+        -- This is done with grr now
+        vim.keymap.set('n', '<F2>', function() vim.lsp.buf.rename() end, { buffer = true })
+        -- This is done with gra now
+        vim.keymap.set('n', '<F4>', function() vim.lsp.buf.code_action() end, { buffer = true })
     end,
 })
