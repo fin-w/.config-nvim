@@ -51,6 +51,8 @@ vim.keymap.set('n', '<leader>gdm', '<cmd>tab G diff master<enter>')
 vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<enter>')
 -- git blame whole file
 vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
+-- search for next instance of a git commit hash, and copy it to the clipboard
+vim.keymap.set('n', '<leader>yc', '/[a-z0-9]\\{40\\}<enter>yiw:noh<enter>')
 -- open terminal
 vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
 -- open terminal and build / run project
