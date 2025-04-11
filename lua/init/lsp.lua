@@ -1,6 +1,9 @@
 -- Enable LSP inlay hinting
 vim.lsp.inlay_hint.enable()
 
+-- Enable formatting
+vim.g.autoformat_by_lsp = true
+
 -- LSP context Shift-k with rounded border
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -22,9 +25,6 @@ end, {
     desc = 'Disable autoformat-on-save',
     bang = true,
 })
-
--- Enable formatting
-vim.g.autoformat_by_lsp = true
 
 vim.api.nvim_create_user_command('FormatEnable', function()
     vim.g.autoformat_by_lsp = true
