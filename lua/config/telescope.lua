@@ -70,6 +70,12 @@ require('telescope').setup({
         prompt_title = false,
         sorting_strategy = 'ascending',
         path_display = { 'filename_first', },
+        mappings = {
+            n = {
+                ["l"] = require('telescope.actions').cycle_history_next,
+                ["h"] = require('telescope.actions').cycle_history_prev,
+            },
+        },
         vimgrep_arguments = {
             'rg',
             '--color=never',
