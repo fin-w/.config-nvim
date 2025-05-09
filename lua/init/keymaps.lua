@@ -61,3 +61,9 @@ vim.keymap.set('n', '<leader>bt', '<cmd>tab term ./buildit -t<enter>i')
 vim.keymap.set('n', '<leader>br', '<cmd>tab term ./buildit -r<enter>i')
 vim.keymap.set('n', '<leader>ba', '<cmd>tab term ./buildit -a<enter>i')
 vim.keymap.set('n', '<leader>be', '<cmd>tab term ./buildit -e<enter>i')
+-- force formatting with LSP
+vim.keymap.set('n', '<leader>cf',
+    function()
+        vim.lsp.buf.format()
+    end
+)
