@@ -13,7 +13,6 @@ require('config.treesitter')
 require('config.nvim_treesitter_context')
 require('config.telescope')
 require('config.lspconfig')
-require('config.nvim_cmp')
 require('config.lualine')
 
 require('init.restore')
