@@ -20,6 +20,11 @@ vim.keymap.set('n', '<pagedown>', '*')
 vim.keymap.set('n', 'gm', '[[k0f(b')
 -- paste over a word from buffer without yanking the word
 vim.keymap.set('n', '<leader>p', 'viwP')
+-- comment out the paragraph
+vim.keymap.set('n', 'gcp', function()
+    vim.api.nvim_feedkeys('vip', 'n', false) -- select inner paragraph
+    vim.api.nvim_feedkeys('gc', 'x', false) -- call gc in visual mode
+end, { noremap = true })
 -- pick the left buffer or right buffer in a git merge conflict view?
 vim.keymap.set('n', '<leader>gch', '<cmd>diffget //2<enter>')
 vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<enter>')
