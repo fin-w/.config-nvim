@@ -7,14 +7,6 @@ vim.lsp.set_log_level("off")
 -- Enable formatting
 vim.g.autoformat_by_lsp = true
 
--- LSP context Shift-k with rounded border
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or 'rounded'
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 -- Formatting settings: first set up custom variable to hold whether the buffer uses autoformatting
 -- Disable formatting
 vim.api.nvim_create_user_command('FormatDisable', function(args)

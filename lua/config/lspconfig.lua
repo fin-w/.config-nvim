@@ -64,10 +64,3 @@ lspconfig.bashls.setup({
 lspconfig.lemminx.setup({
     capabilities = lsp_capabilities,
 })
-
--- Border around LSP hover etc
-local _border = 'rounded'
-
-require('lspconfig.ui.windows').default_options = {
-    border = _border
-}

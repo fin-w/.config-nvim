@@ -64,7 +64,6 @@ require('telescope').setup({
             },
         },
         border = true,
-        --borderchars = {  },
         dynamic_preview_title = true,
         results_title = false,
         prompt_title = false,

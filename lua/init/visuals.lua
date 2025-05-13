@@ -29,24 +29,23 @@ vim.opt.diffopt:append({
 
 
 -- BORDERS
--- Border around LSP hover etc
-local _border = 'rounded'
+vim.o.winborder = 'rounded'
+-- until plenary is fixed, the below is needed to fix telescope borders to handle the new winborder above
+-- https://github.com/nvim-telescope/telescope.nvim/issues/3436
+-- https://github.com/nvim-lua/plenary.nvim/pull/649
+vim.api.nvim_create_autocmd("User", {
+    pattern = "TelescopeFindPre",
+    callback = function()
+        vim.opt_local.winborder = "none"
+        vim.api.nvim_create_autocmd("WinLeave", {
+            once = true,
+            callback = function()
+                vim.opt_local.winborder = "rounded"
+            end,
+        })
+    end,
+})
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-    vim.lsp.handlers.hover, {
-        border = _border
-    }
-)
-
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-        border = _border
-    }
-)
-
-vim.diagnostic.config {
-    float = { border = _border }
-}
 
 -- INLINE DIAGNOSTICS
 -- Icon in front of inline diagnostics
