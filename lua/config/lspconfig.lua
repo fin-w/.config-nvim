@@ -1,7 +1,7 @@
 local lspconfig = require('lspconfig')
 
--- Needed to get nvim-cmp working for the LSP
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- Needed to get blink working for the LSP
+local lsp_capabilities = require('blink.cmp').get_lsp_capabilities()
 
 lspconfig.clangd.setup({
     capabilities = lsp_capabilities,

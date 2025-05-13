@@ -9,10 +9,8 @@ return {
     { 'nucc/git-select-branch',                     dependencies = { 'nvim-telescope/telescope.nvim' }, }, -- telescope pick git branches
     'nvim-treesitter/nvim-treesitter',                                                                     -- better syntax highlighting
     'nvim-treesitter/nvim-treesitter-context',                                                             -- display location context at top
-    'neovim/nvim-lspconfig',                                                                               -- sensible config for built-in neovim LS
-    'hrsh7th/nvim-cmp',                                                                                    -- display LS completions and others
-    'hrsh7th/cmp-nvim-lsp',                                                                                -- without this nvim-cmp displays two dropdowns
+    { 'saghen/blink.cmp',      dependencies = { 'rafamadriz/friendly-snippets' }, version = '1.*', },      -- fast auto-completions
+    { 'neovim/nvim-lspconfig', dependencies = { 'saghen/blink.cmp' }, },                                   -- sensible config for built-in neovim LS
     'L3MON4D3/LuaSnip',                                                                                    -- needed for completion from nvim-cmp e.g. function names
-    'saadparwaiz1/cmp_luasnip',                                                                            -- needed for luasnip
     'rafamadriz/friendly-snippets',                                                                        -- lots of vscode-like snippets
 }
