@@ -7,6 +7,13 @@ vim.cmd([[
     vnoremap <A-j> :m '>+1<CR>gv=gv
     vnoremap <A-k> :m '<-2<CR>gv=gv
 ]])
+-- Scroll and keep cursor vertically centred, even near file end
+vim.keymap.set('n', 'j', 'jzz', { noremap = true })
+vim.keymap.set('n', 'k', 'kzz', { noremap = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
+vim.keymap.set('n', 'gg', 'ggzz', { noremap = true })
+vim.keymap.set('n', 'G', 'Gzz', { noremap = true })
 
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')

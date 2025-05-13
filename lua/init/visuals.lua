@@ -6,7 +6,6 @@ vim.cmd([[
     set statusline=0
     set cmdheight=0                 " hide command line when not in use, and -- INSERT -- flag etc
     set showtabline=0               " hide the status bar with file name etc
-    set scrolloff=999               " keep cursor in centre of screen (smaller val would give lines above / below cursor
     set showmatch                   " show matching
     set hlsearch                    " highlight search
     set cursorline                  " highlight current cursor line
