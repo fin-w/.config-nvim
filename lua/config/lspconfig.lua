@@ -60,7 +60,7 @@ lspconfig.bashls.setup({
     capabilities = lsp_capabilities,
 })
 
--- wget 'https://github.com/redhat-developer/vscode-xml/releases/download/0.28.1/lemminx-linux.zip' && unzip lemminx-linux.zip && mv lemminx-linux ~/.local/bin/lemminx
+-- wget 'https://github.com/redhat-developer/vscode-xml/releases/download/0.29.0/lemminx-linux.zip' && unzip lemminx-linux.zip && mv lemminx-linux ~/.local/bin/lemminx
 lspconfig.lemminx.setup({
     capabilities = lsp_capabilities,
 })
