@@ -1,4 +1,5 @@
 require('blink.cmp').setup({
+    enabled = function() return not vim.tbl_contains({ 'gitcommit' }, vim.bo.filetype) end,
     keymap = {
         preset = 'super-tab',
         ['<C-c>'] = { 'cancel', 'fallback' },
@@ -18,6 +19,7 @@ require('blink.cmp').setup({
         },
         menu = {
             draw = {
+                padding = { 0, 0 },
                 treesitter = { 'lsp' },
             },
         },
