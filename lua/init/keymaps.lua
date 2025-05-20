@@ -101,3 +101,10 @@ vim.keymap.set('n', '<leader>cf',
         vim.lsp.buf.format()
     end
 )
+
+-- open file browser
+vim.keymap.set('n', '<leader>fe',
+    function()
+        require('telescope').extensions.file_browser.file_browser()
+    end
+)
