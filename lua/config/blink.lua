@@ -12,7 +12,7 @@ require('blink.cmp').setup({
     completion = {
         list = {
             selection = {
-                preselect = true,
+                preselect = false,
                 auto_insert = false
             },
         },
@@ -21,11 +21,37 @@ require('blink.cmp').setup({
                 treesitter = { 'lsp' },
             },
         },
+        keyword = {
+            range = 'full' -- 'full' | 'prefix'
+        },
         documentation = { auto_show = true, auto_show_delay_ms = 1000 },
         ghost_text = { enabled = true, show_without_selection = true },
     },
+    cmdline = {
+        keymap = {
+            preset = 'inherit',
+        },
+        completion = {
+            menu = { auto_show = true },
+            list = {
+                selection = {
+                    preselect = false,
+                    auto_insert = true
+                }
+            }
+        }
+    },
     sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' }
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+            cmdline = {
+                min_keyword_length = function(ctx)
+                    -- when typing a command, only show when the keyword is 3 characters or longer
+                    if ctx.mode == 'cmdline' and string.find(ctx.line, ' ') == nil then return 3 end
+                    return 0
+                end
+            }
+        },
     },
     snippets = { preset = 'luasnip' },
     signature = { enabled = true },
