@@ -14,7 +14,7 @@ require('blink.cmp').setup({
         list = {
             selection = {
                 preselect = false,
-                auto_insert = false
+                auto_insert = true
             },
         },
         menu = {
@@ -30,6 +30,7 @@ require('blink.cmp').setup({
         ghost_text = { enabled = true, show_without_selection = true },
     },
     cmdline = {
+        enabled = false,
         keymap = {
             preset = 'inherit',
         },
