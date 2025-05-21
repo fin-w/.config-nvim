@@ -16,7 +16,7 @@ return {
         dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
     { -- telescope pick git branches
-        'nucc/git-select-branch',
+        'fin-w/git-select-branch',
         dependencies = { 'nvim-telescope/telescope.nvim' }
     },
     'nvim-treesitter/nvim-treesitter', -- better syntax highlighting
