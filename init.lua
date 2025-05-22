@@ -16,5 +16,7 @@ require('config.blink')
 require('config.luasnip')
 require('config.lspconfig')
 require('config.lualine')
+require('config.dap')
+require('config.dap_virtual_text')
 
 require('init.restore')

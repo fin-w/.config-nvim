@@ -37,5 +37,7 @@ return {
         'L3MON4D3/LuaSnip',
         dependencies = { 'rafamadriz/friendly-snippets' }
     },
-    'rafamadriz/friendly-snippets', -- lots of vscode-like snippets
+    'rafamadriz/friendly-snippets',    -- lots of vscode-like snippets
+    'mfussenegger/nvim-dap',           -- debug adapter protocol
+    'theHamsta/nvim-dap-virtual-text', -- virtual text showing contents of variables when using dap
 }

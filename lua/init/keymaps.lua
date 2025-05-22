@@ -108,3 +108,28 @@ vim.keymap.set('n', '<leader>fe',
         require('telescope').extensions.file_browser.file_browser()
     end
 )
+
+-- dap commands
+local dap = require('dap')
+vim.keymap.set('n', '<leader>rr', function() dap.continue() end)
+vim.keymap.set('n', '<Leader>rR', function() dap.run_last() end)
+
+vim.keymap.set('n', '<leader>rn', function() dap.step_over() end)
+vim.keymap.set('n', '<leader>ri', function() dap.step_into() end)
+vim.keymap.set('n', '<leader>ro', function() dap.step_out() end)
+
+vim.keymap.set('n', '<Leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+vim.keymap.set('n', '<leader>rb', function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<leader>rdb', function() dap.clear_breakpoints() end)
+
+vim.keymap.set('n', '<Leader>rdr', function() dap.repl.open() end)
+vim.keymap.set({ 'n', 'v' }, '<Leader>rdh', function() require('dap.ui.widgets').hover() end)
+vim.keymap.set({ 'n', 'v' }, '<Leader>rdp', function() require('dap.ui.widgets').preview() end)
+vim.keymap.set('n', '<Leader>rdf', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.frames)
+end)
+vim.keymap.set('n', '<Leader>rds', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.scopes)
+end)
