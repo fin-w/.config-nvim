@@ -64,3 +64,7 @@ lspconfig.bashls.setup({
 lspconfig.lemminx.setup({
     capabilities = lsp_capabilities,
 })
+
+lspconfig.pylsp.setup({
+    capabilities = lsp_capabilities,
+})
