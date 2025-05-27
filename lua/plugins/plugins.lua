@@ -15,12 +15,8 @@ return {
         'nvim-telescope/telescope-file-browser.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
-    { -- telescope pick git branches
-        'fin-w/git-select-branch',
-        dependencies = { 'nvim-telescope/telescope.nvim' }
-    },
-    'nvim-treesitter/nvim-treesitter', -- better syntax highlighting
-    {                                  -- display location context at top
+    'nvimtreesitter/nvim-treesitter', -- better syntax highlighting
+    {                                 -- display location context at top
         'nvim-treesitter/nvim-treesitter-context',
         dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },

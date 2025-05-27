@@ -67,6 +67,9 @@ vim.api.nvim_set_keymap('n', '<leader>gss', '<cmd>GitSelectBranch<CR>', { norema
 -- switch to git main branch
 vim.keymap.set('n', '<leader>gsm', '<cmd>G switch master<enter>')
 
+-- Show git branches and a brief commit history for selected branch
+vim.keymap.set('n', '<leader>gb', function() require('telescope.builtin').git_branches() end)
+
 -- git pull
 vim.keymap.set('n', '<leader>guu', '<cmd>G pull<enter>')
 
