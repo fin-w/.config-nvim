@@ -30,6 +30,8 @@ vim.keymap.set('n', 'gm', '[[k0f(b')
 -- paste over a word from buffer without yanking the word
 vim.keymap.set('n', '<leader>p', 'viwP')
 
+-- search for next instance of a git commit hash, and copy it to the clipboard
+vim.keymap.set('n', '<leader>yc', '/[a-z0-9]\\{40\\}<enter>yiw:noh<enter>')
 
 -- pick the left buffer or right buffer in a git merge conflict view?
 vim.keymap.set('n', '<leader>gch', '<cmd>diffget //2<enter>')
@@ -98,9 +100,6 @@ vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<enter>')
 
 -- git blame whole file
 vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
-
--- search for next instance of a git commit hash, and copy it to the clipboard
-vim.keymap.set('n', '<leader>yc', '/[a-z0-9]\\{40\\}<enter>yiw:noh<enter>')
 
 -- open terminal
 vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
