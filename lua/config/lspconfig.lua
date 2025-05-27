@@ -67,12 +67,16 @@ lspconfig.lemminx.setup({
 
 lspconfig.pylsp.setup({
     capabilities = lsp_capabilities,
-    plugins = {
-        autopep8 = {
-            enabled = false,
-        },
-        yapf = {
-            enabled = true,
+    settings = {
+        pylsp = {
+            plugins = {
+                autopep8 = {
+                    enabled = false,
+                },
+                yapf = {
+                    enabled = true,
+                },
+            },
         },
     },
 })
