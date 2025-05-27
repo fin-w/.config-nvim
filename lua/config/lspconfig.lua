@@ -65,18 +65,7 @@ lspconfig.lemminx.setup({
     capabilities = lsp_capabilities,
 })
 
+-- sudo pacman -Syu python-lsp-server autopep8
 lspconfig.pylsp.setup({
     capabilities = lsp_capabilities,
-    settings = {
-        pylsp = {
-            plugins = {
-                autopep8 = {
-                    enabled = false,
-                },
-                yapf = {
-                    enabled = true,
-                },
-            },
-        },
-    },
 })
