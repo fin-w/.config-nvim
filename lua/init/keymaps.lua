@@ -40,24 +40,6 @@ vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<enter>')
 -- go to next marker of git merge conflict in file
 vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<enter>')
 
--- open fugitive in a new tab
-vim.keymap.set('n', '<leader>gg', '<cmd>tab G<enter>')
-
--- push current branch to origin
-vim.keymap.set('n', '<leader>gpo', '<cmd>tab G push origin<enter>')
-
--- force push current branch to origin
-vim.keymap.set('n', '<leader>gPo', '<cmd>tab G push -f origin<enter>')
-
--- push current branch to my fork
-vim.keymap.set('n', '<leader>gpf', '<cmd>tab G push fork<enter>')
-
--- force push current branch to my fork
-vim.keymap.set('n', '<leader>gPf', '<cmd>tab G push -f fork<enter>')
-
--- open log
-vim.keymap.set('n', '<leader>gl', '<cmd>tab G log<enter>')
-
 -- open list of current branches to switch to
 vim.api.nvim_set_keymap('n', '<leader>gss', '<cmd>GitSelectBranch<CR>', { noremap = true, silent = true })
 
@@ -83,24 +65,6 @@ vim.keymap.set('n', '<leader>gsm',
     end
 )
 
--- Show git branches and a brief commit history for selected branch
-vim.keymap.set('n', '<leader>gb', function() require('telescope.builtin').git_branches() end)
-
--- git pull
-vim.keymap.set('n', '<leader>guu', '<cmd>G pull<enter>')
-
--- open current diff of HEAD compared to git previous commit
-vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<enter>')
-
--- open current diff of fork compared to git main
-vim.keymap.set('n', '<leader>gdm', '<cmd>tab G diff master<enter>')
-
--- rebase onto git main
-vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<enter>')
-
--- git blame whole file
-vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
-
 -- open terminal
 vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
 
@@ -118,14 +82,98 @@ vim.keymap.set('n', '<leader>cf',
     end
 )
 
--- open file browser
+
+-- TELESCOPE
+
+local telescope_builtin = require('telescope.builtin')
+local telescope_actions_state = require('telescope.actions.state')
+
+-- Show git branches and a brief commit history for selected branch
+vim.keymap.set('n', '<leader>gb', function() require('telescope.builtin').git_branches() end)
+vim.keymap.set('n', '<leader>gc', telescope_builtin.git_commits, { desc = 'Telescope show git commits' })
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fs', telescope_builtin.grep_string, { desc = 'Telescope grep string' })
+vim.keymap.set('n', '<leader>fi', telescope_builtin.lsp_references,
+    { desc = 'Telescope show references of word under cursor' })
+vim.keymap.set('n', '<leader>fr', telescope_builtin.resume, { desc = 'Telescope resume search' })
+
+-- Instead of using the custom buffer searcher, the below line can be used directly
+-- vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fb',
+    function()
+        telescope_builtin.buffers {
+            sort_mru = true,
+            -- ignore_current_buffer = true,
+            -- show_all_buffers = false,
+            attach_mappings = function(prompt_bufnr, map)
+                local delete_buf = function()
+                    local selection = telescope_actions_state.get_selected_entry()
+                    vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+                end
+                map('n', 'dd', delete_buf)
+                return true
+            end
+        }
+    end,
+    { desc = 'Telescope buffers with the ability to delete buffers' }
+)
+
+-- telescope extension: open file browser
 vim.keymap.set('n', '<leader>fe',
     function()
         require('telescope').extensions.file_browser.file_browser()
     end
 )
 
--- dap commands
+-- for deletion? i don't use these
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, { desc = 'Telescope show diagnostics' })
+vim.keymap.set('n', '<leader>fj', telescope_builtin.jumplist, { desc = 'Telescope show jumplist' })
+vim.keymap.set('n', '<leader>ft', telescope_builtin.treesitter,
+    { desc = 'Telescope show Treesitter functions and variables' })
+
+
+-- FUGITIVE
+
+-- open fugitive in a new tab
+vim.keymap.set('n', '<leader>gg', '<cmd>tab G<enter>')
+
+-- push current branch to origin
+vim.keymap.set('n', '<leader>gpo', '<cmd>tab G push origin<enter>')
+
+-- force push current branch to origin
+vim.keymap.set('n', '<leader>gPo', '<cmd>tab G push -f origin<enter>')
+
+-- push current branch to my fork
+vim.keymap.set('n', '<leader>gpf', '<cmd>tab G push fork<enter>')
+
+-- force push current branch to my fork
+vim.keymap.set('n', '<leader>gPf', '<cmd>tab G push -f fork<enter>')
+
+-- open log
+vim.keymap.set('n', '<leader>gl', '<cmd>tab G log<enter>')
+
+-- git pull
+vim.keymap.set('n', '<leader>guu', '<cmd>G pull<enter>')
+
+-- open current diff of HEAD compared to git previous commit
+vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<enter>')
+
+-- open current diff of fork compared to git main
+vim.keymap.set('n', '<leader>gdm', '<cmd>tab G diff master<enter>')
+
+-- rebase onto git main
+vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<enter>')
+
+
+-- GITSIGNS
+
+-- git blame whole file
+vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
+
+
+-- DAP
 local dap = require('dap')
 vim.keymap.set('n', '<leader>rr', function() dap.continue() end)
 vim.keymap.set('n', '<Leader>rR', function() dap.run_last() end)
