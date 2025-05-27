@@ -15,8 +15,8 @@ return {
         'nvim-telescope/telescope-file-browser.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
-    'nvimtreesitter/nvim-treesitter', -- better syntax highlighting
-    {                                 -- display location context at top
+    'nvim-treesitter/nvim-treesitter', -- better syntax highlighting
+    {                                  -- display location context at top
         'nvim-treesitter/nvim-treesitter-context',
         dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
