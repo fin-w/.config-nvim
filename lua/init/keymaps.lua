@@ -64,8 +64,27 @@ vim.keymap.set('n', '<leader>gl', '<cmd>tab G log<enter>')
 -- open list of current branches to switch to
 vim.api.nvim_set_keymap('n', '<leader>gss', '<cmd>GitSelectBranch<CR>', { noremap = true, silent = true })
 
--- switch to git main branch
-vim.keymap.set('n', '<leader>gsm', '<cmd>G switch master<enter>')
+-- Switch to git main / master branch
+vim.keymap.set('n', '<leader>gsm',
+    function()
+        local handle = io.popen("git branch --list")
+        if not handle then
+            print("Couldn't get branches")
+            return
+        end
+        local result = handle:read("*a")
+        handle:close()
+        local has_main = result:match("%s*main\n") or result:match("%* main\n")
+        local has_master = result:match("%s*master\n") or result:match("%* master\n")
+        if has_main then
+            vim.cmd("G switch main")
+        elseif has_master then
+            vim.cmd("G switch master")
+        else
+            print("'main' and 'master' branches don't exist.")
+        end
+    end
+)
 
 -- Show git branches and a brief commit history for selected branch
 vim.keymap.set('n', '<leader>gb', function() require('telescope.builtin').git_branches() end)
