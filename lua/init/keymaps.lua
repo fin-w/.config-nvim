@@ -98,7 +98,15 @@ vim.keymap.set('n', '<leader>gb',
         })
     end
 )
-vim.keymap.set('n', '<leader>gc', telescope_builtin.git_commits, { desc = 'Telescope show git commits' })
+vim.keymap.set('n', '<leader>gc',
+    function()
+        telescope_builtin.git_commits({
+            cwd = vim.fn.expand('%:p:h'),
+            use_git_root = false,
+        })
+    end,
+    { desc = 'Telescope show git commits' }
+)
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fs', telescope_builtin.grep_string, { desc = 'Telescope grep string' })
