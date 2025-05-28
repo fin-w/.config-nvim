@@ -91,7 +91,7 @@ local telescope_actions_state = require('telescope.actions.state')
 -- Show git branches and a brief commit history for selected branch
 vim.keymap.set('n', '<leader>gb',
     function()
-        require('telescope.builtin').git_branches({
+        telescope_builtin.git_branches({
             use_file_path = true,
             use_git_root = false,
             show_remote_tracking_branches = false,
