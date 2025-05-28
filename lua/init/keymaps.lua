@@ -92,7 +92,7 @@ local telescope_actions_state = require('telescope.actions.state')
 vim.keymap.set('n', '<leader>gb',
     function()
         telescope_builtin.git_branches({
-            use_file_path = true,
+            cwd = vim.fn.expand('%:p:h'),
             use_git_root = false,
             show_remote_tracking_branches = false,
         })
