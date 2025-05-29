@@ -94,7 +94,7 @@ vim.keymap.set('n', '<leader>gb',
         telescope_builtin.git_branches({
             cwd = vim.fn.expand('%:p:h'),
             use_git_root = false,
-            show_remote_tracking_branches = false,
+            -- show_remote_tracking_branches = false,
         })
     end
 )
