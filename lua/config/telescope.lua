@@ -30,8 +30,8 @@ require('telescope').setup({
         path_display = { 'filename_first', },
         mappings = {
             n = {
-                ["l"] = require('telescope.actions').cycle_history_next,
-                ["h"] = require('telescope.actions').cycle_history_prev,
+                ['l'] = require('telescope.actions').cycle_history_next,
+                ['h'] = require('telescope.actions').cycle_history_prev,
             },
         },
         vimgrep_arguments = {

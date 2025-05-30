@@ -1,18 +1,10 @@
 -- Move code around the buffer
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
-
--- Scroll and keep cursor vertically centred, even near file end
--- vim.keymap.set('n', 'j', 'jzz', { noremap = true })
--- vim.keymap.set('n', 'k', 'kzz', { noremap = true })
--- vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
--- vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
--- vim.keymap.set('n', 'gg', 'ggzz', { noremap = true })
--- vim.keymap.set('n', 'G', 'Gzz', { noremap = true })
+vim.keymap.set('n', '<A-j>', ':m .+1<enter>==', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<enter>==', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<enter>==gi', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<enter>==gi', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-j>', ":m '>+1<enter>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<A-k>', ":m '<-2<enter>gv=gv", { noremap = true, silent = true })
 
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')
@@ -41,26 +33,26 @@ vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<enter>')
 vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<enter>')
 
 -- open list of current branches to switch to
-vim.api.nvim_set_keymap('n', '<leader>gss', '<cmd>GitSelectBranch<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gss', '<cmd>GitSelectBranch<enter>', { noremap = true, silent = true })
 
 -- Switch to git main / master branch
 vim.keymap.set('n', '<leader>gsm',
     function()
-        local handle = io.popen("git branch --list")
+        local handle = io.popen('git branch --list')
         if not handle then
-            print("Couldn't get branches")
+            print('Couldn\'t get branches')
             return
         end
-        local result = handle:read("*a")
+        local result = handle:read('*a')
         handle:close()
-        local has_main = result:match("%s*main\n") or result:match("%* main\n")
-        local has_master = result:match("%s*master\n") or result:match("%* master\n")
+        local has_main = result:match('%s*main\n') or result:match('%* main\n')
+        local has_master = result:match('%s*master\n') or result:match('%* master\n')
         if has_main then
-            vim.cmd("G switch main")
+            vim.cmd('G switch main')
         elseif has_master then
-            vim.cmd("G switch master")
+            vim.cmd('G switch master')
         else
-            print("'main' and 'master' branches don't exist.")
+            print('\'main\' and \'master\' branches don\'t exist.')
         end
     end
 )

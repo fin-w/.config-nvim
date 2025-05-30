@@ -65,6 +65,6 @@ require('gitsigns').setup {
         map('n', '<leader>td', gitsigns.toggle_deleted)
 
         -- Text object
-        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<enter>')
     end
 }

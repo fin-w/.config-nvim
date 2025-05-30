@@ -8,25 +8,25 @@ dap.adapters.gdb = {
 
 dap.configurations.cpp = {
     {
-        name = "Launch",
-        type = "gdb",
-        request = "launch",
+        name = 'Launch',
+        type = 'gdb',
+        request = 'launch',
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-        cwd = "${workspaceFolder}",
+        cwd = '${workspaceFolder}',
         stopAtBeginningOfMainSubprogram = false,
     },
     {
-        name = "Select and attach to process",
-        type = "gdb",
-        request = "attach",
+        name = 'Select and attach to process',
+        type = 'gdb',
+        request = 'attach',
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         pid = function()
             local name = vim.fn.input('Executable name (filter): ')
-            return require("dap.utils").pick_process({ filter = name })
+            return require('dap.utils').pick_process({ filter = name })
         end,
         cwd = '${workspaceFolder}'
     },

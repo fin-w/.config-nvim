@@ -33,14 +33,14 @@ vim.o.winborder = 'rounded'
 -- until plenary is fixed, the below is needed to fix telescope borders to handle the new winborder above
 -- https://github.com/nvim-telescope/telescope.nvim/issues/3436
 -- https://github.com/nvim-lua/plenary.nvim/pull/649
-vim.api.nvim_create_autocmd("User", {
-    pattern = "TelescopeFindPre",
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'TelescopeFindPre',
     callback = function()
-        vim.opt_local.winborder = "none"
-        vim.api.nvim_create_autocmd("WinLeave", {
+        vim.opt_local.winborder = 'none'
+        vim.api.nvim_create_autocmd('WinLeave', {
             once = true,
             callback = function()
-                vim.opt_local.winborder = "rounded"
+                vim.opt_local.winborder = 'rounded'
             end,
         })
     end,

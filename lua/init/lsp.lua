@@ -2,7 +2,7 @@
 vim.lsp.inlay_hint.enable()
 
 -- Please stop filling my hard drive
-vim.lsp.set_log_level("off")
+vim.lsp.set_log_level('off')
 
 -- Enable formatting
 vim.g.autoformat_by_lsp = true
