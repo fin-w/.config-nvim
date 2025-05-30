@@ -73,16 +73,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { buffer = true })
         end
 
-        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { buffer = true })
         vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, { buffer = true })
         vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { buffer = true })
         vim.keymap.set('n', 'go', function() vim.lsp.buf.type_definition() end, { buffer = true })
         vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help() end, { buffer = true })
         vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, { buffer = true })
         vim.keymap.set('n', 'ga', function() vim.diagnostic.setqflist() end, { buffer = true })
-        -- This is done with grr now
-        vim.keymap.set('n', '<F2>', function() vim.lsp.buf.rename() end, { buffer = true })
-        -- This is done with gra now
-        vim.keymap.set('n', '<F4>', function() vim.lsp.buf.code_action() end, { buffer = true })
     end,
 })
