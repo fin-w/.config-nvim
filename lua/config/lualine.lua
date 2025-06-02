@@ -17,7 +17,11 @@ require('lualine').setup {
     sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', { 'diagnostics', symbols = { error = 'E', warn = 'W', info = 'i', hint = 'h' } } },
-        lualine_c = { { 'filename', symbols = { modified = '*', readonly = '[R]' } } },
+        lualine_c = { {
+            'filename',
+            path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
+            symbols = { modified = '*', readonly = '[R]' } }
+        },
         lualine_x = { 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
