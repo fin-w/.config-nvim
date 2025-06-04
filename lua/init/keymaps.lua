@@ -135,7 +135,6 @@ vim.keymap.set('n', '<leader>fe',
 )
 
 -- for deletion? i don't use these
-vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, { desc = 'Telescope show diagnostics' })
 vim.keymap.set('n', '<leader>fj', telescope_builtin.jumplist, { desc = 'Telescope show jumplist' })
 vim.keymap.set('n', '<leader>ft', telescope_builtin.treesitter,
