@@ -55,6 +55,8 @@ require('telescope').setup({
                     preview_width = 0.6,
                 },
             },
+            grouped = true, -- dirs together
+            hidden = true,  -- show hidden files
         },
     },
 })
