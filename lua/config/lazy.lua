@@ -21,12 +21,15 @@ require('lazy').setup({
         { import = 'plugins' },
     },
     -- Configure any other settings here. See the documentation for more details.
-    -- colorscheme that will be used when installing plugins.
-    -- install = { colorscheme = { 'habamax' } },
+    install = {
+        missing = true,
+        colorscheme = { 'midnight' } -- colorscheme that will be used when installing plugins.
+    },
     -- automatically check for plugin updates
     checker = { enabled = false },
     change_detection = { enabled = false, notify = false },
     ui = {
         size = { width = 1, height = 1 },
+        border = 'rounded',
     },
 })

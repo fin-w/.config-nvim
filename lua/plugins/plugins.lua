@@ -33,7 +33,8 @@ return {
         'L3MON4D3/LuaSnip',
         dependencies = { 'rafamadriz/friendly-snippets' }
     },
-    'fin-w/midnight.nvim',             -- colour scheme
+    'fin-w/midnight.nvim',             -- primary colour scheme
+    'ficcdaf/ashen.nvim',              -- dark warm colour scheme
     'nat-418/boole.nvim',              -- toggle various related words
     'lewis6991/gitsigns.nvim',         -- status column git diff
     'tpope/vim-fugitive',              -- all things git
