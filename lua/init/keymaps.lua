@@ -58,6 +58,9 @@ vim.keymap.set('n', '<leader>gsm',
     end
 )
 
+-- Escape terminal input mode more intuitively
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
 -- open terminal
 vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
 
