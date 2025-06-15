@@ -20,9 +20,6 @@ vim.keymap.set('i', '<ScrollWheelDown>', '<C-o>2j')
 vim.keymap.set('n', '<pageup>', '#')
 vim.keymap.set('n', '<pagedown>', '*')
 
--- gd for the current method when you're in it somewhere
-vim.keymap.set('n', 'gm', '[[k0f(b')
-
 -- paste over a word from buffer without yanking the word
 vim.keymap.set('n', '<leader>p', 'viwP')
 
