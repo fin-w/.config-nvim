@@ -3,9 +3,9 @@ vim.cmd([[
     set updatetime=1000             " after this time, the word under the cursor is highlighted (and the swap file saved? i think?)
     set termguicolors               " use real colours
     set laststatus=0 ruler          " hide file name and white status bar
-    set statusline=0
+    set statusline=0                " hide built in status line in favour of lualine
     set cmdheight=0                 " hide command line when not in use, and -- INSERT -- flag etc
-    set showtabline=0               " hide the status bar with file name etc
+    set showtabline=0               " hide the file tabs
     set scrolloff=999               " keep cursor in centre of screen (smaller val would give lines above / below cursor
     set showmatch                   " show matching
     set hlsearch                    " highlight search
