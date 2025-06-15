@@ -3,8 +3,12 @@ vim.keymap.set('n', '<A-j>', ':m .+1<enter>==', { noremap = true, silent = true 
 vim.keymap.set('n', '<A-k>', ':m .-2<enter>==', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<enter>==gi', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<enter>==gi', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-j>', ":m '>+1<enter>gv=gv", { noremap = true, silent = true })
-vim.keymap.set('v', '<A-k>', ":m '<-2<enter>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<A-j>', ":'<,'>m'>+1<enter> gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<A-k>', ":'<,'>m'<-2<enter> gv=gv", { noremap = true, silent = true })
+
+-- Keep the selection after changing indention
+vim.keymap.set('v', '<', "<gv", { noremap = true, silent = true })
+vim.keymap.set('v', '>', ">gv", { noremap = true, silent = true })
 
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')
