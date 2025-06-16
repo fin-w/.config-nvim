@@ -64,7 +64,19 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- open terminal
 vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
 
--- open terminal and build / run project
+-- Open terminal in same dir as current buffer
+vim.keymap.set('n', '<leader>tT',
+    function()
+        local cwd = vim.fn.expand('%:p:h')
+        vim.cmd('tab term')
+        local channel = vim.bo.channel
+        vim.api.nvim_chan_send(channel, 'cd ' .. cwd .. '\n')
+        vim.api.nvim_chan_send(channel, 'clear\n')
+        vim.api.nvim_feedkeys('i', 'n', false)
+    end
+)
+
+-- Open terminal and build / run project
 vim.keymap.set('n', '<leader>ba', '<cmd>tab term ./buildit -a<enter>i')
 vim.keymap.set('n', '<leader>bb', '<cmd>tab term ./buildit -b<enter>i')
 vim.keymap.set('n', '<leader>bc', '<cmd>tab term ./buildit -c<enter>i')
