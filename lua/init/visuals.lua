@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd('User', {
 -- Icon in front of inline diagnostics
 vim.diagnostic.config({
     virtual_text = {
-        prefix = '🞉',
+        prefix = '◀',
     }
 })
 
