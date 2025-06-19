@@ -33,11 +33,11 @@ return {
         'L3MON4D3/LuaSnip',
         dependencies = { 'rafamadriz/friendly-snippets' }
     },
-    'fin-w/midnight.nvim', -- primary colour scheme
-    {                      -- better syntax highlighting
+    { -- better syntax highlighting
         'nvim-treesitter/nvim-treesitter',
         branch = 'main',
     },
+    'fin-w/midnight.nvim',             -- primary colour scheme
     'ficcdaf/ashen.nvim',              -- dark warm colour scheme
     'hiphish/rainbow-delimiters.nvim', -- rainbow brackets
     'nat-418/boole.nvim',              -- toggle various related words
