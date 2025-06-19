@@ -22,7 +22,7 @@ local installed_treesitter_parsers = {
 
 require('nvim-treesitter').install(installed_treesitter_parsers)
 require('nvim-treesitter').update()
-vim.api.nvim_create_autocmd({ 'FileType', 'BufRead' }, {
+vim.api.nvim_create_autocmd({ 'FileType' }, {
     callback = function(context)
         pcall(vim.treesitter.start, context.bufnr)
     end
