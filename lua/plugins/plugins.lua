@@ -33,32 +33,10 @@ return {
         'L3MON4D3/LuaSnip',
         dependencies = { 'rafamadriz/friendly-snippets' }
     },
-    'fin-w/midnight.nvim',             -- primary colour scheme
-    { -- better syntax highlighting
+    'fin-w/midnight.nvim', -- primary colour scheme
+    {                      -- better syntax highlighting
         'nvim-treesitter/nvim-treesitter',
         branch = 'main',
-        build = function()
-            require('nvim-treesitter').install({
-                'bash',
-                'c',
-                'cpp',
-                'csv',
-                'css',
-                'fish',
-                'gitcommit',
-                'html',
-                'javascript',
-                'lua',
-                'markdown',
-                'markdown_inline',
-                'python',
-                'query',
-                'rust',
-                'typescript',
-                'vim',
-                'vimdoc',
-            })
-        end
     },
     'ficcdaf/ashen.nvim',              -- dark warm colour scheme
     'hiphish/rainbow-delimiters.nvim', -- rainbow brackets
