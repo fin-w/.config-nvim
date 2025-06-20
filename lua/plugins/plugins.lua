@@ -36,6 +36,9 @@ return {
     { -- better syntax highlighting
         'nvim-treesitter/nvim-treesitter',
         branch = 'main',
+        build = function()
+            require('nvim-treesitter').update()
+        end
     },
     'fin-w/midnight.nvim',             -- primary colour scheme
     'ficcdaf/ashen.nvim',              -- dark warm colour scheme
