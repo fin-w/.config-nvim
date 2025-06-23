@@ -9,6 +9,13 @@ lspconfig.clangd.setup({
 
 lspconfig.rust_analyzer.setup({
     capabilities = lsp_capabilities,
+    settings = {
+        ['rust-analyzer'] = {
+            check = {
+                command = 'clippy',
+            },
+        },
+    },
 })
 
 lspconfig.lua_ls.setup({
