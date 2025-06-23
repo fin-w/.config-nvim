@@ -58,5 +58,12 @@ require('blink.cmp').setup({
     },
     snippets = { preset = 'luasnip' },
     signature = { enabled = true },
-    fuzzy = { implementation = 'prefer_rust_with_warning' }
+    fuzzy = {
+        implementation = 'prefer_rust_with_warning',
+        sorts = {
+            'exact',
+            'score',
+            'sort_text',
+        }
+    }
 })
