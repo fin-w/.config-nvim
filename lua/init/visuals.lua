@@ -48,12 +48,8 @@ vim.api.nvim_create_autocmd('User', {
 
 
 -- INLINE DIAGNOSTICS
--- Icon in front of inline diagnostics
-vim.diagnostic.config({
-    virtual_text = {
-        prefix = '◀',
-    }
-})
+-- Icon in front of inline diagnostics - see keymap for this also
+vim.diagnostic.config({ virtual_text = { prefix = '◀', } })
 
 -- Diagnostics colours in line numbers rather than in a separate gutter
 for _, diag in ipairs({ 'Error', 'Warn', 'Info', 'Hint' }) do

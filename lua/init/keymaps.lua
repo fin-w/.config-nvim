@@ -108,6 +108,24 @@ vim.keymap.set('n', '<leader>cf',
     end
 )
 
+-- Toggle virtual lines / text for diagnostics
+vim.keymap.set('n', 'gl',
+    function()
+        local lines_enabled = not vim.diagnostic.config().virtual_lines
+        vim.diagnostic.config({
+            virtual_lines = lines_enabled,
+            virtual_text = function()
+                if lines_enabled then
+                    return false
+                else
+                    return { prefix = '◀' }
+                end
+            end,
+        })
+    end,
+    { desc = 'Toggle diagnostic display between lines and inline text' }
+)
+
 
 -- TELESCOPE
 
