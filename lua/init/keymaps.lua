@@ -33,9 +33,6 @@ vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<enter>')
 -- go to next marker of git merge conflict in file
 vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<enter>')
 
--- open list of current branches to switch to
-vim.api.nvim_set_keymap('n', '<leader>gss', '<cmd>GitSelectBranch<enter>', { noremap = true, silent = true })
-
 -- Switch to git main / master branch
 vim.keymap.set('n', '<leader>gsm',
     function()
