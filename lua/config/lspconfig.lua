@@ -20,11 +20,14 @@ lspconfig.rust_analyzer.setup({
 
 lspconfig.lua_ls.setup({
     capabilities = lsp_capabilities,
-    -- Get rid of lua errors https://www.reddit.com/r/neovim/comments/p0p0kr/solved_undefined_global_vim_error/
+    -- Make the server aware of Neovim runtime files https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
     settings = {
         Lua = {
-            diagnostics = {
-                globals = { 'vim' }
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME
+                }
             }
         }
     }
