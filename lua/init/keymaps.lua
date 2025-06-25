@@ -171,7 +171,8 @@ vim.keymap.set('n', '<leader>fb',
                     local selection = telescope_actions_state.get_selected_entry()
                     vim.api.nvim_buf_delete(selection.bufnr, { force = true })
                 end
-                map('n', 'dd', delete_buf)
+                map('n', '<C-d>', delete_buf)
+                map('i', '<C-d>', delete_buf)
                 return true
             end
         }
