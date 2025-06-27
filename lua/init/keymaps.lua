@@ -142,7 +142,7 @@ vim.keymap.set('n', '<leader>gb',
         })
     end
 )
-vim.keymap.set('n', '<leader>gc',
+vim.keymap.set('n', '<leader>gcc',
     function()
         telescope_builtin.git_commits({
             cwd = vim.fn.expand('%:p:h'),
