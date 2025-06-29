@@ -5,6 +5,7 @@ require('telescope').setup({
             'po/',
             'node_modules/',
             'dist/',
+            'moc_.*.cpp',
         },
         layout_strategy = 'horizontal',
         layout_config = {
