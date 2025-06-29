@@ -18,6 +18,7 @@ require('gitsigns').setup {
     current_line_blame           = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
     current_line_blame_opts      = {
         delay = 500,
+        virt_text_pos = 'right_align',
     },
     current_line_blame_formatter = '<summary> - <author>, <author_time:%R>',
     preview_config               = { -- Options passed to nvim_open_win
