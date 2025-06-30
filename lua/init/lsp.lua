@@ -1,5 +1,7 @@
 -- Enable LSP inlay hinting
-vim.lsp.inlay_hint.enable()
+vim.lsp.inlay_hint.enable(true)
+vim.api.nvim_create_autocmd('InsertEnter', { callback = function() vim.lsp.inlay_hint.enable(false, { bufnr = 0 }) end })
+vim.api.nvim_create_autocmd('InsertLeave', { callback = function() vim.lsp.inlay_hint.enable(true, { bufnr = 0 }) end })
 
 -- Please stop filling my hard drive
 vim.lsp.set_log_level('off')
