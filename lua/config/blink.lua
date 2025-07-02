@@ -11,26 +11,28 @@ require('blink.cmp').setup({
     },
     appearance = { nerd_font_variant = 'mono' },
     completion = {
+        trigger = {
+            show_on_backspace_in_keyword = true,
+        },
         list = {
             selection = {
-                preselect = false,
+                preselect = true,
                 auto_insert = true
             },
         },
         menu = {
             draw = {
-                padding = { 0, 0 },
+                padding = 0,
                 treesitter = { 'lsp' },
+                align_to = 'label',
             },
-        },
-        keyword = {
-            range = 'prefix' -- 'full' | 'prefix'
         },
         documentation = { auto_show = true, auto_show_delay_ms = 500 },
         ghost_text = { enabled = true, show_without_selection = true },
+        accept = { resolve_timeout_ms = 250 },
     },
     cmdline = {
-        enabled = false,
+        enabled = true,
         keymap = {
             preset = 'inherit',
         },
@@ -61,7 +63,6 @@ require('blink.cmp').setup({
     fuzzy = {
         implementation = 'prefer_rust_with_warning',
         sorts = {
-            'exact',
             'score',
             'sort_text',
         }
