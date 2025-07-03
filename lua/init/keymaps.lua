@@ -180,10 +180,17 @@ vim.keymap.set('n', '<leader>fb',
     { desc = 'Telescope buffers with the ability to delete buffers' }
 )
 
--- telescope extension: open file browser
+-- Telescope extension: open file browser.
 vim.keymap.set('n', '<leader>fe',
     function()
         require('telescope').extensions.file_browser.file_browser()
+    end
+)
+
+-- Telescope extension: open file browser in current buffer's directory.
+vim.keymap.set('n', '<leader>fE',
+    function()
+        require('telescope').extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
     end
 )
 
