@@ -41,6 +41,11 @@ return {
         end
     },
     'fin-w/midnight.nvim',             -- primary colour scheme
+    { -- Convenient brackets and newline in bracket pair handling
+        'windwp/nvim-autopairs',
+        event = 'InsertEnter',
+        config = true
+    },
     'ficcdaf/ashen.nvim',              -- dark warm colour scheme
     'hiphish/rainbow-delimiters.nvim', -- rainbow brackets
     'nat-418/boole.nvim',              -- toggle various related words
