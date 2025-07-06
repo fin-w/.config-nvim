@@ -65,6 +65,7 @@ require('blink.cmp').setup({
         sorts = {
             'score',
             'sort_text',
-        }
+        },
+        max_typos = 0,
     }
 })
