@@ -13,9 +13,10 @@ require('render-markdown').setup({
         right_pad = 4,
     },
     indent = {
-        enabled = true,
+        enabled = false,
         per_level = 4,
         skip_level = 1,
+        icon = '',
     },
     checkbox = {
         checked = { icon = ' ' },
