@@ -46,6 +46,10 @@ return {
         event = 'InsertEnter',
         config = true
     },
+    { -- pretty markdown files
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    },
     'ficcdaf/ashen.nvim',              -- dark warm colour scheme
     'hiphish/rainbow-delimiters.nvim', -- rainbow brackets
     'nat-418/boole.nvim',              -- toggle various related words
