@@ -27,6 +27,13 @@ vim.opt.diffopt:append({
     'foldcolumn:0',
 })
 
+-- Briefly highlight the yanked text.
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.hl.on_yank({ higroup = 'Visual', timeout = 400 })
+    end
+})
+
 
 -- BORDERS
 vim.o.winborder = 'rounded'
