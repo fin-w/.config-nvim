@@ -8,6 +8,10 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
+        "ibhagwan/fzf-lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
         'nvim-telescope/telescope-file-browser.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
@@ -18,7 +22,6 @@ return {
     },
     { -- display location context at top
         'nvim-treesitter/nvim-treesitter-context',
-        dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
     { -- fast auto-completions
         'saghen/blink.cmp',

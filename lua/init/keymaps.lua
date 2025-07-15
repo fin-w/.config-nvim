@@ -134,10 +134,11 @@ vim.keymap.set('n', 'gl',
 )
 
 
--- TELESCOPE
+-- TELESCOPE / FZF
 
 local telescope_builtin = require('telescope.builtin')
 local telescope_actions_state = require('telescope.actions.state')
+local fzf = require('fzf-lua')
 
 -- Show git branches and a brief commit history for selected branch
 vim.keymap.set('n', '<leader>gb',
@@ -158,12 +159,15 @@ vim.keymap.set('n', '<leader>gcc',
     end,
     { desc = 'Telescope show git commits' }
 )
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fs', telescope_builtin.grep_string, { desc = 'Telescope grep string' })
+
+vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', fzf.grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fs', function()
+    print(mode())
+end, { desc = 'Telescope grep string' })
 vim.keymap.set('n', '<leader>fi', telescope_builtin.lsp_references,
     { desc = 'Telescope show references of word under cursor' })
-vim.keymap.set('n', '<leader>fr', telescope_builtin.resume, { desc = 'Telescope resume search' })
+vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Telescope resume search' })
 
 -- Instead of using the custom buffer searcher, the below line can be used directly
 -- vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
