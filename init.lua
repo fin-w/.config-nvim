@@ -9,7 +9,6 @@ require('init.visuals')
 require('init.keymaps')
 require('init.lsp')
 
-require('config.rainbow_delimiters')
 require('config.boole')
 require('config.gitsigns')
 require('config.treesitter')
