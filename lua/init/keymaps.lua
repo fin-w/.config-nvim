@@ -134,10 +134,9 @@ vim.keymap.set('n', 'gl',
 )
 
 
--- TELESCOPE / FZF
+-- TELESCOPE
 
 local telescope_builtin = require('telescope.builtin')
-local fzf = require('fzf-lua')
 
 -- Show git branches and a brief commit history for selected branch
 vim.keymap.set('n', '<leader>gb',
@@ -149,6 +148,7 @@ vim.keymap.set('n', '<leader>gb',
         })
     end
 )
+
 vim.keymap.set('n', '<leader>gcc',
     function()
         telescope_builtin.git_commits({
@@ -158,13 +158,6 @@ vim.keymap.set('n', '<leader>gcc',
     end,
     { desc = 'Telescope show git commits' }
 )
-
-vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = 'Fzf-lua browse open buffers' })
-vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Fzf-lua find files' })
-vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua live grep' })
-vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
-vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua LSP references of word under cursor' })
-vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' })
 
 -- Telescope extension: open file browser.
 vim.keymap.set('n', '<leader>fe',
@@ -179,6 +172,18 @@ vim.keymap.set('n', '<leader>fE',
         require('telescope').extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
     end
 )
+
+
+-- FZF
+
+local fzf = require('fzf-lua')
+
+vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = 'Fzf-lua browse open buffers' })
+vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Fzf-lua find files' })
+vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua live grep' })
+vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
+vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua LSP references of word under cursor' })
+vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' })
 
 
 -- FUGITIVE
