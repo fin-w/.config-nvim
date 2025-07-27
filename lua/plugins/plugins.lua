@@ -14,11 +14,10 @@ return {
     { -- jump between files i'm working on
         'ThePrimeagen/harpoon',
         branch = 'harpoon2',
-        dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+        dependencies = { 'nvim-lua/plenary.nvim' },
     },
     { -- display location context at top
         'nvim-treesitter/nvim-treesitter-context',
-        dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
     { -- fast auto-completions
         'saghen/blink.cmp',
