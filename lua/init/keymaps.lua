@@ -234,11 +234,21 @@ vim.keymap.set('n', '<leader>guu', '<cmd>G pull<enter>')
 -- open current diff of HEAD compared to git previous commit
 vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<enter>')
 
--- open current diff of fork compared to git main
-vim.keymap.set('n', '<leader>gdm', '<cmd>tab G diff master<enter>')
+-- Open current diff of fork compared to git main / master.
+vim.keymap.set('n', '<leader>gdm', function()
+    local main_branch_name = get_main_branch_name()
+    if main_branch_name then
+        vim.cmd('tab G diff ' .. main_branch_name)
+    end
+end)
 
--- rebase onto git main
-vim.keymap.set('n', '<leader>gRm', '<cmd>G rebase master<enter>')
+-- Rebase onto git main / master.
+vim.keymap.set('n', '<leader>gRm', function()
+    local main_branch_name = get_main_branch_name()
+    if main_branch_name then
+        vim.cmd('G rebase ' .. main_branch_name)
+    end
+end)
 
 
 -- GITSIGNS
