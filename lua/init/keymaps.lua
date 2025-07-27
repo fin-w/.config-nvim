@@ -33,24 +33,31 @@ vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<enter>')
 -- go to next marker of git merge conflict in file
 vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<enter>')
 
+local function get_main_branch_name()
+    local handle = io.popen('git branch --list')
+    if not handle then
+        print('get_main_branch_name(): Could not get branches')
+        return nil
+    end
+    local result = handle:read('*a')
+    handle:close()
+    if result:match('%s*main\n') or result:match('%* main\n') then
+        return 'main'
+    elseif result:match('%s*master\n') or result:match('%* master\n') then
+        return 'master'
+    end
+    return nil
+end
+
 -- Switch to git main / master branch
 vim.keymap.set('n', '<leader>gsm',
     function()
-        local handle = io.popen('git branch --list')
-        if not handle then
-            print('Couldn\'t get branches')
-            return
-        end
-        local result = handle:read('*a')
-        handle:close()
-        local has_main = result:match('%s*main\n') or result:match('%* main\n')
-        local has_master = result:match('%s*master\n') or result:match('%* master\n')
-        if has_main then
-            vim.cmd('G switch main')
-        elseif has_master then
-            vim.cmd('G switch master')
+        local main_branch_name = get_main_branch_name()
+
+        if get_main_branch_name then
+            vim.cmd('G switch ' .. main_branch_name)
         else
-            print('\'main\' and \'master\' branches don\'t exist.')
+            print('Could not switch branches')
         end
     end
 )
