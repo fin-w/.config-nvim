@@ -40,7 +40,6 @@ return {
             require('nvim-treesitter').update()
         end
     },
-    'fin-w/midnight.nvim',             -- primary colour scheme
     { -- Convenient brackets and newline in bracket pair handling
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
@@ -49,7 +48,8 @@ return {
     -- { -- pretty markdown files
     --     'MeanderingProgrammer/render-markdown.nvim',
     --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    },
+    -- },
+    'fin-w/midnight.nvim',             -- primary colour scheme
     'ficcdaf/ashen.nvim',              -- dark warm colour scheme
     'hiphish/rainbow-delimiters.nvim', -- rainbow brackets
     'nat-418/boole.nvim',              -- toggle various related words
