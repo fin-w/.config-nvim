@@ -14,6 +14,20 @@ require("fzf-lua").setup({
     hls = {
         border = 'FloatBorder',
         preview_border = 'FloatBorder',
-        cursor = 'Visual',
     },
+    fzf_colors = {
+        true,
+        ['hl'] = { 'fg', 'IncSearch' },
+        ['hl+'] = { 'fg', 'IncSearch' },
+    },
+    previewers = {
+        builtin = {
+            treesitter = {
+                context = { max_lines = 5, trim_scope = 'inner' },
+            },
+        },
+    },
+    files = {
+        formatter = 'path.filename_first',
+    }
 })
