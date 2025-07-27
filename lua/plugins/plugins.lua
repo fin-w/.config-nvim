@@ -49,6 +49,9 @@ return {
     --     'MeanderingProgrammer/render-markdown.nvim',
     --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     -- },
+    -- { -- primary colour scheme
+    --     dir = '~/midnight.nvim',
+    -- },
     'fin-w/midnight.nvim',             -- primary colour scheme
     'ficcdaf/ashen.nvim',              -- dark warm colour scheme
     'hiphish/rainbow-delimiters.nvim', -- rainbow brackets

@@ -79,7 +79,8 @@ vim.api.nvim_create_autocmd('VimLeavePre', {
             local session_path = 'Session.vim'
             vim.cmd('mks! ' .. session_path)
 
-            -- Filter session file to remove "only" commands becuase they mess up lazy installing floating window closing
+            -- Filter session file to remove "only" commands because
+            -- they mess up Lazy.nvim installation floating window closing
             local lines = {}
             for line in io.lines(session_path) do
                 if not (line:match("^silent only") or line:match("^silent tabonly")) then
