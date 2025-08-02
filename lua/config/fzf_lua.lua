@@ -22,6 +22,9 @@ require("fzf-lua").setup({
         ['hl+'] = { 'fg', 'IncSearch' },
         ['separator'] = { 'fg', 'FloatBorder' },
     },
+    fzf_opts = {
+        ['--scroll-off'] = '99',
+    },
     previewers = {
         builtin = {
             title_fnamemodify = function(s) return vim.fn.fnamemodify(s, ':.') end,
