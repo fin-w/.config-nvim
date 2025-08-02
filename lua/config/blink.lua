@@ -26,7 +26,7 @@ require('blink.cmp').setup({
                 treesitter = { 'lsp' },
                 align_to = 'label',
             },
-            max_height = 1,
+            max_height = 11,
             scrolloff = 5,
         },
         documentation = { auto_show = true, auto_show_delay_ms = 500 },
