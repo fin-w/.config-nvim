@@ -20,6 +20,7 @@ require("fzf-lua").setup({
         true,
         ['hl'] = { 'fg', 'IncSearch' },
         ['hl+'] = { 'fg', 'IncSearch' },
+        ['separator'] = { 'fg', 'FloatBorder' },
     },
     previewers = {
         builtin = {
@@ -37,6 +38,5 @@ require("fzf-lua").setup({
     },
     grep = {
         formatter = 'path.filename_first',
-        rg_opts   = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
     },
 })
