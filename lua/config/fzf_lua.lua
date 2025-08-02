@@ -9,6 +9,7 @@ require("fzf-lua").setup({
         preview = {
             scrollbar = false,
             wrap = true,
+            title_pos = 'left',
         },
     },
     hls = {
@@ -22,6 +23,7 @@ require("fzf-lua").setup({
     },
     previewers = {
         builtin = {
+            title_fnamemodify = function(s) return vim.fn.fnamemodify(s, ':.') end,
             treesitter = {
                 context = { max_lines = 5, trim_scope = 'inner' },
             },
