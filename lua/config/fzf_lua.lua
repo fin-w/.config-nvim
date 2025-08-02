@@ -31,5 +31,12 @@ require("fzf-lua").setup({
     },
     files = {
         formatter = 'path.filename_first',
-    }
+    },
+    buffers = {
+        formatter = 'path.filename_first',
+    },
+    grep = {
+        formatter = 'path.filename_first',
+        rg_opts   = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+    },
 })
