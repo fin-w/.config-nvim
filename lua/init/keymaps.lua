@@ -181,9 +181,9 @@ local fzf = require('fzf-lua')
 vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = 'Fzf-lua browse open buffers' })
 vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Fzf-lua find files' })
 vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua live grep' })
-vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
 vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua LSP references of word under cursor' })
 vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' })
+vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
 
 
 -- FUGITIVE
