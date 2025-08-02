@@ -137,7 +137,6 @@ vim.keymap.set('n', 'gl',
 -- TELESCOPE
 
 local telescope_builtin = require('telescope.builtin')
-local telescope_actions_state = require('telescope.actions.state')
 
 -- Show git branches and a brief commit history for selected branch
 vim.keymap.set('n', '<leader>gb',
@@ -149,6 +148,7 @@ vim.keymap.set('n', '<leader>gb',
         })
     end
 )
+
 vim.keymap.set('n', '<leader>gcc',
     function()
         telescope_builtin.git_commits({
@@ -157,34 +157,6 @@ vim.keymap.set('n', '<leader>gcc',
         })
     end,
     { desc = 'Telescope show git commits' }
-)
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fs', telescope_builtin.grep_string, { desc = 'Telescope grep string' })
-vim.keymap.set('n', '<leader>fi', telescope_builtin.lsp_references,
-    { desc = 'Telescope show references of word under cursor' })
-vim.keymap.set('n', '<leader>fr', telescope_builtin.resume, { desc = 'Telescope resume search' })
-
--- Instead of using the custom buffer searcher, the below line can be used directly
--- vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fb',
-    function()
-        telescope_builtin.buffers {
-            sort_mru = true,
-            -- ignore_current_buffer = true,
-            -- show_all_buffers = false,
-            attach_mappings = function(prompt_bufnr, map)
-                local delete_buf = function()
-                    local selection = telescope_actions_state.get_selected_entry()
-                    vim.api.nvim_buf_delete(selection.bufnr, { force = true })
-                end
-                map('n', '<C-d>', delete_buf)
-                map('i', '<C-d>', delete_buf)
-                return true
-            end
-        }
-    end,
-    { desc = 'Telescope buffers with the ability to delete buffers' }
 )
 
 -- Telescope extension: open file browser.
@@ -201,11 +173,17 @@ vim.keymap.set('n', '<leader>fE',
     end
 )
 
--- for deletion? i don't use these
-vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, { desc = 'Telescope show diagnostics' })
-vim.keymap.set('n', '<leader>fj', telescope_builtin.jumplist, { desc = 'Telescope show jumplist' })
-vim.keymap.set('n', '<leader>ft', telescope_builtin.treesitter,
-    { desc = 'Telescope show Treesitter functions and variables' })
+
+-- FZF
+
+local fzf = require('fzf-lua')
+
+vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = 'Fzf-lua browse open buffers' })
+vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Fzf-lua find files' })
+vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua live grep' })
+vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua LSP references of word under cursor' })
+vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' })
+vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
 
 
 -- FUGITIVE

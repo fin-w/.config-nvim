@@ -8,6 +8,10 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
+        'ibhagwan/fzf-lua',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
+    {
         'nvim-telescope/telescope-file-browser.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     },
