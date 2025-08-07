@@ -38,6 +38,9 @@ require("fzf-lua").setup({
     },
     buffers = {
         formatter = 'path.filename_first',
+        fzf_opts = {
+            ["--with-nth"] = '3..',
+        },
     },
     grep = {
         formatter = 'path.filename_first',
