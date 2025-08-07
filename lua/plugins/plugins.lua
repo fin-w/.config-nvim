@@ -43,10 +43,6 @@ return {
         event = 'InsertEnter',
         config = true
     },
-    -- { -- pretty markdown files
-    --     'MeanderingProgrammer/render-markdown.nvim',
-    --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    -- },
     -- { -- primary colour scheme
     --     dir = '~/midnight.nvim',
     -- },
