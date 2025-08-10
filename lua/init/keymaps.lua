@@ -1,3 +1,6 @@
+-- Spacebar go brrr
+vim.g.mapleader = ' '
+
 -- Move code around the buffer
 vim.keymap.set('n', '<A-j>', ':m .+1<enter>==', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-k>', ':m .-2<enter>==', { noremap = true, silent = true })
