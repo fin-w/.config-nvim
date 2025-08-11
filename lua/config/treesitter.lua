@@ -33,7 +33,6 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     end
 })
 
-
 vim.api.nvim_create_autocmd('PackChanged', {
     desc = 'Handle nvim-treesitter updates',
     group = vim.api.nvim_create_augroup('nvim-treesitter-pack-changed-update-handler', { clear = true }),
