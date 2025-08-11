@@ -13,6 +13,7 @@ vim.pack.add({
     'https://github.com/windwp/nvim-autopairs',                      -- Convenient brackets and newline in bracket pair handling
     'https://github.com/fin-w/midnight.nvim',                        -- primary colour scheme
     'https://github.com/ficcdaf/ashen.nvim',                         -- dark warm colour scheme
+    'https://github.com/zenbones-theme/zenbones.nvim',               -- relaxing colour schemes
     'https://github.com/hiphish/rainbow-delimiters.nvim',            -- rainbow brackets
     'https://github.com/nat-418/boole.nvim',                         -- toggle various related words
     'https://github.com/lewis6991/gitsigns.nvim',                    -- status column git diff
@@ -27,6 +28,7 @@ vim.pack.add({
     'https://github.com/mfussenegger/nvim-dap',                      -- debug adapter protocol
     'https://github.com/theHamsta/nvim-dap-virtual-text',            -- virtual text showing contents of variables when using dap
 })
+vim.g.zenbones_compat = 1
 
 require('init.indents')
 require('init.misc')
