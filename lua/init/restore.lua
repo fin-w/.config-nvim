@@ -1,5 +1,5 @@
 -- Save undo history to a file for persistent undo history
-vim.o.undofile = true
+vim.opt.undofile = true
 -- Default to saving the session when nvim exits (handled below)
 vim.g.savesession = true
 
@@ -9,13 +9,13 @@ vim.g.savesession = true
 
 -- Depending on the location of the require() of this file in init.lua, may
 -- need a slight delay to allow plugins like Treesitter to fully initialize.
--- vim.schedule(function()
-local session_file = io.open("Session.vim", "r")
-if session_file then
-    session_file:close()
-    vim.cmd([[silent source Session.vim]])
-end
--- end)
+vim.schedule(function()
+    local session_file = io.open("Session.vim", "r")
+    if session_file then
+        session_file:close()
+        vim.cmd('silent source Session.vim')
+    end
+end)
 
 -- Return to the same line when restoring a file
 vim.api.nvim_create_autocmd("BufReadPost", {

@@ -1,25 +1,38 @@
-vim.cmd.colorscheme('midnight') -- dark colour scheme
-vim.cmd([[
-    set updatetime=1000             " after this time, the word under the cursor is highlighted (and the swap file saved? i think?)
-    set termguicolors               " use real colours
-    set laststatus=0 ruler          " hide file name and white status bar
-    set statusline=0                " hide built in status line in favour of lualine
-    set cmdheight=0                 " hide command line when not in use, and -- INSERT -- flag etc
-    set showtabline=0               " hide the file tabs
-    set scrolloff=999               " keep cursor in centre of screen (smaller val would give lines above / below cursor
-    set showmatch                   " show matching
-    set hlsearch                    " highlight search
-    set cursorline                  " highlight current cursor line
-    set number relativenumber       " current line has line number, others have number relative to cursor
-    " cursor is a block that flashes in input mode
-    set guicursor=a:block
-                \,i-ci:blinkwait100-blinkoff100-blinkon100
-    " visualise chars that usually are invisible
-    set listchars=eol:↵,trail:→,nbsp:‿,leadmultispace:▏\ \ \ ,extends:▶,precedes:◀
-    set list                        " turn on the listchars
-    filetype plugin indent on       " nvim figures out file types and signals them for plugins to pick up
-]])
-
+-- dark colour scheme
+vim.cmd.colorscheme('midnight')
+vim.opt.shortmess:append('I')
+-- after this time, the word under the cursor is highlighted (and the swap file saved? i think?)
+vim.opt.updatetime = 1000
+-- use real colours
+vim.opt.termguicolors = true
+-- hide file name and white status bar
+vim.opt.laststatus = 0
+-- hide built in status line in favour of lualine
+vim.opt.statusline = '0'
+-- hide command line when not in use, and INSERT flag etc
+vim.opt.cmdheight = 0
+-- hide the file tabs
+vim.opt.showtabline = 0
+-- keep cursor in centre of screen (smaller val would give lines above / below cursor
+vim.opt.scrolloff = 1000
+-- show matching
+vim.opt.showmatch = true
+-- highlight search
+vim.opt.hlsearch = true
+-- set a border around all non-fullscreen windows
+vim.opt.winborder = 'rounded'
+-- highlight cursor line
+vim.opt.cursorline = true
+-- enable line numbering
+vim.opt.number = true
+-- current line has line number, others have number relative to cursor
+vim.opt.relativenumber = true
+-- cursor is a block that flashes in input mode
+vim.opt.guicursor = 'a:block,i-ci:blinkwait100-blinkoff100-blinkon100'
+-- enable invisible characters
+vim.opt.list = true
+-- customise visual representation of characters that usually are invisible
+vim.opt.listchars = [[eol:↵,trail:→,nbsp:‿,leadmultispace:▏   ,extends:▶,precedes:◀]]
 
 -- Remove the wide fold column on each diff view, wrap text in diff mode too
 vim.opt.diffopt:append({
@@ -33,10 +46,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.hl.on_yank({ higroup = 'Visual', timeout = 400 })
     end
 })
-
-
--- BORDERS
-vim.o.winborder = 'rounded'
 
 
 -- INLINE DIAGNOSTICS

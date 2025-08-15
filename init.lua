@@ -1,3 +1,4 @@
+require('init.restore')
 vim.pack.add({
     { -- better syntax highlighting
         src = 'https://github.com/nvim-treesitter/nvim-treesitter',
@@ -49,5 +50,3 @@ require('config.lspconfig')
 require('config.lualine')
 require('config.dap')
 require('config.dap_virtual_text')
-
-require('init.restore')
