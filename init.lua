@@ -1,4 +1,5 @@
 require('init.restore')
+
 vim.pack.add({
     { -- better syntax highlighting
         src = 'https://github.com/nvim-treesitter/nvim-treesitter',
@@ -29,6 +30,7 @@ vim.pack.add({
     'https://github.com/mfussenegger/nvim-dap',                      -- debug adapter protocol
     'https://github.com/theHamsta/nvim-dap-virtual-text',            -- virtual text showing contents of variables when using dap
 })
+
 vim.g.zenbones_compat = 1
 
 require('init.indents')
