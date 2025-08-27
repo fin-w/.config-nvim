@@ -28,7 +28,10 @@ vim.opt.number = true
 -- current line has line number, others have number relative to cursor
 vim.opt.relativenumber = true
 -- cursor is a block that flashes in input mode
-vim.opt.guicursor = 'a:block,i-ci:blinkwait100-blinkoff100-blinkon100'
+vim.opt.guicursor = {
+    'a:block',
+    'i-ci:blinkwait100-blinkoff100-blinkon100'
+}
 -- enable invisible characters
 vim.opt.list = true
 -- customise visual representation of characters that usually are invisible
