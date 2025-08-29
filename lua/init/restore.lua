@@ -10,7 +10,7 @@ vim.g.savesession = true
 -- Depending on the location of the require() of this file in init.lua, may
 -- need a slight delay to allow plugins like Treesitter to fully initialize.
 vim.schedule(function()
-    local session_file = io.open("Session.vim", "r")
+    local session_file = io.open('Session.vim', 'r')
     if session_file then
         session_file:close()
         vim.cmd('silent source Session.vim')
@@ -18,7 +18,7 @@ vim.schedule(function()
 end)
 
 -- Return to the same line when restoring a file
-vim.api.nvim_create_autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd('BufReadPost', {
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
         local line_count = vim.api.nvim_buf_line_count(0)

@@ -10,8 +10,8 @@ vim.keymap.set('v', '<A-j>', ":'<,'>m'>+1<enter> gv=gv", { noremap = true, silen
 vim.keymap.set('v', '<A-k>', ":'<,'>m'<-2<enter> gv=gv", { noremap = true, silent = true })
 
 -- Keep the selection after changing indention
-vim.keymap.set('v', '<', "<gv", { noremap = true, silent = true })
-vim.keymap.set('v', '>', ">gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
+vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')
@@ -172,7 +172,7 @@ vim.keymap.set('n', '<leader>fe',
 -- Telescope extension: open file browser in current buffer's directory.
 vim.keymap.set('n', '<leader>fE',
     function()
-        require('telescope').extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
+        require('telescope').extensions.file_browser.file_browser({ path = '%:p:h', select_buffer = true })
     end
 )
 

@@ -1,4 +1,4 @@
-require("fzf-lua").setup({
+require('fzf-lua').setup({
     { 'hide' },
     winopts = {
         height = 1,
@@ -39,7 +39,7 @@ require("fzf-lua").setup({
     buffers = {
         formatter = 'path.filename_first',
         fzf_opts = {
-            ["--with-nth"] = '3..',
+            ['--with-nth'] = '3..',
         },
     },
     grep = {
