@@ -22,6 +22,12 @@ require('fzf-lua').setup({
         ['hl+'] = { 'fg', 'IncSearch' },
         ['separator'] = { 'fg', 'FloatBorder' },
     },
+    keymap = {
+        fzf = {
+            ['tab'] = 'down',
+            ['shift-tab'] = 'up',
+        },
+    },
     fzf_opts = {
         ['--scroll-off'] = '99',
     },
