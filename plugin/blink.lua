@@ -7,7 +7,7 @@ require('blink.cmp').setup({
         ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
         ['<enter>'] = { 'accept', 'fallback' },
         ['<C-k>'] = { 'show_documentation', 'hide_documentation', 'fallback' },
-        ['<C-s>'] = { 'show_signature', 'hide_signature' },
+        ['<C-s>'] = { 'show_signature', 'hide_signature', 'fallback' },
     },
     appearance = { nerd_font_variant = 'mono' },
     completion = {
@@ -17,7 +17,7 @@ require('blink.cmp').setup({
         list = {
             selection = {
                 preselect = true,
-                auto_insert = true
+                auto_insert = false
             },
         },
         menu = {
@@ -30,7 +30,7 @@ require('blink.cmp').setup({
             scrolloff = 8,
         },
         documentation = { auto_show = true, auto_show_delay_ms = 500 },
-        ghost_text = { enabled = true, show_without_selection = true },
+        ghost_text = { enabled = false, show_without_selection = true },
         accept = { resolve_timeout_ms = 250 },
     },
     cmdline = {
@@ -43,7 +43,7 @@ require('blink.cmp').setup({
             list = {
                 selection = {
                     preselect = false,
-                    auto_insert = true
+                    auto_insert = true,
                 }
             }
         }
