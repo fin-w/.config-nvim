@@ -265,7 +265,7 @@ end
 
 vim.keymap.set('n', '<leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 vim.keymap.set('n', '<leader>rb', dap.toggle_breakpoint)
-vim.keymap.set('n', '<leader>rdb', dap.clear_breakpoints)
+vim.keymap.set('n', '<leader>rB', dap.clear_breakpoints)
 
 vim.keymap.set('n', '<leader>rdr', dap.repl.open)
 vim.keymap.set({ 'n', 'v' }, '<leader>rdh', require('dap.ui.widgets').hover)
