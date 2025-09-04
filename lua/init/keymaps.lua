@@ -190,6 +190,9 @@ vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua live grep' })
 vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua LSP references of word under cursor' })
 vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' })
 vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
+vim.keymap.set('n', '<leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua list DAP breakpoints' })
+vim.keymap.set('n', '<leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua list DAP session variables' })
+vim.keymap.set('n', '<leader>rff', fzf.dap_frames, { desc = 'Fzf-lua list DAP session variables' })
 
 
 -- FUGITIVE
