@@ -251,22 +251,6 @@ local dap_widgets = require('dap.ui.widgets')
 vim.keymap.set('n', '<leader>rr', dap.continue)
 vim.keymap.set('n', '<leader>rR', dap.run_last)
 
--- Take the old and new sessions, check if they exist, and based on their presence,
--- set up the keymaps prior to the first session or destroy them after the last.
-dap.listeners.on_session['handle_keymaps_in_and_out_of_debugging_mode'] = function(old, new)
-    if new and not old then
-        vim.keymap.set('n', '<down>', dap.step_over)
-        vim.keymap.set('n', '<right>', dap.step_into)
-        vim.keymap.set('n', '<left>', dap.step_out)
-        vim.keymap.set('n', '<up>', dap.restart_frame)
-    elseif old and not new then
-        vim.keymap.del('n', '<down>')
-        vim.keymap.del('n', '<right>')
-        vim.keymap.del('n', '<left>')
-        vim.keymap.del('n', '<up>')
-    end
-end
-
 vim.keymap.set('n', '<leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 vim.keymap.set('n', '<leader>rb', dap.toggle_breakpoint)
 vim.keymap.set('n', '<leader>rB', dap.clear_breakpoints)

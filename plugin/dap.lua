@@ -109,3 +109,22 @@ dap.configurations.rust = {
 }
 
 dap.configurations.cpp = dap.configurations.rust
+
+-- Take the old and new sessions, check if they exist, and based on their presence,
+-- set up the keymaps prior to the first session or destroy them after the last.
+-- Similarly show the DAP view when the session starts.
+dap.listeners.on_session['handle_keymaps_and_dap-view_visibility_in_and_out_of_debugging_mode'] = function(old, new)
+    if new and not old then
+        require('dap-view').open()
+        vim.keymap.set('n', '<down>', dap.step_over)
+        vim.keymap.set('n', '<right>', dap.step_into)
+        vim.keymap.set('n', '<left>', dap.step_out)
+        vim.keymap.set('n', '<up>', dap.restart_frame)
+    elseif old and not new then
+        require('dap-view').close()
+        vim.keymap.del('n', '<down>')
+        vim.keymap.del('n', '<right>')
+        vim.keymap.del('n', '<left>')
+        vim.keymap.del('n', '<up>')
+    end
+end
