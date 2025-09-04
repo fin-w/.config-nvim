@@ -81,8 +81,7 @@ vim.keymap.set('n', '<leader>tT',
         local cwd = vim.fn.expand('%:p:h')
         vim.cmd('tab term')
         local channel = vim.bo.channel
-        vim.api.nvim_chan_send(channel, 'cd ' .. cwd .. '\n')
-        vim.api.nvim_chan_send(channel, 'clear\n')
+        vim.api.nvim_chan_send(channel, 'cd ' .. cwd .. '\nclear\n')
         vim.api.nvim_feedkeys('i', 'n', false)
     end
 )
