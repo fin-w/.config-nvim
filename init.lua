@@ -28,6 +28,7 @@ vim.pack.add({
     'https://github.com/rafamadriz/friendly-snippets',               -- lots of vscode-like snippets, needed for blink
     'https://github.com/neovim/nvim-lspconfig',                      -- sensible config for built-in neovim LS
     'https://github.com/mfussenegger/nvim-dap',                      -- debug adapter protocol
+    'https://github.com/igorlfs/nvim-dap-view',                      -- view the debugging session data in a window
     'https://github.com/theHamsta/nvim-dap-virtual-text',            -- virtual text showing contents of variables when using dap
 })
 
