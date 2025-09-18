@@ -264,3 +264,7 @@ end)
 vim.keymap.set('n', '<leader>rds', function()
     dap_widgets.centered_float(dap_widgets.scopes)
 end)
+
+
+-- EASTER EGG
+vim.keymap.set('n', '<leader>rain', '<cmd>CellularAutomaton make_it_rain<cr>')
