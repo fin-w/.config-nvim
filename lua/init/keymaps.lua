@@ -104,7 +104,7 @@ vim.keymap.set('n', '<leader>bn', '<cmd>tab term ./buildit -n<enter>i')
 vim.keymap.set('n', '<leader>bo', '<cmd>tab term ./buildit -o<enter>i')
 vim.keymap.set('n', '<leader>bp', '<cmd>tab term ./buildit -p<enter>i')
 vim.keymap.set('n', '<leader>bq', '<cmd>tab term ./buildit -q<enter>i')
-vim.keymap.set('n', '<leader>br', '<cmd>tab term ./buildit -r<enter>i')
+-- vim.keymap.set('n', '<leader>br', '<cmd>tab term ./buildit -r<enter>i')
 vim.keymap.set('n', '<leader>bs', '<cmd>tab term ./buildit -s<enter>i')
 vim.keymap.set('n', '<leader>bt', '<cmd>tab term ./buildit -t<enter>i')
 vim.keymap.set('n', '<leader>bu', '<cmd>tab term ./buildit -u<enter>i')
@@ -246,6 +246,7 @@ vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
 
 
 -- DAP
+--
 local dap = require('dap')
 local dap_widgets = require('dap.ui.widgets')
 vim.keymap.set('n', '<leader>rr', dap.continue)
@@ -270,6 +271,7 @@ end)
 
 local overseer = require('overseer')
 vim.keymap.set('n', '<leader>bb', overseer.run_template)
+vim.keymap.set('n', '<leader>br', overseer.toggle)
 
 
 -- EASTER EGG
