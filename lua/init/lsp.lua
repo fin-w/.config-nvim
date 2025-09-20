@@ -26,17 +26,17 @@ vim.lsp.config('lua_ls', {
 })
 
 vim.lsp.enable({
+    'bashls',
     'clangd',
-    'rust_analyzer',
-    'lua_ls',
-    'html',
-    'ts_ls',
-    'json_ls',
     'cssls',
     'fish_lsp',
-    'bashls',
+    'html',
+    'json_ls',
     'lemminx',
+    'lua_ls',
     'pylsp',
+    'rust_analyzer',
+    'ts_ls',
 })
 
 -- Enable LSP inlay hinting
