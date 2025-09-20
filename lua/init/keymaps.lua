@@ -88,7 +88,7 @@ vim.keymap.set('n', '<leader>tT',
 
 -- Open terminal and build / run project
 vim.keymap.set('n', '<leader>ba', '<cmd>tab term ./buildit -a<enter>i')
-vim.keymap.set('n', '<leader>bb', '<cmd>tab term ./buildit -b<enter>i')
+-- vim.keymap.set('n', '<leader>bb', '<cmd>tab term ./buildit -b<enter>i')
 vim.keymap.set('n', '<leader>bc', '<cmd>tab term ./buildit -c<enter>i')
 vim.keymap.set('n', '<leader>bd', '<cmd>tab term ./buildit -d<enter>i')
 vim.keymap.set('n', '<leader>be', '<cmd>tab term ./buildit -e<enter>i')
@@ -264,6 +264,12 @@ end)
 vim.keymap.set('n', '<leader>rds', function()
     dap_widgets.centered_float(dap_widgets.scopes)
 end)
+
+
+-- OVERSEER
+
+local overseer = require('overseer')
+vim.keymap.set('n', '<leader>bb', overseer.run_template)
 
 
 -- EASTER EGG
