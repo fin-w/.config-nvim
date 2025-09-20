@@ -2,7 +2,7 @@
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = 'midnight',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         ignore_focus = {},
@@ -10,42 +10,36 @@ require('lualine').setup {
         globalstatus = false,
         refresh = {
             statusline = 300,
-            tabline = 1000,
-            winbar = 1000,
+            tabline = 5000,
+            winbar = 5000,
         }
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', { 'diagnostics', symbols = { error = 'E', warn = 'W', info = 'i', hint = 'h' } } },
+        lualine_b = {
+            'branch',
+            'diff',
+            { 'diagnostics', symbols = { error = 'E', warn = 'W', info = 'i', hint = 'h' } }
+        },
         lualine_c = { {
             'filename',
             path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
-            symbols = { modified = '*', readonly = '[R]' } }
-        },
+            symbols = { modified = '*', readonly = '[R]' }
+        } },
         lualine_x = { 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
     },
     inactive_sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', { 'diagnostics', symbols = { error = 'E', warn = 'W', info = 'i', hint = 'h' } } },
-        lualine_c = { { 'filename', symbols = { modified = '*', readonly = '[R]' } } },
+        lualine_a = { { 'filename', symbols = { modified = '*', readonly = '[R]' } } },
+        lualine_b = {},
+        lualine_c = {},
         lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
     },
     tabline = {},
     winbar = {},
     inactive_winbar = {},
     extensions = {}
-}
-local custom_colour_bar = require('lualine.themes.auto')
-custom_colour_bar.normal.a.fg = '#6bd7ef'
-custom_colour_bar.normal.a.bg = '#011628'
-custom_colour_bar.insert.a.fg = '#011628'
-custom_colour_bar.insert.a.bg = '#d9c772'
-custom_colour_bar.command.a.fg = '#011628'
-custom_colour_bar.command.a.bg = '#0798f2'
-require('lualine').setup {
-    options = { theme = custom_colour_bar },
 }
