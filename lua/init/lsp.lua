@@ -117,9 +117,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { buffer = true })
         end
 
-        vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { buffer = true })
-        vim.keymap.set('n', 'go', function() vim.lsp.buf.type_definition() end, { buffer = true })
-        vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help() end, { buffer = true })
-        vim.keymap.set('n', 'ga', function() vim.diagnostic.setqflist() end, { buffer = true })
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = true })
+        vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, { buffer = true })
+        vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = true })
+        vim.keymap.set('n', 'ga', vim.diagnostic.setqflist, { buffer = true })
     end,
 })
