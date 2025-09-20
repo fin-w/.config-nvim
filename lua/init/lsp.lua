@@ -1,3 +1,44 @@
+-- Blink.cmp may have more capabilities than provided to the language server by default.
+vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities(nil, true) })
+
+vim.lsp.config('rust_analyzer', {
+    settings = {
+        ['rust-analyzer'] = {
+            check = {
+                command = 'clippy',
+            },
+        },
+    },
+})
+
+vim.lsp.config('lua_ls', {
+    -- Make the server aware of Neovim runtime files https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
+    settings = {
+        Lua = {
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME
+                }
+            }
+        }
+    }
+})
+
+vim.lsp.enable({
+    'clangd',
+    'rust_analyzer',
+    'lua_ls',
+    'html',
+    'ts_ls',
+    'json_ls',
+    'cssls',
+    'fish_lsp',
+    'bashls',
+    'lemminx',
+    'pylsp',
+})
+
 -- Enable LSP inlay hinting
 vim.lsp.inlay_hint.enable(true)
 vim.api.nvim_create_autocmd('InsertEnter', { callback = function() vim.lsp.inlay_hint.enable(false, { bufnr = 0 }) end })
