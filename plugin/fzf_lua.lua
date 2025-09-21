@@ -42,19 +42,13 @@ require('fzf-lua').setup({
             },
         },
     },
-    files = {
-        formatter = 'path.filename_first',
-    },
     buffers = {
         formatter = 'path.filename_first',
         fzf_opts = {
             ['--with-nth'] = '3..',
         },
     },
-    grep = {
-        formatter = 'path.filename_first',
-    },
-    lsp = {
-        formatter = 'path.filename_first',
-    }
+    files = { formatter = 'path.filename_first' },
+    grep = { formatter = 'path.filename_first' },
+    lsp = { formatter = 'path.filename_first' }
 })
