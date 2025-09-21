@@ -195,6 +195,8 @@ vim.keymap.set('n', '<leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua list D
 vim.keymap.set('n', '<leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua list DAP session variables' })
 vim.keymap.set('n', '<leader>rff', fzf.dap_frames, { desc = 'Fzf-lua list DAP session frames' })
 
+vim.keymap.set('n', 'g<', fzf.lsp_incoming_calls, { desc = 'Fzf-lua list call sites of symbol under cursor' })
+vim.keymap.set('n', 'g>', fzf.lsp_outgoing_calls, { desc = 'Fzf-lua list items called by symbol under cursor' })
 
 -- FUGITIVE
 
