@@ -54,4 +54,7 @@ require('fzf-lua').setup({
     grep = {
         formatter = 'path.filename_first',
     },
+    lsp = {
+        formatter = 'path.filename_first',
+    }
 })
