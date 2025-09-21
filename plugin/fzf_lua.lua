@@ -21,7 +21,7 @@ require('fzf-lua').setup({
         ['hl'] = { 'fg', 'IncSearch' },
         ['hl+'] = { 'fg', 'IncSearch' },
         ['separator'] = { 'fg', 'FloatBorder' },
-        ['scrollbar'] = '#364e69', -- midnight pallete.blue_whale
+        ['scrollbar'] = '#364e69', -- midnight palette.blue_whale
     },
     keymap = {
         fzf = {
