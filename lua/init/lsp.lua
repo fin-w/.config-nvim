@@ -119,7 +119,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = true })
         vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, { buffer = true })
-        vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = true })
+        vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, { buffer = true })
         vim.keymap.set('n', 'ga', vim.diagnostic.setqflist, { buffer = true })
     end,
 })
