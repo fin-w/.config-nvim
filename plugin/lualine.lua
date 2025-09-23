@@ -19,7 +19,13 @@ require('lualine').setup {
         lualine_b = {
             'branch',
             'diff',
-            { 'diagnostics', symbols = { error = 'E', warn = 'W', info = 'i', hint = 'h' } }
+            { 'diagnostics', symbols = { error = 'E', warn = 'W', info = 'i', hint = 'h' } },
+            { 'overseer', symbols = {
+                [require('overseer').STATUS.FAILURE] = 'F',
+                [require('overseer').STATUS.CANCELED] = 'c',
+                [require('overseer').STATUS.SUCCESS] = 'S',
+                [require('overseer').STATUS.RUNNING] = 'r',
+            } },
         },
         lualine_c = { {
             'filename',
