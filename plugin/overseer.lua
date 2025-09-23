@@ -3,6 +3,8 @@ require('overseer').setup({
         min_width = 55,
         max_width = 55,
         width = 55,
+        -- separator = "───────────────────────────────────────────────────────",
+        separator = "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
     },
     component_aliases = {
         default = {
