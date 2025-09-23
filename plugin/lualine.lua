@@ -24,11 +24,11 @@ require('lualine').setup {
         lualine_c = { {
             'filename',
             path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
-            symbols = { modified = '*', readonly = '[R]' }
+            symbols = { modified = '*', readonly = '[R]' },
         } },
         lualine_x = { 'filetype' },
         lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_z = { 'location' },
     },
     inactive_sections = {
         lualine_a = { { 'filename', symbols = { modified = '*', readonly = '[R]' } } },
@@ -41,5 +41,5 @@ require('lualine').setup {
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = {}
+    extensions = {},
 }
