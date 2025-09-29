@@ -12,12 +12,12 @@ vim.lsp.config('rust_analyzer', {
 })
 
 vim.lsp.config('lua_ls', {
-    -- Make the server aware of Neovim runtime files https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
     settings = {
         Lua = {
             workspace = {
                 checkThirdParty = false,
                 library = {
+                    -- Make the server aware of Neovim runtime files https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
                     vim.env.VIMRUNTIME
                 }
             }
