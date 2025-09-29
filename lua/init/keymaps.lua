@@ -274,6 +274,7 @@ end)
 
 local overseer = require('overseer')
 vim.keymap.set('n', '<leader>bb', overseer.run_template)
+vim.keymap.set('n', '<leader>bl', overseer.load_task_bundle)
 vim.keymap.set('n', '<leader>br', overseer.toggle)
 
 
