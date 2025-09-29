@@ -249,6 +249,7 @@ vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
 
 -- DAP
 --
+
 local dap = require('dap')
 local dap_widgets = require('dap.ui.widgets')
 vim.keymap.set('n', '<leader>rr', dap.continue)
@@ -277,4 +278,5 @@ vim.keymap.set('n', '<leader>br', overseer.toggle)
 
 
 -- EASTER EGG
+
 vim.keymap.set('n', '<leader>rain', '<cmd>CellularAutomaton make_it_rain<cr>')
