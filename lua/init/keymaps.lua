@@ -248,7 +248,6 @@ vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
 
 
 -- DAP
---
 
 local dap = require('dap')
 local dap_widgets = require('dap.ui.widgets')
