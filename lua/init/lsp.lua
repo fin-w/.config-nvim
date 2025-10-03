@@ -31,7 +31,7 @@ vim.lsp.enable({
     'cssls',
     'fish_lsp',
     'html',
-    'json_ls',
+    'jsonls',
     'lemminx',
     'lua_ls',
     'pylsp',

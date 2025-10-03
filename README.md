@@ -35,6 +35,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 npm install --save vscode-html-languageservice
 # Typescript: ts_ls
 npm install -g typescript-language-server typescript
+# JSON: vscode-json-languageservice
+npm install --save vscode-json-languageservice
 
 # CSS: cssls
 # TODO WHICH WORKS?
