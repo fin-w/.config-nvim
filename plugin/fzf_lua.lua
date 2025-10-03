@@ -50,6 +50,11 @@ require('fzf-lua').setup({
             ['--with-nth'] = '3..',
         },
     },
+    git = {
+        branches = {
+            cmd_add = { 'git', 'checkout', '-b' },
+        },
+    },
     files = { formatter = 'path.filename_first' },
     grep = { formatter = 'path.filename_first' },
     lsp = { formatter = 'path.filename_first' }
