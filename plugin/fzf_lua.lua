@@ -13,6 +13,8 @@ require('fzf-lua').setup({
         },
     },
     hls = {
+        title = 'Comment',
+        preview_title = 'Comment',
         border = 'FloatBorder',
         preview_border = 'FloatBorder',
     },
