@@ -53,6 +53,10 @@ require('fzf-lua').setup({
     },
     git = {
         branches = {
+            -- Custom display of git branches including their most recent update time.
+            cmd =
+            [[git branch --all --color --format='%(HEAD)|%(refname:short)|%(committerdate:relative)|' | column -ts'|']],
+            -- Switch to the branch immediately after creating it.
             cmd_add = { 'git', 'checkout', '-b' },
             -- Force deletion even if the branch is not merged.
             cmd_del = { 'git', 'branch', '--delete', '--force' },
