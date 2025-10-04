@@ -24,6 +24,7 @@ require('fzf-lua').setup({
         ['hl+'] = { 'fg', 'IncSearch' },
         ['separator'] = { 'fg', 'FloatBorder' },
         ['scrollbar'] = '#364e69', -- midnight palette.blue_whale
+        ['preview-border'] = { 'fg', 'FloatBorder' }, -- Git uses this between fzf and previews
     },
     keymap = {
         fzf = {
