@@ -54,6 +54,8 @@ require('fzf-lua').setup({
     git = {
         branches = {
             cmd_add = { 'git', 'checkout', '-b' },
+            -- Force deletion even if the branch is not merged.
+            cmd_del = { 'git', 'branch', '--delete', '--force' },
         },
     },
     files = { formatter = 'path.filename_first' },
