@@ -193,8 +193,14 @@ vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word un
 vim.keymap.set('n', '<leader>gf', function()
     fzf.git_branches({
         cwd = vim.fn.expand('%:p:h'),
+        winopts = {
+            preview = {
+                layout = 'vertical',
+                vertical = 'down:75%',
+            },
+        },
     })
-end, { desc = 'Fzf-lua grep word under cursor' })
+end, { desc = 'Fzf-lua pick git branches including in current submodule' })
 
 vim.keymap.set('n', '<leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua list DAP breakpoints' })
 vim.keymap.set('n', '<leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua list DAP session variables' })
