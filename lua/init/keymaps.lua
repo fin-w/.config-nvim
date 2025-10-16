@@ -145,7 +145,7 @@ vim.keymap.set('n', 'gl',
 local telescope_builtin = require('telescope.builtin')
 
 -- Show git branches and a brief commit history for selected branch
-vim.keymap.set('n', '<leader>gb',
+vim.keymap.set('n', '<leader>gf',
     function()
         telescope_builtin.git_branches({
             cwd = vim.fn.expand('%:p:h'),
@@ -190,7 +190,7 @@ vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua live grep' })
 vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua LSP references of word under cursor' })
 vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' })
 vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
-vim.keymap.set('n', '<leader>gf', function()
+vim.keymap.set('n', '<leader>gb', function()
     fzf.git_branches({
         cwd = vim.fn.expand('%:p:h'),
         winopts = {
