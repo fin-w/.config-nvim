@@ -13,6 +13,9 @@ vim.keymap.set('v', '<A-k>', ":'<,'>m'<-2<enter> gv=gv", { noremap = true, silen
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 
+-- Select everything in the buffer.
+vim.keymap.set('n', 'yaa', 'mzggVGy<esc>`z')
+
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')
 vim.keymap.set('n', '<ScrollWheelDown>', '2j')
