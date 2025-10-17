@@ -144,42 +144,17 @@ vim.keymap.set('n', 'gl',
 )
 
 
--- TELESCOPE
+-- OIL
 
-local telescope_builtin = require('telescope.builtin')
+-- Open oil in Neovim CWD (typically the project's CWD)
+vim.keymap.set('n', '<leader>fe', function()
+    require('oil').open_float(vim.fn.getcwd())
+end)
 
--- Show git branches and a brief commit history for selected branch
-vim.keymap.set('n', '<leader>gf',
-    function()
-        telescope_builtin.git_branches({
-            cwd = vim.fn.expand('%:p:h'),
-            use_git_root = false,
-            -- show_remote_tracking_branches = false,
-        })
-    end
-)
-
-vim.keymap.set('n', '<leader>gcc',
-    function()
-        telescope_builtin.git_commits({
-            cwd = vim.fn.expand('%:p:h'),
-            use_git_root = false,
-        })
-    end,
-    { desc = 'Telescope show git commits' }
-)
-
--- Telescope extension: open file browser.
-vim.keymap.set('n', '<leader>fe',
-    function()
-        require('telescope').extensions.file_browser.file_browser()
-    end
-)
-
--- Telescope extension: open file browser in current buffer's directory.
+-- Open oil in Neovim CWD of current buffer.
 vim.keymap.set('n', '<leader>fE',
     function()
-        require('telescope').extensions.file_browser.file_browser({ path = '%:p:h', select_buffer = true })
+        require('oil').open_float(vim.fn.expand('%:p:h'))
     end
 )
 
