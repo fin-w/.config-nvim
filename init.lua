@@ -33,8 +33,6 @@ vim.pack.add({
     'https://github.com/Eandrju/cellular-automaton.nvim',            -- Easter egg :) use <leader>rain to activate.
 })
 
-vim.g.zenbones_compat = 1
-
 require('init.indents')
 require('init.misc')
 require('init.visuals')
