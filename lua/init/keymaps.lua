@@ -162,6 +162,15 @@ vim.keymap.set('n', '<leader>fE',
 -- FZF
 
 local fzf = require('fzf-lua')
+local fzf_git_options = {
+    cwd = vim.fn.expand('%:p:h'),
+    winopts = {
+        preview = {
+            layout = 'vertical',
+            vertical = 'down:75%',
+        },
+    },
+}
 
 vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = 'Fzf-lua browse open buffers' })
 vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Fzf-lua find files' })
@@ -169,17 +178,14 @@ vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua live grep' })
 vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua LSP references of word under cursor' })
 vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' })
 vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
+vim.keymap.set('n', '<leader>fl', fzf.lsp_finder, { desc = 'Fzf-lua combined LSP locations' })
+-- vim.keymap.set('n', 'gra', fzf.lsp_code_actions, { desc = 'Fzf-lua combined LSP locations' })
 vim.keymap.set('n', '<leader>gb', function()
-    fzf.git_branches({
-        cwd = vim.fn.expand('%:p:h'),
-        winopts = {
-            preview = {
-                layout = 'vertical',
-                vertical = 'down:75%',
-            },
-        },
-    })
-end, { desc = 'Fzf-lua pick git branches including in current submodule' })
+    fzf.git_branches(fzf_git_options)
+end, { desc = 'Fzf-lua pick git branches (in current submodule if it exists)' })
+vim.keymap.set('n', '<leader>gcc', function()
+    fzf.git_commits(fzf_git_options)
+end, { desc = 'Fzf-lua pick git commits (in current submodule if it exists)' })
 
 vim.keymap.set('n', '<leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua list DAP breakpoints' })
 vim.keymap.set('n', '<leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua list DAP session variables' })
