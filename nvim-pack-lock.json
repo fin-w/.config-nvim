@@ -1,32 +1,51 @@
 {
   "plugins": {
-    "LuaSnip": [],
+    "LuaSnip": {
+      "rev": "eec1a84"
+    },
     "ashen.nvim": [],
     "blink.cmp": {
       "version": "1.0.0 - 2.0.0"
     },
     "boole.nvim": [],
     "cellular-automaton.nvim": [],
+    "codecompanion.nvim": {
+      "rev": "09e6a8f",
+      "src": "https://github.com/olimorris/codecompanion.nvim"
+    },
     "friendly-snippets": [],
-    "fzf-lua": [],
+    "fzf-lua": {
+      "rev": "db45bab"
+    },
     "gitsigns.nvim": [],
-    "lualine.nvim": [],
+    "lualine.nvim": {
+      "rev": "3946f01"
+    },
     "midnight.nvim": [],
-    "nvim-autopairs": [],
-    "nvim-dap": [],
+    "nvim-autopairs": {
+      "rev": "7a2c97c"
+    },
+    "nvim-dap": {
+      "rev": "6782b09"
+    },
     "nvim-dap-view": [],
     "nvim-dap-virtual-text": [],
-    "nvim-lspconfig": [],
+    "nvim-lspconfig": {
+      "rev": "ac98db2"
+    },
     "nvim-treesitter": {
+      "rev": "846d5113",
       "version": "'main'"
     },
     "nvim-treesitter-context": [],
     "nvim-web-devicons": [],
+    "oil.nvim": {
+      "rev": "7194872",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
     "overseer.nvim": [],
     "plenary.nvim": [],
     "rainbow-delimiters.nvim": [],
-    "telescope-file-browser.nvim": [],
-    "telescope.nvim": [],
     "toggleterm.nvim": [],
     "vim-fugitive": [],
     "zenbones.nvim": []
