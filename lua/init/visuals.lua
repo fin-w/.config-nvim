@@ -41,6 +41,7 @@ vim.opt.listchars = [[eol:↵,trail:→,nbsp:‿,leadmultispace:▏   ,extends:�
 vim.opt.diffopt:append({
     'followwrap',
     'foldcolumn:0',
+    'inline:char',
 })
 
 -- Briefly highlight the yanked text.
