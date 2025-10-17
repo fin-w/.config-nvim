@@ -71,6 +71,7 @@ vim.keymap.set('n', '<leader>gsm',
 -- Add a character to the end of the line
 vim.keymap.set('n', '];', 'mzA;<Esc>`z')
 vim.keymap.set('n', '],', 'mzA,<Esc>`z')
+vim.keymap.set('n', '].', 'mzA.<Esc>`z')
 
 -- Escape terminal input mode more intuitively
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
