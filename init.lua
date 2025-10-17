@@ -31,7 +31,7 @@ vim.pack.add({
     'https://github.com/igorlfs/nvim-dap-view',                      -- view the debugging session data in a window
     'https://github.com/theHamsta/nvim-dap-virtual-text',            -- virtual text showing contents of variables when using dap
     'https://github.com/akinsho/toggleterm.nvim',                    -- slightly more convenient terminal management
-    'https://github.com/stevearc/overseer.nvim',
+    'https://github.com/stevearc/overseer.nvim',                     -- Task runner
     'https://github.com/Eandrju/cellular-automaton.nvim',            -- fun easter egg. use <leader>rain
 })
 
