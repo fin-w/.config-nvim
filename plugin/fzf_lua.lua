@@ -78,3 +78,5 @@ require('fzf-lua').setup({
     grep = { formatter = 'path.filename_first' },
     lsp = { formatter = 'path.filename_first' }
 })
+
+require('fzf-lua').register_ui_select()
