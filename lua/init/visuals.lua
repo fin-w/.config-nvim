@@ -19,6 +19,10 @@ vim.opt.scrolloff = 1000
 vim.opt.showmatch = true
 -- highlight search
 vim.opt.hlsearch = true
+-- Don't consider character case when searching.
+vim.opt.ignorecase = true
+-- ... But search by character case 'smart'
+vim.opt.smartcase = true
 -- set a border around all non-fullscreen windows
 vim.opt.winborder = 'rounded'
 -- highlight cursor line
