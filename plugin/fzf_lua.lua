@@ -37,6 +37,11 @@ require('fzf-lua').setup({
     fzf_opts = {
         ['--scroll-off'] = '99',
     },
+    actions = {
+        files = {
+            ['alt-q'] = { fn = require('fzf-lua').actions.file_sel_to_qf, prefix = 'select-all' },
+        },
+    },
     previewers = {
         builtin = {
             title_fnamemodify = function(s) return vim.fn.fnamemodify(s, ':.') end,
