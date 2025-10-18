@@ -239,9 +239,7 @@ vim.keymap.set('n', '<Leader>br', overseer.toggle, { desc = 'Overseer: toggle wi
 
 -- QUICKER
 
-vim.keymap.set('n', '<Leader>q', function()
-    require('quicker').toggle()
-end, { desc = 'Quicker: toggle quickfix', })
+vim.keymap.set('n', '<Leader>q', require('quicker').toggle, { desc = 'Quicker: toggle quickfix', })
 
 
 -- EASTER EGG
