@@ -39,3 +39,5 @@ require('init.misc')
 require('init.visuals')
 require('init.keymaps')
 require('init.lsp')
+
+require('vim._extui').enable({})
