@@ -56,6 +56,10 @@
       "src": "https://github.com/stevearc/quicker.nvim"
     },
     "rainbow-delimiters.nvim": [],
+    "todo-comments.nvim": {
+      "rev": "19d461d",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
     "toggleterm.nvim": [],
     "vim-fugitive": [],
     "zenbones.nvim": []
