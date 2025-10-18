@@ -90,34 +90,6 @@ vim.keymap.set('n', '<leader>tT',
     end
 )
 
--- Open terminal and build / run project
-vim.keymap.set('n', '<leader>ba', '<cmd>tab term ./buildit -a<Enter>i')
--- vim.keymap.set('n', '<leader>bb', '<cmd>tab term ./buildit -b<Enter>i')
-vim.keymap.set('n', '<leader>bc', '<cmd>tab term ./buildit -c<Enter>i')
-vim.keymap.set('n', '<leader>bd', '<cmd>tab term ./buildit -d<Enter>i')
-vim.keymap.set('n', '<leader>be', '<cmd>tab term ./buildit -e<Enter>i')
-vim.keymap.set('n', '<leader>bf', '<cmd>tab term ./buildit -f<Enter>i')
-vim.keymap.set('n', '<leader>bg', '<cmd>tab term ./buildit -g<Enter>i')
-vim.keymap.set('n', '<leader>bh', '<cmd>tab term ./buildit -h<Enter>i')
-vim.keymap.set('n', '<leader>bi', '<cmd>tab term ./buildit -i<Enter>i')
-vim.keymap.set('n', '<leader>bj', '<cmd>tab term ./buildit -j<Enter>i')
-vim.keymap.set('n', '<leader>bk', '<cmd>tab term ./buildit -k<Enter>i')
-vim.keymap.set('n', '<leader>bl', '<cmd>tab term ./buildit -l<Enter>i')
-vim.keymap.set('n', '<leader>bm', '<cmd>tab term ./buildit -m<Enter>i')
-vim.keymap.set('n', '<leader>bn', '<cmd>tab term ./buildit -n<Enter>i')
-vim.keymap.set('n', '<leader>bo', '<cmd>tab term ./buildit -o<Enter>i')
-vim.keymap.set('n', '<leader>bp', '<cmd>tab term ./buildit -p<Enter>i')
-vim.keymap.set('n', '<leader>bq', '<cmd>tab term ./buildit -q<Enter>i')
--- vim.keymap.set('n', '<leader>br', '<cmd>tab term ./buildit -r<Enter>i')
-vim.keymap.set('n', '<leader>bs', '<cmd>tab term ./buildit -s<Enter>i')
-vim.keymap.set('n', '<leader>bt', '<cmd>tab term ./buildit -t<Enter>i')
-vim.keymap.set('n', '<leader>bu', '<cmd>tab term ./buildit -u<Enter>i')
-vim.keymap.set('n', '<leader>bv', '<cmd>tab term ./buildit -v<Enter>i')
-vim.keymap.set('n', '<leader>bw', '<cmd>tab term ./buildit -w<Enter>i')
-vim.keymap.set('n', '<leader>bx', '<cmd>tab term ./buildit -x<Enter>i')
-vim.keymap.set('n', '<leader>by', '<cmd>tab term ./buildit -y<Enter>i')
-vim.keymap.set('n', '<leader>bz', '<cmd>tab term ./buildit -z<Enter>i')
-
 -- force formatting with LSP
 vim.keymap.set('n', '<leader>cf',
     function()
