@@ -201,8 +201,10 @@ end, { desc = 'Git: rebase onto main' })
 
 -- GITSIGNS
 
+local gitsigns = require('gitsigns')
+
 -- git blame whole file
-vim.keymap.set('n', '<Leader>hB', '<Cmd>Gitsigns blame<Enter>', { desc = 'Gitsigns: blame file' })
+vim.keymap.set('n', '<Leader>hB', gitsigns.blame, { desc = 'Gitsigns: blame file' })
 
 
 -- DAP
