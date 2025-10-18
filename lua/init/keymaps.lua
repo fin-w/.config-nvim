@@ -27,17 +27,17 @@ vim.keymap.set('n', '<PageUp>', '#')
 vim.keymap.set('n', '<PageDown>', '*')
 
 -- paste over a word from buffer without yanking the word
-vim.keymap.set('n', '<leader>p', 'viwP', { desc = 'Paste over word without changing register' })
+vim.keymap.set('n', '<Leader>p', 'viwP', { desc = 'Paste over word without changing register' })
 
 -- search for next instance of a git commit hash, and copy it to the clipboard
-vim.keymap.set('n', '<leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>', { desc = 'Yank next occurance of git hash' })
+vim.keymap.set('n', '<Leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>', { desc = 'Yank next occurance of git hash' })
 
 -- pick the left buffer or right buffer in a git merge conflict view?
-vim.keymap.set('n', '<leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: select left version of diff conflict' })
-vim.keymap.set('n', '<leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })
+vim.keymap.set('n', '<Leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: select left version of diff conflict' })
+vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })
 
 -- go to next marker of git merge conflict in file
-vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>',
+vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>',
     { desc = 'Git: find next merge conflict marker' })
 
 local function get_main_branch_name()
@@ -57,7 +57,7 @@ local function get_main_branch_name()
 end
 
 -- Switch to git main / master branch
-vim.keymap.set('n', '<leader>gsm', function()
+vim.keymap.set('n', '<Leader>gsm', function()
     local main_branch_name = get_main_branch_name()
 
     if get_main_branch_name then
@@ -76,10 +76,10 @@ vim.keymap.set('n', '].', 'mzA.<Esc>`z')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- open terminal
-vim.keymap.set('n', '<leader>tt', '<Cmd>tab term<Enter>i', { desc = 'Terminal in Neovim CWD' })
+vim.keymap.set('n', '<Leader>tt', '<Cmd>tab term<Enter>i', { desc = 'Terminal in Neovim CWD' })
 
 -- Open terminal in same dir as current buffer
-vim.keymap.set('n', '<leader>tT', function()
+vim.keymap.set('n', '<Leader>tT', function()
     local cwd = vim.fn.expand('%:p:h')
     vim.cmd('tab term')
     local channel = vim.bo.channel
@@ -88,7 +88,7 @@ vim.keymap.set('n', '<leader>tT', function()
 end, { desc = 'Terminal in buffer CWD' })
 
 -- force formatting with LSP
-vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, { desc = 'Format with LSP if possible' })
+vim.keymap.set('n', '<Leader>cf', vim.lsp.buf.format, { desc = 'Format with LSP if possible' })
 
 -- Toggle virtual lines / text for diagnostics
 vim.keymap.set('n', 'gl', function()
@@ -109,12 +109,12 @@ end, { desc = 'Toggle diagnostic display between lines and inline text' })
 -- OIL
 
 -- Open oil in Neovim CWD (typically the project's CWD)
-vim.keymap.set('n', '<leader>fe', function()
+vim.keymap.set('n', '<Leader>fe', function()
     require('oil').open_float(vim.fn.getcwd())
 end, { desc = 'Oil: open in Neovim CWD' })
 
 -- Open oil in Neovim CWD of current buffer.
-vim.keymap.set('n', '<leader>fE', function()
+vim.keymap.set('n', '<Leader>fE', function()
     require('oil').open_float(vim.fn.expand('%:p:h'))
 end
 , { desc = 'Oil: open in buffer CWD' })
@@ -133,24 +133,24 @@ local fzf_git_options = {
     },
 }
 
-vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = 'Fzf-lua: buffers' })
-vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Fzf-lua: files' })
-vim.keymap.set('n', '<leader>fg', fzf.live_grep, { desc = 'Fzf-lua: grep' })
-vim.keymap.set('n', '<leader>fi', fzf.lsp_references, { desc = 'Fzf-lua: LSP references of word under cursor' })
-vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua: resume picker' })
-vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua: grep word under cursor' })
-vim.keymap.set('n', '<leader>fl', fzf.lsp_finder, { desc = 'Fzf-lua: combined LSP locations' })
-vim.keymap.set('n', '<leader>fv', fzf.registers, { desc = 'Fzf-lua: registers' })
-vim.keymap.set('n', '<leader>gb', function()
+vim.keymap.set('n', '<Leader>fb', fzf.buffers, { desc = 'Fzf-lua: buffers' })
+vim.keymap.set('n', '<Leader>ff', fzf.files, { desc = 'Fzf-lua: files' })
+vim.keymap.set('n', '<Leader>fg', fzf.live_grep, { desc = 'Fzf-lua: grep' })
+vim.keymap.set('n', '<Leader>fi', fzf.lsp_references, { desc = 'Fzf-lua: LSP references of word under cursor' })
+vim.keymap.set('n', '<Leader>fr', fzf.resume, { desc = 'Fzf-lua: resume picker' })
+vim.keymap.set('n', '<Leader>fs', fzf.grep_cword, { desc = 'Fzf-lua: grep word under cursor' })
+vim.keymap.set('n', '<Leader>fl', fzf.lsp_finder, { desc = 'Fzf-lua: combined LSP locations' })
+vim.keymap.set('n', '<Leader>fv', fzf.registers, { desc = 'Fzf-lua: registers' })
+vim.keymap.set('n', '<Leader>gb', function()
     fzf.git_branches(fzf_git_options)
 end, { desc = 'Fzf-lua: git branches (in submodule or repository)' })
-vim.keymap.set('n', '<leader>gcc', function()
+vim.keymap.set('n', '<Leader>gcc', function()
     fzf.git_commits(fzf_git_options)
 end, { desc = 'Fzf-lua: git commits (in submodule or repository)' })
 
-vim.keymap.set('n', '<leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua: DAP breakpoints' })
-vim.keymap.set('n', '<leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua: DAP session variables' })
-vim.keymap.set('n', '<leader>rff', fzf.dap_frames, { desc = 'Fzf-lua: DAP session frames' })
+vim.keymap.set('n', '<Leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua: DAP breakpoints' })
+vim.keymap.set('n', '<Leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua: DAP session variables' })
+vim.keymap.set('n', '<Leader>rff', fzf.dap_frames, { desc = 'Fzf-lua: DAP session frames' })
 
 vim.keymap.set('n', 'g<', fzf.lsp_incoming_calls, { desc = 'Fzf-lua: call sites of symbol under cursor' })
 vim.keymap.set('n', 'g>', fzf.lsp_outgoing_calls, { desc = 'Fzf-lua: items called by symbol under cursor' })
@@ -159,31 +159,31 @@ vim.keymap.set('n', 'g>', fzf.lsp_outgoing_calls, { desc = 'Fzf-lua: items calle
 -- FUGITIVE
 
 -- open fugitive in a new tab
-vim.keymap.set('n', '<leader>gg', '<Cmd>tab G<Enter>', { desc = 'Fugitive: status' })
+vim.keymap.set('n', '<Leader>gg', '<Cmd>tab G<Enter>', { desc = 'Fugitive: status' })
 
 -- push current branch to origin
-vim.keymap.set('n', '<leader>gpo', '<Cmd>tab G push origin<Enter>', { desc = 'Git: push to origin' })
+vim.keymap.set('n', '<Leader>gpo', '<Cmd>tab G push origin<Enter>', { desc = 'Git: push to origin' })
 
 -- force push current branch to origin
-vim.keymap.set('n', '<leader>gPo', '<Cmd>tab G push -f origin<Enter>', { desc = 'Git: force push to origin' })
+vim.keymap.set('n', '<Leader>gPo', '<Cmd>tab G push -f origin<Enter>', { desc = 'Git: force push to origin' })
 
 -- push current branch to my fork
-vim.keymap.set('n', '<leader>gpf', '<Cmd>tab G push fork<Enter>', { desc = 'Git: push to fork' })
+vim.keymap.set('n', '<Leader>gpf', '<Cmd>tab G push fork<Enter>', { desc = 'Git: push to fork' })
 
 -- force push current branch to my fork
-vim.keymap.set('n', '<leader>gPf', '<Cmd>tab G push -f fork<Enter>', { desc = 'Git: force push to fork' })
+vim.keymap.set('n', '<Leader>gPf', '<Cmd>tab G push -f fork<Enter>', { desc = 'Git: force push to fork' })
 
 -- open log
-vim.keymap.set('n', '<leader>gl', '<Cmd>tab G log<Enter>', { desc = 'Fugitive: log' })
+vim.keymap.set('n', '<Leader>gl', '<Cmd>tab G log<Enter>', { desc = 'Fugitive: log' })
 
 -- git pull
-vim.keymap.set('n', '<leader>guu', '<Cmd>G pull<Enter>', { desc = 'Git: pull' })
+vim.keymap.set('n', '<Leader>guu', '<Cmd>G pull<Enter>', { desc = 'Git: pull' })
 
 -- open current diff of HEAD compared to git previous commit
-vim.keymap.set('n', '<leader>gdh', '<Cmd>tab G diff HEAD^<Enter>', { desc = 'Fugitive: diff HEAD and previous commit' })
+vim.keymap.set('n', '<Leader>gdh', '<Cmd>tab G diff HEAD^<Enter>', { desc = 'Fugitive: diff HEAD and previous commit' })
 
 -- Open current diff of fork compared to git main / master.
-vim.keymap.set('n', '<leader>gdm', function()
+vim.keymap.set('n', '<Leader>gdm', function()
     local main_branch_name = get_main_branch_name()
     if main_branch_name then
         vim.cmd('tab G diff ' .. main_branch_name)
@@ -191,7 +191,7 @@ vim.keymap.set('n', '<leader>gdm', function()
 end, { desc = 'Fugitive: diff with main' })
 
 -- Rebase onto git main / master.
-vim.keymap.set('n', '<leader>gRm', function()
+vim.keymap.set('n', '<Leader>gRm', function()
     local main_branch_name = get_main_branch_name()
     if main_branch_name then
         vim.cmd('G rebase ' .. main_branch_name)
@@ -202,29 +202,29 @@ end, { desc = 'Git: rebase onto main' })
 -- GITSIGNS
 
 -- git blame whole file
-vim.keymap.set('n', '<leader>hB', '<Cmd>Gitsigns blame<Enter>', { desc = 'Gitsigns: blame file' })
+vim.keymap.set('n', '<Leader>hB', '<Cmd>Gitsigns blame<Enter>', { desc = 'Gitsigns: blame file' })
 
 
 -- DAP
 
 local dap = require('dap')
 local dap_widgets = require('dap.ui.widgets')
-vim.keymap.set('n', '<leader>rr', dap.continue, { desc = 'Dap: continue' })
-vim.keymap.set('n', '<leader>rR', dap.run_last, { desc = 'Dap: rerun last' })
+vim.keymap.set('n', '<Leader>rr', dap.continue, { desc = 'Dap: continue' })
+vim.keymap.set('n', '<Leader>rR', dap.run_last, { desc = 'Dap: rerun last' })
 
-vim.keymap.set('n', '<leader>lp', function()
+vim.keymap.set('n', '<Leader>lp', function()
     dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
 end, { desc = 'Dap: breakpoint with logging' })
-vim.keymap.set('n', '<leader>rb', dap.toggle_breakpoint, { desc = 'Dap: toggle breakpoint' })
-vim.keymap.set('n', '<leader>rB', dap.clear_breakpoints, { desc = 'Dap: clear breakpoints' })
+vim.keymap.set('n', '<Leader>rb', dap.toggle_breakpoint, { desc = 'Dap: toggle breakpoint' })
+vim.keymap.set('n', '<Leader>rB', dap.clear_breakpoints, { desc = 'Dap: clear breakpoints' })
 
-vim.keymap.set('n', '<leader>rdr', dap.repl.open, { desc = 'Dap: open repl' })
-vim.keymap.set({ 'n', 'v' }, '<leader>rdh', require('dap.ui.widgets').hover, { desc = 'Dap: hover' })
-vim.keymap.set({ 'n', 'v' }, '<leader>rdp', require('dap.ui.widgets').preview, { desc = 'Dap: preview' })
-vim.keymap.set('n', '<leader>rdf', function()
+vim.keymap.set('n', '<Leader>rdr', dap.repl.open, { desc = 'Dap: open repl' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>rdh', require('dap.ui.widgets').hover, { desc = 'Dap: hover' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>rdp', require('dap.ui.widgets').preview, { desc = 'Dap: preview' })
+vim.keymap.set('n', '<Leader>rdf', function()
     dap_widgets.centered_float(dap_widgets.frames)
 end, { desc = 'Dap: frames' })
-vim.keymap.set('n', '<leader>rds', function()
+vim.keymap.set('n', '<Leader>rds', function()
     dap_widgets.centered_float(dap_widgets.scopes)
 end, { desc = 'Dap: scopes' })
 
@@ -232,18 +232,18 @@ end, { desc = 'Dap: scopes' })
 -- OVERSEER
 
 local overseer = require('overseer')
-vim.keymap.set('n', '<leader>bb', overseer.run_template, { desc = 'Overseer: run template' })
-vim.keymap.set('n', '<leader>bl', overseer.load_task_bundle, { desc = 'Overseer: load task bundle' })
-vim.keymap.set('n', '<leader>br', overseer.toggle, { desc = 'Overseer: toggle window' })
+vim.keymap.set('n', '<Leader>bb', overseer.run_template, { desc = 'Overseer: run template' })
+vim.keymap.set('n', '<Leader>bl', overseer.load_task_bundle, { desc = 'Overseer: load task bundle' })
+vim.keymap.set('n', '<Leader>br', overseer.toggle, { desc = 'Overseer: toggle window' })
 
 
 -- QUICKER
 
-vim.keymap.set('n', '<leader>q', function()
+vim.keymap.set('n', '<Leader>q', function()
     require('quicker').toggle()
 end, { desc = 'Quicker: toggle quickfix', })
 
 
 -- EASTER EGG
 
-vim.keymap.set('n', '<leader>rain', '<Cmd>CellularAutomaton make_it_rain<Enter>', { desc = 'Easter egg :)' })
+vim.keymap.set('n', '<Leader>rain', '<Cmd>CellularAutomaton make_it_rain<Enter>', { desc = 'Easter egg :)' })
