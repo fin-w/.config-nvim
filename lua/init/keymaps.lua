@@ -9,7 +9,7 @@ vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<enter>==gi', { noremap = true, silent 
 vim.keymap.set('v', '<A-j>', ":'<,'>m'>+1<enter> gv=gv", { noremap = true, silent = true })
 vim.keymap.set('v', '<A-k>', ":'<,'>m'<-2<enter> gv=gv", { noremap = true, silent = true })
 
--- Keep the selection after changing indention
+-- Keep the selection after changing indentation.
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 
@@ -193,6 +193,7 @@ vim.keymap.set('n', '<leader>rff', fzf.dap_frames, { desc = 'Fzf-lua list DAP se
 
 vim.keymap.set('n', 'g<', fzf.lsp_incoming_calls, { desc = 'Fzf-lua list call sites of symbol under cursor' })
 vim.keymap.set('n', 'g>', fzf.lsp_outgoing_calls, { desc = 'Fzf-lua list items called by symbol under cursor' })
+
 
 -- FUGITIVE
 
