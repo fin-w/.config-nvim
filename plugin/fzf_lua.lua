@@ -39,6 +39,7 @@ require('fzf-lua').setup({
     },
     actions = {
         files = {
+            ['enter'] = require('fzf-lua').actions.file_edit,
             ['alt-q'] = { fn = require('fzf-lua').actions.file_sel_to_qf, prefix = 'select-all' },
         },
     },
