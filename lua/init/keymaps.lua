@@ -33,8 +33,8 @@ vim.keymap.set('n', '<leader>p', 'viwP')
 vim.keymap.set('n', '<leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>')
 
 -- pick the left buffer or right buffer in a git merge conflict view?
-vim.keymap.set('n', '<leader>gch', '<cmd>diffget //2<Enter>')
-vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<Enter>')
+vim.keymap.set('n', '<leader>gch', '<Cmd>diffget //2<Enter>')
+vim.keymap.set('n', '<leader>gcl', '<Cmd>diffget //3<Enter>')
 
 -- go to next marker of git merge conflict in file
 vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>')
@@ -77,7 +77,7 @@ vim.keymap.set('n', '].', 'mzA.<Esc>`z')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- open terminal
-vim.keymap.set('n', '<leader>tt', '<cmd>tab term<Enter>i')
+vim.keymap.set('n', '<leader>tt', '<Cmd>tab term<Enter>i')
 
 -- Open terminal in same dir as current buffer
 vim.keymap.set('n', '<leader>tT',
@@ -170,28 +170,28 @@ vim.keymap.set('n', 'g>', fzf.lsp_outgoing_calls, { desc = 'Fzf-lua list items c
 -- FUGITIVE
 
 -- open fugitive in a new tab
-vim.keymap.set('n', '<leader>gg', '<cmd>tab G<Enter>')
+vim.keymap.set('n', '<leader>gg', '<Cmd>tab G<Enter>')
 
 -- push current branch to origin
-vim.keymap.set('n', '<leader>gpo', '<cmd>tab G push origin<Enter>')
+vim.keymap.set('n', '<leader>gpo', '<Cmd>tab G push origin<Enter>')
 
 -- force push current branch to origin
-vim.keymap.set('n', '<leader>gPo', '<cmd>tab G push -f origin<Enter>')
+vim.keymap.set('n', '<leader>gPo', '<Cmd>tab G push -f origin<Enter>')
 
 -- push current branch to my fork
-vim.keymap.set('n', '<leader>gpf', '<cmd>tab G push fork<Enter>')
+vim.keymap.set('n', '<leader>gpf', '<Cmd>tab G push fork<Enter>')
 
 -- force push current branch to my fork
-vim.keymap.set('n', '<leader>gPf', '<cmd>tab G push -f fork<Enter>')
+vim.keymap.set('n', '<leader>gPf', '<Cmd>tab G push -f fork<Enter>')
 
 -- open log
-vim.keymap.set('n', '<leader>gl', '<cmd>tab G log<Enter>')
+vim.keymap.set('n', '<leader>gl', '<Cmd>tab G log<Enter>')
 
 -- git pull
-vim.keymap.set('n', '<leader>guu', '<cmd>G pull<Enter>')
+vim.keymap.set('n', '<leader>guu', '<Cmd>G pull<Enter>')
 
 -- open current diff of HEAD compared to git previous commit
-vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<Enter>')
+vim.keymap.set('n', '<leader>gdh', '<Cmd>tab G diff HEAD^<Enter>')
 
 -- Open current diff of fork compared to git main / master.
 vim.keymap.set('n', '<leader>gdm', function()
@@ -213,7 +213,7 @@ end)
 -- GITSIGNS
 
 -- git blame whole file
-vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<Enter>')
+vim.keymap.set('n', '<leader>hB', '<Cmd>Gitsigns blame<Enter>')
 
 
 -- DAP
@@ -248,4 +248,4 @@ vim.keymap.set('n', '<leader>br', overseer.toggle)
 
 -- EASTER EGG
 
-vim.keymap.set('n', '<leader>rain', '<cmd>CellularAutomaton make_it_rain<cr>')
+vim.keymap.set('n', '<leader>rain', '<Cmd>CellularAutomaton make_it_rain<cr>')
