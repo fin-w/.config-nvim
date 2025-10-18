@@ -246,4 +246,4 @@ end, { desc = 'Quicker: toggle quickfix', })
 
 -- EASTER EGG
 
-vim.keymap.set('n', '<leader>rain', '<Cmd>CellularAutomaton make_it_rain<cr>', {desc='Easter egg :)'})
+vim.keymap.set('n', '<leader>rain', '<Cmd>CellularAutomaton make_it_rain<Enter>', { desc = 'Easter egg :)' })
