@@ -224,10 +224,10 @@ end)
 
 -- Actions
 vim.keymap.set('n', '<Leader>hr', gitsigns.reset_hunk)
-vim.keymap.set('v', '<Leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+vim.keymap.set('v', '<Leader>hr', function() gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
 vim.keymap.set('n', '<Leader>hR', gitsigns.reset_buffer)
 vim.keymap.set('n', '<Leader>hp', gitsigns.preview_hunk)
-vim.keymap.set('n', '<Leader>hb', function() gitsigns.blame_line { full = true } end)
+vim.keymap.set('n', '<Leader>hb', function() gitsigns.blame_line({ full = true }) end)
 vim.keymap.set('n', '<Leader>tb', gitsigns.toggle_current_line_blame)
 vim.keymap.set('n', '<Leader>hd', gitsigns.diffthis)
 vim.keymap.set('n', '<Leader>td', gitsigns.toggle_deleted)
