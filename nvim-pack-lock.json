@@ -45,6 +45,10 @@
     },
     "overseer.nvim": [],
     "plenary.nvim": [],
+    "quicker.nvim": {
+      "rev": "12a2291",
+      "src": "https://github.com/stevearc/quicker.nvim"
+    },
     "rainbow-delimiters.nvim": [],
     "toggleterm.nvim": [],
     "vim-fugitive": [],

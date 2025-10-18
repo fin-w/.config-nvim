@@ -28,6 +28,7 @@ vim.pack.add({
     'https://github.com/akinsho/toggleterm.nvim',                 -- Pop-up terminals.
     'https://github.com/stevearc/overseer.nvim',                  -- Task runner.
     'https://github.com/stevearc/oil.nvim',                       -- File manager.
+    'https://github.com/stevearc/quicker.nvim',                   -- Smarter quickfix list.
     'https://github.com/Eandrju/cellular-automaton.nvim',         -- Easter egg :) use <leader>rain to activate.
 })
 

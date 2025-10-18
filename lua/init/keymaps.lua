@@ -246,6 +246,13 @@ vim.keymap.set('n', '<leader>bl', overseer.load_task_bundle)
 vim.keymap.set('n', '<leader>br', overseer.toggle)
 
 
+-- QUICKER
+
+vim.keymap.set('n', '<leader>q', function()
+    require('quicker').toggle()
+end, { desc = 'Quicker: toggle quickfix', })
+
+
 -- EASTER EGG
 
 vim.keymap.set('n', '<leader>rain', '<Cmd>CellularAutomaton make_it_rain<cr>')
