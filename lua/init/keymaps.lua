@@ -23,8 +23,8 @@ vim.keymap.set('i', '<ScrollWheelUp>', '<C-o>2k')
 vim.keymap.set('i', '<ScrollWheelDown>', '<C-o>2j')
 
 -- jump up and down a doc by word under cursor
-vim.keymap.set('n', '<pageup>', '#')
-vim.keymap.set('n', '<pagedown>', '*')
+vim.keymap.set('n', '<PageUp>', '#')
+vim.keymap.set('n', '<PageDown>', '*')
 
 -- paste over a word from buffer without yanking the word
 vim.keymap.set('n', '<leader>p', 'viwP')
