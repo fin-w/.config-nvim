@@ -152,7 +152,6 @@ vim.keymap.set('n', '<leader>fr', fzf.resume, { desc = 'Fzf-lua resume search' }
 vim.keymap.set('n', '<leader>fs', fzf.grep_cword, { desc = 'Fzf-lua grep word under cursor' })
 vim.keymap.set('n', '<leader>fl', fzf.lsp_finder, { desc = 'Fzf-lua combined LSP locations' })
 vim.keymap.set('n', '<leader>fv', fzf.registers, { desc = 'Fzf-lua browse register contents' })
--- vim.keymap.set('n', 'gra', fzf.lsp_code_actions, { desc = 'Fzf-lua combined LSP locations' })
 vim.keymap.set('n', '<leader>gb', function()
     fzf.git_branches(fzf_git_options)
 end, { desc = 'Fzf-lua pick git branches (in current submodule if it exists)' })
