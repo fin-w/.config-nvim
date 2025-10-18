@@ -21,7 +21,13 @@
     "lualine.nvim": {
       "rev": "3946f01"
     },
-    "midnight.nvim": [],
+    "midnight.nvim": {
+      "rev": "a906393"
+    },
+    "mini.clue": {
+      "rev": "6a42206",
+      "src": "https://github.com/nvim-mini/mini.clue"
+    },
     "nvim-autopairs": {
       "rev": "7a2c97c"
     },
