@@ -2,12 +2,12 @@
 vim.g.mapleader = ' '
 
 -- Move code around the buffer
-vim.keymap.set('n', '<A-j>', ':m .+1<enter>==', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-k>', ':m .-2<enter>==', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<enter>==gi', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<enter>==gi', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-j>', ":'<,'>m'>+1<enter> gv=gv", { noremap = true, silent = true })
-vim.keymap.set('v', '<A-k>', ":'<,'>m'<-2<enter> gv=gv", { noremap = true, silent = true })
+vim.keymap.set('n', '<A-j>', ':m .+1<Enter>==', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<Enter>==', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<Enter>==gi', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<Enter>==gi', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-j>', ":'<,'>m'>+1<Enter> gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<A-k>', ":'<,'>m'<-2<Enter> gv=gv", { noremap = true, silent = true })
 
 -- Keep the selection after changing indentation.
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
@@ -30,14 +30,14 @@ vim.keymap.set('n', '<pagedown>', '*')
 vim.keymap.set('n', '<leader>p', 'viwP')
 
 -- search for next instance of a git commit hash, and copy it to the clipboard
-vim.keymap.set('n', '<leader>yc', '/[a-z0-9]\\{40\\}<enter>yiw:noh<enter>')
+vim.keymap.set('n', '<leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>')
 
 -- pick the left buffer or right buffer in a git merge conflict view?
-vim.keymap.set('n', '<leader>gch', '<cmd>diffget //2<enter>')
-vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<enter>')
+vim.keymap.set('n', '<leader>gch', '<cmd>diffget //2<Enter>')
+vim.keymap.set('n', '<leader>gcl', '<cmd>diffget //3<Enter>')
 
 -- go to next marker of git merge conflict in file
-vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<enter>')
+vim.keymap.set('n', '<leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>')
 
 local function get_main_branch_name()
     local handle = io.popen('git branch --list')
@@ -77,7 +77,7 @@ vim.keymap.set('n', '].', 'mzA.<Esc>`z')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- open terminal
-vim.keymap.set('n', '<leader>tt', '<cmd>tab term<enter>i')
+vim.keymap.set('n', '<leader>tt', '<cmd>tab term<Enter>i')
 
 -- Open terminal in same dir as current buffer
 vim.keymap.set('n', '<leader>tT',
@@ -91,32 +91,32 @@ vim.keymap.set('n', '<leader>tT',
 )
 
 -- Open terminal and build / run project
-vim.keymap.set('n', '<leader>ba', '<cmd>tab term ./buildit -a<enter>i')
--- vim.keymap.set('n', '<leader>bb', '<cmd>tab term ./buildit -b<enter>i')
-vim.keymap.set('n', '<leader>bc', '<cmd>tab term ./buildit -c<enter>i')
-vim.keymap.set('n', '<leader>bd', '<cmd>tab term ./buildit -d<enter>i')
-vim.keymap.set('n', '<leader>be', '<cmd>tab term ./buildit -e<enter>i')
-vim.keymap.set('n', '<leader>bf', '<cmd>tab term ./buildit -f<enter>i')
-vim.keymap.set('n', '<leader>bg', '<cmd>tab term ./buildit -g<enter>i')
-vim.keymap.set('n', '<leader>bh', '<cmd>tab term ./buildit -h<enter>i')
-vim.keymap.set('n', '<leader>bi', '<cmd>tab term ./buildit -i<enter>i')
-vim.keymap.set('n', '<leader>bj', '<cmd>tab term ./buildit -j<enter>i')
-vim.keymap.set('n', '<leader>bk', '<cmd>tab term ./buildit -k<enter>i')
-vim.keymap.set('n', '<leader>bl', '<cmd>tab term ./buildit -l<enter>i')
-vim.keymap.set('n', '<leader>bm', '<cmd>tab term ./buildit -m<enter>i')
-vim.keymap.set('n', '<leader>bn', '<cmd>tab term ./buildit -n<enter>i')
-vim.keymap.set('n', '<leader>bo', '<cmd>tab term ./buildit -o<enter>i')
-vim.keymap.set('n', '<leader>bp', '<cmd>tab term ./buildit -p<enter>i')
-vim.keymap.set('n', '<leader>bq', '<cmd>tab term ./buildit -q<enter>i')
--- vim.keymap.set('n', '<leader>br', '<cmd>tab term ./buildit -r<enter>i')
-vim.keymap.set('n', '<leader>bs', '<cmd>tab term ./buildit -s<enter>i')
-vim.keymap.set('n', '<leader>bt', '<cmd>tab term ./buildit -t<enter>i')
-vim.keymap.set('n', '<leader>bu', '<cmd>tab term ./buildit -u<enter>i')
-vim.keymap.set('n', '<leader>bv', '<cmd>tab term ./buildit -v<enter>i')
-vim.keymap.set('n', '<leader>bw', '<cmd>tab term ./buildit -w<enter>i')
-vim.keymap.set('n', '<leader>bx', '<cmd>tab term ./buildit -x<enter>i')
-vim.keymap.set('n', '<leader>by', '<cmd>tab term ./buildit -y<enter>i')
-vim.keymap.set('n', '<leader>bz', '<cmd>tab term ./buildit -z<enter>i')
+vim.keymap.set('n', '<leader>ba', '<cmd>tab term ./buildit -a<Enter>i')
+-- vim.keymap.set('n', '<leader>bb', '<cmd>tab term ./buildit -b<Enter>i')
+vim.keymap.set('n', '<leader>bc', '<cmd>tab term ./buildit -c<Enter>i')
+vim.keymap.set('n', '<leader>bd', '<cmd>tab term ./buildit -d<Enter>i')
+vim.keymap.set('n', '<leader>be', '<cmd>tab term ./buildit -e<Enter>i')
+vim.keymap.set('n', '<leader>bf', '<cmd>tab term ./buildit -f<Enter>i')
+vim.keymap.set('n', '<leader>bg', '<cmd>tab term ./buildit -g<Enter>i')
+vim.keymap.set('n', '<leader>bh', '<cmd>tab term ./buildit -h<Enter>i')
+vim.keymap.set('n', '<leader>bi', '<cmd>tab term ./buildit -i<Enter>i')
+vim.keymap.set('n', '<leader>bj', '<cmd>tab term ./buildit -j<Enter>i')
+vim.keymap.set('n', '<leader>bk', '<cmd>tab term ./buildit -k<Enter>i')
+vim.keymap.set('n', '<leader>bl', '<cmd>tab term ./buildit -l<Enter>i')
+vim.keymap.set('n', '<leader>bm', '<cmd>tab term ./buildit -m<Enter>i')
+vim.keymap.set('n', '<leader>bn', '<cmd>tab term ./buildit -n<Enter>i')
+vim.keymap.set('n', '<leader>bo', '<cmd>tab term ./buildit -o<Enter>i')
+vim.keymap.set('n', '<leader>bp', '<cmd>tab term ./buildit -p<Enter>i')
+vim.keymap.set('n', '<leader>bq', '<cmd>tab term ./buildit -q<Enter>i')
+-- vim.keymap.set('n', '<leader>br', '<cmd>tab term ./buildit -r<Enter>i')
+vim.keymap.set('n', '<leader>bs', '<cmd>tab term ./buildit -s<Enter>i')
+vim.keymap.set('n', '<leader>bt', '<cmd>tab term ./buildit -t<Enter>i')
+vim.keymap.set('n', '<leader>bu', '<cmd>tab term ./buildit -u<Enter>i')
+vim.keymap.set('n', '<leader>bv', '<cmd>tab term ./buildit -v<Enter>i')
+vim.keymap.set('n', '<leader>bw', '<cmd>tab term ./buildit -w<Enter>i')
+vim.keymap.set('n', '<leader>bx', '<cmd>tab term ./buildit -x<Enter>i')
+vim.keymap.set('n', '<leader>by', '<cmd>tab term ./buildit -y<Enter>i')
+vim.keymap.set('n', '<leader>bz', '<cmd>tab term ./buildit -z<Enter>i')
 
 -- force formatting with LSP
 vim.keymap.set('n', '<leader>cf',
@@ -198,28 +198,28 @@ vim.keymap.set('n', 'g>', fzf.lsp_outgoing_calls, { desc = 'Fzf-lua list items c
 -- FUGITIVE
 
 -- open fugitive in a new tab
-vim.keymap.set('n', '<leader>gg', '<cmd>tab G<enter>')
+vim.keymap.set('n', '<leader>gg', '<cmd>tab G<Enter>')
 
 -- push current branch to origin
-vim.keymap.set('n', '<leader>gpo', '<cmd>tab G push origin<enter>')
+vim.keymap.set('n', '<leader>gpo', '<cmd>tab G push origin<Enter>')
 
 -- force push current branch to origin
-vim.keymap.set('n', '<leader>gPo', '<cmd>tab G push -f origin<enter>')
+vim.keymap.set('n', '<leader>gPo', '<cmd>tab G push -f origin<Enter>')
 
 -- push current branch to my fork
-vim.keymap.set('n', '<leader>gpf', '<cmd>tab G push fork<enter>')
+vim.keymap.set('n', '<leader>gpf', '<cmd>tab G push fork<Enter>')
 
 -- force push current branch to my fork
-vim.keymap.set('n', '<leader>gPf', '<cmd>tab G push -f fork<enter>')
+vim.keymap.set('n', '<leader>gPf', '<cmd>tab G push -f fork<Enter>')
 
 -- open log
-vim.keymap.set('n', '<leader>gl', '<cmd>tab G log<enter>')
+vim.keymap.set('n', '<leader>gl', '<cmd>tab G log<Enter>')
 
 -- git pull
-vim.keymap.set('n', '<leader>guu', '<cmd>G pull<enter>')
+vim.keymap.set('n', '<leader>guu', '<cmd>G pull<Enter>')
 
 -- open current diff of HEAD compared to git previous commit
-vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<enter>')
+vim.keymap.set('n', '<leader>gdh', '<cmd>tab G diff HEAD^<Enter>')
 
 -- Open current diff of fork compared to git main / master.
 vim.keymap.set('n', '<leader>gdm', function()
@@ -241,7 +241,7 @@ end)
 -- GITSIGNS
 
 -- git blame whole file
-vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<enter>')
+vim.keymap.set('n', '<leader>hB', '<cmd>Gitsigns blame<Enter>')
 
 
 -- DAP

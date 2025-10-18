@@ -5,7 +5,7 @@ require('blink.cmp').setup({
         ['<C-c>'] = { 'cancel', 'fallback' },
         ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
-        ['<enter>'] = { 'accept', 'fallback' },
+        ['<Enter>'] = { 'accept', 'fallback' },
         ['<C-k>'] = { 'show_documentation', 'hide_documentation', 'fallback' },
         ['<C-s>'] = { 'show_signature', 'hide_signature', 'fallback' },
     },
