@@ -212,7 +212,7 @@ vim.keymap.set('n', ']c', function()
     else
         gitsigns.nav_hunk('next')
     end
-end)
+end, { desc = 'Gitsigns: next hunk' })
 
 vim.keymap.set('n', '[c', function()
     if vim.wo.diff then
@@ -220,17 +220,19 @@ vim.keymap.set('n', '[c', function()
     else
         gitsigns.nav_hunk('prev')
     end
-end)
+end, { desc = 'Gitsigns: previous hunk' })
 
 -- Actions
-vim.keymap.set('n', '<Leader>hr', gitsigns.reset_hunk)
-vim.keymap.set('v', '<Leader>hr', function() gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end)
-vim.keymap.set('n', '<Leader>hR', gitsigns.reset_buffer)
-vim.keymap.set('n', '<Leader>hp', gitsigns.preview_hunk)
-vim.keymap.set('n', '<Leader>hb', function() gitsigns.blame_line({ full = true }) end)
-vim.keymap.set('n', '<Leader>tb', gitsigns.toggle_current_line_blame)
-vim.keymap.set('n', '<Leader>hd', gitsigns.diffthis)
-vim.keymap.set('n', '<Leader>td', gitsigns.toggle_deleted)
+vim.keymap.set('n', '<Leader>hr', gitsigns.reset_hunk, { desc = 'Gitsigns: reset hunk' })
+vim.keymap.set('v', '<Leader>hr', function()
+    gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+end, { desc = 'Gitsigns: reset hunk' })
+vim.keymap.set('n', '<Leader>hR', gitsigns.reset_buffer, { desc = 'Gitsigns: reset buffer' })
+vim.keymap.set('n', '<Leader>hp', gitsigns.preview_hunk, { desc = 'Gitsigns: preview hunk' })
+vim.keymap.set('n', '<Leader>hb', function() gitsigns.blame_line({ full = true }) end, { desc = 'Gitsigns: blame line' })
+vim.keymap.set('n', '<Leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Gitsigns: toggle line blame' })
+vim.keymap.set('n', '<Leader>hd', gitsigns.diffthis, { desc = 'Gitsigns: open diff' })
+vim.keymap.set('n', '<Leader>td', gitsigns.toggle_deleted, { desc = 'Gitsigns: toggle deleted lines' })
 
 
 -- DAP
