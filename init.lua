@@ -31,6 +31,7 @@ vim.pack.add({
     'https://github.com/stevearc/quicker.nvim',                   -- Smarter quickfix list.
     'https://github.com/nvim-mini/mini.clue',                     -- Remind me of my keymaps.
     'https://github.com/folke/todo-comments.nvim',                -- Pretty notes in my comments.
+    'https://github.com/andymass/vim-matchup',                    -- Jump between related treesitter elements with %
     'https://github.com/Eandrju/cellular-automaton.nvim',         -- Easter egg :) use <Leader>rain to activate.
 })
 
