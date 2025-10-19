@@ -15,7 +15,7 @@ vim.opt.cmdheight = 0
 vim.opt.showtabline = 0
 -- keep cursor in centre of screen (smaller val would give lines above / below cursor
 vim.opt.scrolloff = 1000
--- show matching
+-- Show matching parentheses.
 vim.opt.showmatch = true
 -- highlight search
 vim.opt.hlsearch = true
