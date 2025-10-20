@@ -1,5 +1,7 @@
 require('init.restore')
 
+require('vim._extui').enable({})
+
 vim.pack.add({
     { -- Better syntax highlighting.
         src = 'https://github.com/nvim-treesitter/nvim-treesitter',
@@ -40,5 +42,3 @@ require('init.misc')
 require('init.visuals')
 require('init.keymaps')
 require('init.lsp')
-
-require('vim._extui').enable({})
