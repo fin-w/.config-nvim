@@ -1,67 +1,47 @@
 {
   "plugins": {
     "LuaSnip": {
-      "rev": "eec1a84"
+      "rev": "f958d98"
     },
-    "ashen.nvim": [],
     "blink.cmp": {
       "version": "1.0.0 - 2.0.0"
     },
     "boole.nvim": [],
     "cellular-automaton.nvim": [],
-    "codecompanion.nvim": {
-      "rev": "09e6a8f",
-      "src": "https://github.com/olimorris/codecompanion.nvim"
-    },
     "friendly-snippets": [],
     "fzf-lua": {
-      "rev": "db45bab"
+      "rev": "c102a4e"
     },
-    "gitsigns.nvim": [],
-    "lualine.nvim": {
-      "rev": "3946f01"
+    "gitsigns.nvim": {
+      "rev": "20ad441"
     },
-    "midnight.nvim": {
-      "rev": "a906393"
+    "lualine.nvim": [],
+    "midnight.nvim": [],
+    "mini.clue": [],
+    "nvim-autopairs": [],
+    "nvim-dap": [],
+    "nvim-dap-view": {
+      "rev": "0746f35"
     },
-    "mini.clue": {
-      "rev": "6a42206",
-      "src": "https://github.com/nvim-mini/mini.clue"
-    },
-    "nvim-autopairs": {
-      "rev": "7a2c97c"
-    },
-    "nvim-dap": {
-      "rev": "6782b09"
-    },
-    "nvim-dap-view": [],
     "nvim-dap-virtual-text": [],
-    "nvim-lspconfig": {
-      "rev": "ac98db2"
-    },
+    "nvim-lspconfig": [],
     "nvim-treesitter": {
-      "rev": "846d5113",
+      "rev": "71bf1665",
       "version": "'main'"
     },
     "nvim-treesitter-context": [],
     "nvim-web-devicons": [],
     "oil.nvim": {
-      "rev": "7194872",
-      "src": "https://github.com/stevearc/oil.nvim"
+      "rev": "7e1cd77"
     },
-    "overseer.nvim": [],
-    "plenary.nvim": [],
-    "quicker.nvim": {
-      "rev": "12a2291",
-      "src": "https://github.com/stevearc/quicker.nvim"
+    "overseer.nvim": {
+      "rev": "c77c78b"
     },
+    "quicker.nvim": [],
     "rainbow-delimiters.nvim": [],
-    "todo-comments.nvim": {
-      "rev": "19d461d",
-      "src": "https://github.com/folke/todo-comments.nvim"
-    },
+    "todo-comments.nvim": [],
     "toggleterm.nvim": [],
     "vim-fugitive": [],
-    "zenbones.nvim": []
+    "vim-matchup": []
   }
 }
