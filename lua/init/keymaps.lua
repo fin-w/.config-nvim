@@ -141,12 +141,12 @@ vim.keymap.set('n', '<Leader>fr', fzf.resume, { desc = 'Fzf-lua: resume picker' 
 vim.keymap.set('n', '<Leader>fs', fzf.grep_cword, { desc = 'Fzf-lua: grep word under cursor' })
 vim.keymap.set('n', '<Leader>fl', fzf.lsp_finder, { desc = 'Fzf-lua: combined LSP locations' })
 vim.keymap.set('n', '<Leader>fv', fzf.registers, { desc = 'Fzf-lua: registers' })
-vim.keymap.set('n', '<Leader>gb', function()
-    fzf.git_branches(fzf_git_options)
-end, { desc = 'Fzf-lua: git branches (in submodule or repository)' })
-vim.keymap.set('n', '<Leader>gcc', function()
-    fzf.git_commits(fzf_git_options)
-end, { desc = 'Fzf-lua: git commits (in submodule or repository)' })
+vim.keymap.set('n', '<Leader>gb', function() fzf.git_branches(fzf_git_options) end, {
+    desc = 'Fzf-lua: git branches (in submodule or repository)'
+})
+vim.keymap.set('n', '<Leader>gcc', function() fzf.git_commits(fzf_git_options) end, {
+    desc = 'Fzf-lua: git commits (in submodule or repository)'
+})
 
 vim.keymap.set('n', '<Leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua: DAP breakpoints' })
 vim.keymap.set('n', '<Leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua: DAP session variables' })
