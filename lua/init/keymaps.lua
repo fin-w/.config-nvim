@@ -152,9 +152,13 @@ vim.keymap.set('n', '<Leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua: DAP b
 vim.keymap.set('n', '<Leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua: DAP session variables' })
 vim.keymap.set('n', '<Leader>rff', fzf.dap_frames, { desc = 'Fzf-lua: DAP session frames' })
 
--- NOTE: don't use these keymaps because g< is used to view / enter the new extui message buffer
--- vim.keymap.set('n', 'g<', fzf.lsp_incoming_calls, { desc = 'Fzf-lua: call sites of symbol under cursor' })
--- vim.keymap.set('n', 'g>', fzf.lsp_outgoing_calls, { desc = 'Fzf-lua: items called by symbol under cursor' })
+-- List what calls the symbol, or what it calls.
+vim.api.nvim_create_user_command('CallsIncoming', fzf.lsp_incoming_calls, {
+    desc = 'Fzf-lua: call sites of symbol under cursor'
+})
+vim.api.nvim_create_user_command('CallsOutgoing', fzf.lsp_outgoing_calls, {
+    desc = 'Fzf-lua: items called by symbol under cursor'
+})
 
 
 -- FUGITIVE
