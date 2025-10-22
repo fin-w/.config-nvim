@@ -117,8 +117,7 @@ end, { desc = 'Oil: open in Neovim CWD' })
 -- Open oil in Neovim CWD of current buffer.
 vim.keymap.set('n', '<Leader>fE', function()
     require('oil').open_float(vim.fn.expand('%:p:h'))
-end
-, { desc = 'Oil: open in buffer CWD' })
+end, { desc = 'Oil: open in buffer CWD' })
 
 
 -- FZF
