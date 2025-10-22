@@ -1,7 +1,7 @@
 {
   "plugins": {
     "LuaSnip": {
-      "rev": "f958d98"
+      "rev": "ccf25a5"
     },
     "blink.cmp": {
       "version": "1.0.0 - 2.0.0"
@@ -21,15 +21,19 @@
     "nvim-autopairs": [],
     "nvim-dap": [],
     "nvim-dap-view": {
-      "rev": "0746f35"
+      "rev": "85b9150"
     },
     "nvim-dap-virtual-text": [],
-    "nvim-lspconfig": [],
+    "nvim-lspconfig": {
+      "rev": "e5c61b0"
+    },
     "nvim-treesitter": {
-      "rev": "71bf1665",
+      "rev": "30c466ad",
       "version": "'main'"
     },
-    "nvim-treesitter-context": [],
+    "nvim-treesitter-context": {
+      "rev": "ec308c7"
+    },
     "nvim-web-devicons": [],
     "oil.nvim": {
       "rev": "7e1cd77"
@@ -41,6 +45,10 @@
     "rainbow-delimiters.nvim": [],
     "todo-comments.nvim": [],
     "toggleterm.nvim": [],
+    "vague.nvim": {
+      "rev": "ac4ecda",
+      "src": "https://github.com/vague-theme/vague.nvim"
+    },
     "vim-fugitive": [],
     "vim-matchup": []
   }

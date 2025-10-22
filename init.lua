@@ -35,6 +35,7 @@ vim.pack.add({
     'https://github.com/folke/todo-comments.nvim',                -- Pretty notes in my comments.
     'https://github.com/andymass/vim-matchup',                    -- Jump between related treesitter elements with %
     'https://github.com/Eandrju/cellular-automaton.nvim',         -- Easter egg :) use <Leader>rain to activate.
+    'https://github.com/vague-theme/vague.nvim',                  -- Muted colourscheme
 })
 
 require('init.indents')
