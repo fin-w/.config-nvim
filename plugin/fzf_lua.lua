@@ -52,6 +52,7 @@ require('fzf-lua').setup({
         },
     },
     buffers = {
+        header = false,
         formatter = 'path.filename_first',
         fzf_opts = {
             ['--with-nth'] = '3..',
@@ -59,15 +60,16 @@ require('fzf-lua').setup({
     },
     git = {
         branches = {
+            header = false,
             -- Switch to the branch immediately after creating it.
             cmd_add = { 'git', 'checkout', '-b' },
             -- Force deletion even if the branch is not merged.
             cmd_del = { 'git', 'branch', '--delete', '--force' },
         },
     },
-    files = { formatter = 'path.filename_first' },
-    grep = { formatter = 'path.filename_first' },
-    lsp = { formatter = 'path.filename_first' }
+    files = { header = false, formatter = 'path.filename_first' },
+    grep = { header = false, formatter = 'path.filename_first' },
+    lsp = { header = false, formatter = 'path.filename_first' }
 })
 
 require('fzf-lua').register_ui_select()
