@@ -37,8 +37,9 @@ vim.keymap.set('n', '<Leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: sel
 vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })
 
 -- go to next marker of git merge conflict in file
-vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>',
-    { desc = 'Git: find next merge conflict marker' })
+vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', {
+    desc = 'Git: find next merge conflict marker'
+})
 
 local function get_main_branch_name()
     local handle = io.popen('git branch --list')
