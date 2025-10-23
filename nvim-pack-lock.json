@@ -10,7 +10,7 @@
     "cellular-automaton.nvim": [],
     "friendly-snippets": [],
     "fzf-lua": {
-      "rev": "c102a4e"
+      "rev": "5363c9c"
     },
     "gitsigns.nvim": {
       "rev": "20ad441"
@@ -21,14 +21,14 @@
     "nvim-autopairs": [],
     "nvim-dap": [],
     "nvim-dap-view": {
-      "rev": "85b9150"
+      "rev": "76f219c"
     },
     "nvim-dap-virtual-text": [],
     "nvim-lspconfig": {
-      "rev": "e5c61b0"
+      "rev": "ececa53"
     },
     "nvim-treesitter": {
-      "rev": "30c466ad",
+      "rev": "8fecb462",
       "version": "'main'"
     },
     "nvim-treesitter-context": {
@@ -45,8 +45,12 @@
     "rainbow-delimiters.nvim": [],
     "todo-comments.nvim": [],
     "toggleterm.nvim": [],
+    "trouble.nvim": {
+      "rev": "c098362",
+      "src": "https://github.com/folke/trouble.nvim"
+    },
     "vague.nvim": {
-      "rev": "ac4ecda",
+      "rev": "1c3ab30",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-fugitive": [],
