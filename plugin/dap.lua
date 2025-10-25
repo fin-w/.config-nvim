@@ -120,11 +120,13 @@ dap.listeners.on_session['handle_keymaps_and_dap-view_visibility_in_and_out_of_d
         vim.keymap.set('n', '<right>', dap.step_into)
         vim.keymap.set('n', '<left>', dap.step_out)
         vim.keymap.set('n', '<up>', dap.restart_frame)
+        vim.keymap.set({ 'n', 'v' }, '<C-k>', require('dap.ui.widgets').hover, { desc = 'Dap: hover' })
     elseif old and not new then
         require('dap-view').close()
         vim.keymap.del('n', '<down>')
         vim.keymap.del('n', '<right>')
         vim.keymap.del('n', '<left>')
         vim.keymap.del('n', '<up>')
+        vim.keymap.del({ 'n', 'v' }, '<C-k>')
     end
 end

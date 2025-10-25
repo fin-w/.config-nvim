@@ -256,7 +256,6 @@ vim.keymap.set('n', '<Leader>rb', dap.toggle_breakpoint, { desc = 'Dap: toggle b
 vim.keymap.set('n', '<Leader>rB', dap.clear_breakpoints, { desc = 'Dap: clear breakpoints' })
 
 vim.keymap.set('n', '<Leader>rdr', dap.repl.open, { desc = 'Dap: open repl' })
-vim.keymap.set({ 'n', 'v' }, '<C-k>', require('dap.ui.widgets').hover, { desc = 'Dap: hover' })
 vim.keymap.set({ 'n', 'v' }, '<Leader>rdp', require('dap.ui.widgets').preview, { desc = 'Dap: preview' })
 vim.keymap.set('n', '<Leader>rdf', function()
     dap_widgets.centered_float(dap_widgets.frames)
