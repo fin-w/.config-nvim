@@ -18,7 +18,9 @@ vim.lsp.config('lua_ls', {
                 checkThirdParty = false,
                 library = {
                     -- Make the server aware of Neovim runtime files https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
-                    vim.env.VIMRUNTIME
+                    vim.env.VIMRUNTIME,
+                    -- Get completions from installed plugins, using the location vim.pack.add() installs to.
+                    vim.fn.expand('$HOME') .. '/.local/share/nvim/site/pack/core/opt',
                 }
             }
         }
