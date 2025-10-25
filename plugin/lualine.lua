@@ -32,7 +32,17 @@ require('lualine').setup {
             path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
             symbols = { modified = '*', readonly = '[R]' },
         } },
-        lualine_x = { 'filetype' },
+        lualine_x = {
+            { 'lsp_status',
+                icon = '',
+                show_name = false,
+                symbols = {
+                    spinner = { '◐', '◓', '◑', '◒' },
+                    done = '',
+                },
+            },
+            'filetype',
+        },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
     },
