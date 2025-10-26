@@ -119,6 +119,15 @@ vim.keymap.set('n', '<Leader>fE', function()
     require('oil').open_float(vim.fn.expand('%:p:h'))
 end, { desc = 'Oil: open in buffer CWD' })
 
+-- Move up and down with Tab and Shift+Tab in Oil buffers
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+    pattern = 'oil',
+    callback = function()
+        vim.keymap.set('n', '<Tab>', 'j', { buffer = true })
+        vim.keymap.set('n', '<S-Tab>', 'k', { buffer = true })
+    end
+})
+
 
 -- FZF
 
