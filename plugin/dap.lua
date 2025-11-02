@@ -17,7 +17,7 @@ dap.configurations.rust = {
         type = 'lldb',
         request = 'launch',
         program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            return vim.fn.input('Path to Rust executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
@@ -108,7 +108,25 @@ dap.configurations.rust = {
     -- },
 }
 
-dap.configurations.cpp = dap.configurations.rust
+dap.configurations.cpp = {
+    {
+        name = 'LLDB',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+            return vim.fn.input('Path to C++ executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        -- initCommands = function ()
+        --     return {
+        --         ([[!command script import '/usr/share/gcc-15.2.1/python/libstdcxx/v6/printers.py']]),
+        --         ([[type category enable libstdc++]]),
+        --     }
+        -- end
+
+    }
+}
 
 -- Take the old and new sessions, check if they exist, and based on their presence,
 -- set up the keymaps prior to the first session or destroy them after the last.
