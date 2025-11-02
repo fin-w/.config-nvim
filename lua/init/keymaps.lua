@@ -88,6 +88,11 @@ vim.keymap.set('n', '<Leader>tT', function()
     vim.api.nvim_feedkeys('i', 'n', false)
 end, { desc = 'Terminal in buffer CWD' })
 
+-- Open the current buffer in a new 'fullscreen' tab, but preserve the current window layout.
+vim.api.nvim_create_user_command('Maximise', function()
+    vim.cmd('tabnew %')
+end, { desc = 'Open the current buffer in a new tab so you can edit it fullscreen' })
+
 -- force formatting with LSP
 vim.keymap.set('n', '<Leader>cf', vim.lsp.buf.format, { desc = 'Format with LSP if possible' })
 
