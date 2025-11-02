@@ -10,7 +10,7 @@
     "cellular-automaton.nvim": [],
     "friendly-snippets": [],
     "fzf-lua": {
-      "rev": "3ec1ffb"
+      "rev": "a8458b7"
     },
     "gitsigns.nvim": {
       "rev": "20ad441"
@@ -23,20 +23,22 @@
     "nvim-autopairs": [],
     "nvim-dap": [],
     "nvim-dap-view": {
-      "rev": "76f219c"
+      "rev": "8f50aca"
     },
     "nvim-dap-virtual-text": [],
     "nvim-lspconfig": {
-      "rev": "a9b2fb5"
+      "rev": "a89bfcf"
     },
     "nvim-treesitter": {
-      "rev": "400f38cc",
+      "rev": "64f4755b",
       "version": "'main'"
     },
     "nvim-treesitter-context": {
       "rev": "ec308c7"
     },
-    "nvim-web-devicons": [],
+    "nvim-web-devicons": {
+      "rev": "8dcb311"
+    },
     "oil.nvim": {
       "rev": "7e1cd77"
     },
@@ -44,8 +46,12 @@
       "rev": "c77c78b"
     },
     "quicker.nvim": [],
-    "rainbow-delimiters.nvim": [],
-    "todo-comments.nvim": [],
+    "rainbow-delimiters.nvim": {
+      "rev": "b6b3c9e"
+    },
+    "todo-comments.nvim": {
+      "rev": "411503d"
+    },
     "toggleterm.nvim": [],
     "vague.nvim": {
       "rev": "5689afd",
