@@ -55,12 +55,18 @@ require('fzf-lua').setup({
         header = false,
         formatter = 'path.filename_first',
         fzf_opts = {
+            -- By saving fzf history to a file, <c-n> and <c-p> move through search history.
+            ['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-nvim-buffer-history',
             ['--with-nth'] = '3..',
         },
     },
     files = {
         header = false,
         formatter = 'path.filename_first',
+        fzf_opts = {
+            -- By saving fzf history to a file, <c-n> and <c-p> move through search history.
+            ['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-nvim-file-history',
+        },
     },
     git = {
         branches = {
