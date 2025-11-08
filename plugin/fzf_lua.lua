@@ -58,6 +58,10 @@ require('fzf-lua').setup({
             ['--with-nth'] = '3..',
         },
     },
+    files = {
+        header = false,
+        formatter = 'path.filename_first',
+    },
     git = {
         branches = {
             header = false,
@@ -70,7 +74,6 @@ require('fzf-lua').setup({
             header = false,
         }
     },
-    files = { header = false, formatter = 'path.filename_first' },
     grep = { header = false, formatter = 'path.filename_first' },
     lsp = { header = false, formatter = 'path.filename_first' }
 })
