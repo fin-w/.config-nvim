@@ -14,6 +14,8 @@ vim.schedule(function()
     if session_file then
         session_file:close()
         vim.cmd('silent source Session.vim')
+    else
+        require('oil').open_float(vim.fn.getcwd())
     end
 end)
 
