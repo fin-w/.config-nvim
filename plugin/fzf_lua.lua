@@ -75,9 +75,12 @@ require('fzf-lua').setup({
             cmd_add = { 'git', 'checkout', '-b' },
             -- Force deletion even if the branch is not merged.
             cmd_del = { 'git', 'branch', '--delete', '--force' },
+            winopts = { preview = { layout = 'vertical', vertical = 'down:75%' } },
         },
         commits = {
             header = false,
+            winopts = { preview = { layout = 'vertical', vertical = 'down:75%' } },
+        },
     },
     grep = { header = false, formatter = 'path.filename_first' },
     lsp = { header = false, formatter = 'path.filename_first' },
