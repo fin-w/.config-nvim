@@ -137,15 +137,6 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 -- FZF
 
 local fzf = require('fzf-lua')
-local fzf_git_options = {
-    cwd = vim.fn.expand('%:p:h'),
-    winopts = {
-        preview = {
-            layout = 'vertical',
-            vertical = 'down:75%',
-        },
-    },
-}
 
 vim.keymap.set('n', '<Leader>fb', fzf.buffers, { desc = 'Fzf-lua: buffers' })
 vim.keymap.set('n', '<Leader>ff', fzf.files, { desc = 'Fzf-lua: files' })
@@ -157,10 +148,10 @@ vim.keymap.set('n', '<Leader>fl', fzf.lsp_finder, { desc = 'Fzf-lua: combined LS
 vim.keymap.set('n', '<Leader>fv', fzf.registers, { desc = 'Fzf-lua: registers' })
 vim.keymap.set('n', '<Leader>fd', fzf.lsp_workspace_diagnostics, { desc = 'Fzf-lua: LSP diagnostics' })
 vim.keymap.set('n', '<Leader>fD', fzf.diagnostics_workspace, { desc = 'Fzf-lua: diagnostics' })
-vim.keymap.set('n', '<Leader>gb', function() fzf.git_branches(fzf_git_options) end, {
+vim.keymap.set('n', '<Leader>gb', function() fzf.git_branches({ cwd = vim.fn.expand('%:p:h') }) end, {
     desc = 'Fzf-lua: git branches (in submodule or repository)'
 })
-vim.keymap.set('n', '<Leader>gcc', function() fzf.git_commits(fzf_git_options) end, {
+vim.keymap.set('n', '<Leader>gcc', function() fzf.git_commits({ cwd = vim.fn.expand('%:p:h') }) end, {
     desc = 'Fzf-lua: git commits (in submodule or repository)'
 })
 
