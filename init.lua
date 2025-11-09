@@ -8,7 +8,7 @@ vim.pack.add({
         version = 'main',
     },
     { -- Fast auto-completions.
-        src = 'https://github.com/saghen/blink.cmp',
+        src = 'https://github.com/Saghen/blink.cmp',
         version = vim.version.range('1.*'),
     },
     'https://github.com/nvim-tree/nvim-web-devicons',             -- Required by lualine, fzf-lua, blink-cmp.
