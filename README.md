@@ -52,4 +52,6 @@ sudo pacman -S bash-language-server shfmt
 wget 'https://github.com/redhat-developer/vscode-xml/releases/download/0.29.0/lemminx-linux.zip' && unzip lemminx-linux.zip && mv lemminx-linux ~/.local/bin/lemminx
 # Python: pylsp
 sudo pacman -S python-lsp-server autopep8
+# TOML: taplo
+cargo install --features lsp --locked taplo-cli
 ```

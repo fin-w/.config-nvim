@@ -38,6 +38,7 @@ vim.lsp.enable({
     'lua_ls',
     'pylsp',
     'rust_analyzer',
+    'taplo',
     'ts_ls',
 })
 
