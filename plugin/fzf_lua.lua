@@ -78,10 +78,9 @@ require('fzf-lua').setup({
         },
         commits = {
             header = false,
-        }
     },
     grep = { header = false, formatter = 'path.filename_first' },
-    lsp = { header = false, formatter = 'path.filename_first' }
+    lsp = { header = false, formatter = 'path.filename_first' },
 })
 
 require('fzf-lua').register_ui_select()
