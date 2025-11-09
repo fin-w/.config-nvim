@@ -14,7 +14,7 @@ sudo pacman -S fzf fd git gdb lldb make zoxide
 On Debian-based systems:
 
 ```bash
-sudo apt install git gdb lldb make
+sudo pacman -Syu git gdb lldb make
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone --depth 1 https://github.com/junegunn/fzf.git && ./install
 cargo install fd-find
