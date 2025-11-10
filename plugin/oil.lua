@@ -13,5 +13,6 @@ require('oil').setup({
     },
     float = {
         padding = 0,
-    }
+    },
+    watch_for_changes = true,
 })
