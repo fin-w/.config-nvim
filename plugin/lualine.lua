@@ -43,7 +43,20 @@ require('lualine').setup {
             },
             'filetype',
         },
-        lualine_y = { 'progress' },
+        lualine_y = {
+            {
+                'searchcount',
+                fmt = function(search_count_string)
+                    local search_count = vim.fn.searchcount()
+                    if search_count.current ~= 0 then
+                        return search_count.current .. '/' .. search_count.total
+                    else
+                        return ''
+                    end
+                end,
+            },
+            'progress'
+        },
         lualine_z = { 'location' },
     },
     inactive_sections = {
