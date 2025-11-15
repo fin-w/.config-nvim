@@ -4,13 +4,14 @@
       "rev": "3732756"
     },
     "blink.cmp": {
+      "rev": "b19413d",
       "version": "1.0.0 - 2.0.0"
     },
     "boole.nvim": [],
     "cellular-automaton.nvim": [],
     "friendly-snippets": [],
     "fzf-lua": {
-      "rev": "a8458b7"
+      "rev": "8337813"
     },
     "gitsigns.nvim": {
       "rev": "20ad441"
@@ -20,25 +21,25 @@
       "rev": "1d4fcf2"
     },
     "mini.clue": {
-      "rev": "98716f2"
+      "rev": "015320e"
     },
     "nvim-autopairs": [],
     "nvim-dap": {
-      "rev": "e97dc47"
+      "rev": "b38f7d3"
     },
     "nvim-dap-view": {
-      "rev": "170560c"
+      "rev": "4b0adae"
     },
     "nvim-dap-virtual-text": [],
     "nvim-lspconfig": {
-      "rev": "2010fc6"
+      "rev": "c6f05c0"
     },
     "nvim-treesitter": {
-      "rev": "d97d226c",
+      "rev": "0cfa5994",
       "version": "'main'"
     },
     "nvim-treesitter-context": {
-      "rev": "ec308c7"
+      "rev": "660861b"
     },
     "nvim-web-devicons": {
       "rev": "8dcb311"
@@ -53,8 +54,12 @@
     "rainbow-delimiters.nvim": {
       "rev": "8aafe2c"
     },
+    "render-markdown.nvim": {
+      "rev": "13bfaaa",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "todo-comments.nvim": {
-      "rev": "411503d"
+      "rev": "31e3c38"
     },
     "toggleterm.nvim": [],
     "vague.nvim": {
