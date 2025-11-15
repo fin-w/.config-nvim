@@ -26,7 +26,9 @@ vim.opt.smartcase = true
 -- set a border around all non-fullscreen windows
 vim.opt.winborder = 'rounded'
 -- highlight cursor line
-vim.opt.cursorline = true
+vim.opt.cursorline = false
+vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter' }, { callback = function() vim.opt_local.cursorline = true end })
+vim.api.nvim_create_autocmd({ 'BufLeave', 'WinLeave' }, { callback = function() vim.opt_local.cursorline = false end })
 -- enable line numbering
 vim.opt.number = true
 -- current line has line number, others have number relative to cursor
