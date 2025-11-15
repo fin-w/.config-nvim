@@ -40,7 +40,7 @@ vim.opt.guicursor = {
 vim.opt.list = true
 -- customise visual representation of characters that usually are invisible
 vim.opt.listchars = {
-    eol = '↵',
+    -- eol = '↵',
     trail = '→',
     nbsp = '‿',
     leadmultispace = '▏   ',
