@@ -39,7 +39,15 @@ vim.opt.guicursor = {
 -- enable invisible characters
 vim.opt.list = true
 -- customise visual representation of characters that usually are invisible
-vim.opt.listchars = [[eol:↵,trail:→,nbsp:‿,leadmultispace:▏   ,extends:▶,precedes:◀]]
+vim.opt.listchars = {
+    eol = '↵',
+    trail = '→',
+    nbsp = '‿',
+    leadmultispace = '▏   ',
+    extends = '▶',
+    precedes = '◀',
+    tab = '┠╌┨',
+}
 
 -- Remove the wide fold column on each diff view, wrap text in diff mode too
 vim.opt.diffopt:append({
