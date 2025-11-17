@@ -11,6 +11,10 @@ vim.pack.add({
         src = 'https://github.com/Saghen/blink.cmp',
         version = vim.version.range('1.*'),
     },
+    { -- Task runner.
+        src = 'https://github.com/stevearc/overseer.nvim',
+        version = 'v1.6.0',
+    },
     'https://github.com/nvim-tree/nvim-web-devicons',               -- Required by lualine, fzf-lua, blink-cmp.
     'https://github.com/nvim-lualine/lualine.nvim',                 -- Pretty status line.
     'https://github.com/windwp/nvim-autopairs',                     -- Convenient bracket pair handling.
@@ -29,7 +33,6 @@ vim.pack.add({
     'https://github.com/igorlfs/nvim-dap-view',                     -- View the debugging session data from nvim-dap in a window.
     'https://github.com/theHamsta/nvim-dap-virtual-text',           -- Virtual text showing contents of variables when using nvim-dap.
     'https://github.com/akinsho/toggleterm.nvim',                   -- Pop-up terminals.
-    'https://github.com/stevearc/overseer.nvim',                    -- Task runner.
     'https://github.com/stevearc/oil.nvim',                         -- File manager.
     'https://github.com/stevearc/quicker.nvim',                     -- Smarter quickfix list.
     'https://github.com/nvim-mini/mini.clue',                       -- Remind me of my keymaps.
