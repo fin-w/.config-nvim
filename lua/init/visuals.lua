@@ -79,3 +79,7 @@ for _, diag in ipairs({ 'Error', 'Warn', 'Info', 'Hint' }) do
         numhl = 'DiagnosticSign' .. diag,
     })
 end
+
+
+-- TUI
+require('vim._extui').enable({})
