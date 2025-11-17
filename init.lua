@@ -16,6 +16,7 @@ vim.pack.add({
         version = 'v1.6.0',
     },
     'https://github.com/nvim-tree/nvim-web-devicons',               -- Required by lualine, fzf-lua, blink-cmp.
+    'https://github.com/xzbdmw/colorful-menu.nvim',                 -- Improve the colours in blink-cmp completion menu.
     'https://github.com/nvim-lualine/lualine.nvim',                 -- Pretty status line.
     'https://github.com/windwp/nvim-autopairs',                     -- Convenient bracket pair handling.
     'https://github.com/fin-w/midnight.nvim',                       -- Colour scheme.

@@ -24,6 +24,16 @@ require('blink.cmp').setup({
                 padding = 0,
                 treesitter = { 'lsp' },
                 align_to = 'label',
+                components = {
+                    label = {
+                        text = function(ctx)
+                            return require('colorful-menu').blink_components_text(ctx)
+                            end,
+                        highlight = function(ctx)
+                            return require('colorful-menu').blink_components_highlight(ctx)
+                            end,
+                    },
+                },
             },
             max_height = 15,
             scrolloff = 8,

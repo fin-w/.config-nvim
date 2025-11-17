@@ -17,6 +17,10 @@
       "rev": "1606e9d5d04ff254023c3f3c62842d065708d6d3",
       "src": "https://github.com/Eandrju/cellular-automaton.nvim"
     },
+    "colorful-menu.nvim": {
+      "rev": "932d589a55816063051ad9e599516a6e70a1c63f",
+      "src": "https://github.com/xzbdmw/colorful-menu.nvim"
+    },
     "friendly-snippets": {
       "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
       "src": "https://github.com/rafamadriz/friendly-snippets"
