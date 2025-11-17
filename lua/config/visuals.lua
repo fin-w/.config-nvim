@@ -48,7 +48,8 @@ vim.opt.listchars = {
     leadmultispace = '▏   ',
     extends = '▶',
     precedes = '◀',
-    tab = '┠╌┨',
+    -- tab = '┠╌┨',
+    tab = '» ',
 }
 
 -- Remove the wide fold column on each diff view, wrap text in diff mode too
