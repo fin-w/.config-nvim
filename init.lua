@@ -1,4 +1,9 @@
 require('init.restore')
+require('init.indents')
+require('init.misc')
+require('init.visuals')
+require('init.keymaps')
+require('init.lsp')
 
 vim.pack.add({
     { -- Better syntax highlighting.
@@ -40,9 +45,3 @@ vim.pack.add({
     'https://github.com/andymass/vim-matchup',                      -- Jump between related treesitter elements with %
     'https://github.com/Eandrju/cellular-automaton.nvim',           -- Easter egg :) use <Leader>rain to activate.
 })
-
-require('init.indents')
-require('init.misc')
-require('init.visuals')
-require('init.keymaps')
-require('init.lsp')
