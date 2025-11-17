@@ -96,7 +96,7 @@
       "src": "https://github.com/hiphish/rainbow-delimiters.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "e6a5cf4",
+      "rev": "e6a5cf4edb228ebdab835252f1de19381ed41aa6",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "todo-comments.nvim": {
