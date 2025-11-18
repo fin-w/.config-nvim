@@ -1,4 +1,16 @@
+-- Show these in the statusline.
+
+local function search_count_hides_when_no_matches()
+    local search_count = vim.fn.searchcount()
+    if search_count.current ~= 0 then
+        return search_count.current .. '/' .. search_count.total
+    else
+        return ''
+    end
+end
+
 -- Set up pretty status bar
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -44,17 +56,7 @@ require('lualine').setup {
             'filetype',
         },
         lualine_y = {
-            {
-                'searchcount',
-                fmt = function(search_count_string)
-                    local search_count = vim.fn.searchcount()
-                    if search_count.current ~= 0 then
-                        return search_count.current .. '/' .. search_count.total
-                    else
-                        return ''
-                    end
-                end,
-            },
+            { search_count_hides_when_no_matches },
             'progress'
         },
         lualine_z = { 'location' },
