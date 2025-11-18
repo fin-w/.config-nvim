@@ -1,5 +1,14 @@
 -- Show these in the statusline.
 
+local function current_macro_being_recorded()
+    local register_name = vim.fn.reg_recording()
+    if register_name ~= '' then
+        return 'Recording macro (' .. register_name .. ')'
+    else
+        return ''
+    end
+end
+
 local function search_count_hides_when_no_matches()
     local search_count = vim.fn.searchcount()
     if search_count.current ~= 0 then
@@ -53,6 +62,7 @@ require('lualine').setup {
                     done = '',
                 },
             },
+            { current_macro_being_recorded },
             'filetype',
         },
         lualine_y = {
