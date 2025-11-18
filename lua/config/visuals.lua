@@ -82,5 +82,17 @@ for _, diag in ipairs({ 'Error', 'Warn', 'Info', 'Hint' }) do
 end
 
 
+-- MACRO INDICATOR
+
+vim.api.nvim_create_autocmd('RecordingLeave', {
+    callback = function()
+        vim.schedule(function()
+            local last_register_recorded_to = vim.fn.reg_recorded()
+            vim.notify('Recorded macro (' .. last_register_recorded_to .. '):')
+            vim.notify(vim.fn.getreg(last_register_recorded_to))
+        end)
+    end
+})
+
 -- TUI
 require('vim._extui').enable({})
