@@ -51,7 +51,8 @@ require('lualine').setup {
         lualine_c = { {
             'filename',
             path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
-            symbols = { modified = '*', readonly = '[R]' },
+            -- Modified is Material filled floppy disk, readonly is Material filled padlock.
+            symbols = { modified = '\u{f0193}', readonly = '\u{f033e}' },
         } },
         lualine_x = {
             { 'lsp_status',
