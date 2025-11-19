@@ -30,7 +30,7 @@ require('lualine').setup {
         always_divide_middle = true,
         globalstatus = false,
         refresh = {
-            statusline = 300,
+            statusline = 100,
             tabline = 5000,
             winbar = 5000,
         }
