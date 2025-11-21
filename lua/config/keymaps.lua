@@ -274,7 +274,27 @@ end, { desc = 'Dap: scopes' })
 -- OVERSEER
 
 local overseer = require('overseer')
+
+local function overseer_restart_last_task()
+    local task_list = require("overseer.task_list")
+    local tasks = overseer.list_tasks({
+        status = {
+            overseer.STATUS.SUCCESS,
+            overseer.STATUS.FAILURE,
+            overseer.STATUS.CANCELED,
+        },
+        sort = task_list.sort_finished_recently
+    })
+    if vim.tbl_isempty(tasks) then
+        vim.notify("No tasks found", vim.log.levels.WARN)
+    else
+        local most_recent = tasks[1]
+        overseer.run_action(most_recent, "restart")
+    end
+end
+
 vim.keymap.set('n', '<Leader>bb', overseer.run_template, { desc = 'Overseer: run template' })
+vim.keymap.set('n', '<Leader>bB', overseer_restart_last_task, { desc = 'Overseer: run template' })
 vim.keymap.set('n', '<Leader>bl', overseer.load_task_bundle, { desc = 'Overseer: load task bundle' })
 vim.keymap.set('n', '<Leader>br', overseer.toggle, { desc = 'Overseer: toggle window' })
 
