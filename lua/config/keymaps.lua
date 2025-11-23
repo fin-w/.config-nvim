@@ -13,8 +13,10 @@ vim.keymap.set('v', '<A-k>', ":'<,'>m'<-2<Enter> gv=gv", { noremap = true, silen
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 
--- Select everything in the buffer.
+-- Select, yank or delete everything in the buffer.
+vim.keymap.set('n', 'vaa', 'ggVG')
 vim.keymap.set('n', 'yaa', 'mzggVGy<Esc>`z')
+vim.keymap.set('n', 'daa', 'ggdG')
 
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')
