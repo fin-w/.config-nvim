@@ -157,6 +157,7 @@ vim.keymap.set('n', '<Leader>gb', function() fzf.git_branches({ cwd = vim.fn.exp
 vim.keymap.set('n', '<Leader>gcc', function() fzf.git_commits({ cwd = vim.fn.expand('%:p:h') }) end, {
     desc = 'Fzf-lua: git commits (in submodule or repository)'
 })
+vim.keymap.set('n', '<Leader>gh', fzf.git_bcommits, { desc = 'Fzf-lua: Git commits touching current buffer' })
 
 vim.keymap.set('n', '<Leader>rfb', fzf.dap_breakpoints, { desc = 'Fzf-lua: DAP breakpoints' })
 vim.keymap.set('n', '<Leader>rfv', fzf.dap_variables, { desc = 'Fzf-lua: DAP session variables' })
