@@ -3,19 +3,25 @@ require('render-markdown').setup({
         enabled = false,
     },
     heading = {
+        icons = { ' \u{f03a4} ', ' \u{f03a7} ', ' \u{f03aa} ', ' \u{f03ad} ', ' \u{f03b1} ', ' \u{f03b3} ' },
         position = 'inline',
         width = 'block',
         border = true,
-        left_margin = 0.5,
-        left_pad = 0.2,
-        right_pad = 0.2,
+        backgrounds = {
+            'Visual',
+        },
     },
     code = {
         position = 'right',
         width = 'block',
-        border = 'thick',
-        left_pad = 2,
-        min_width = 40,
-        right_pad = 2,
+    },
+    checkbox = {
+        -- "Checkbox", Nerdfonts Seti UI + Custom
+        checked = { icon = '\u{e63f}' },
+        -- "Checkbox Unchecked", Nerdfonts Seti UI + Custom
+        unchecked = { icon = '\u{e640}' },
+    },
+    completions = {
+        lsp = { enabled = true }
     },
 })
