@@ -34,13 +34,15 @@ local function get_git_project_root_and_superproject()
             or git_superproject_output.stdout == nil
             or git_superproject_output.stdout == '' then
             -- Is a Git repo, not a submodule.
+            -- sub() to get rid of the trailing newline.
             return vim.fs.basename(git_project_or_submodule_output.stdout:sub(0, -2))
         elseif git_superproject_output.code == 0
             and git_superproject_output.stdout ~= nil
             and git_superproject_output.stdout ~= '' then
             -- Is a Git repo, and a submodule.
-            -- Material Design Icons, Arrow Right Bottom
+            -- sub() to get rid of the trailing newline.
             return vim.fs.basename(git_superproject_output.stdout:sub(0, -2))
+                -- Material Design Icons, Arrow Right Bottom
                 .. ' \u{f17a9} '
                 .. vim.fs.basename(git_project_or_submodule_output.stdout:sub(0, -2))
         end
