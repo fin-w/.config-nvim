@@ -18,6 +18,38 @@ local function search_count_hides_when_no_matches()
     end
 end
 
+local function get_git_project_root_and_superproject()
+    local git_project_or_submodule_output = vim.system(
+        { 'git', 'rev-parse', '--show-toplevel' },
+        { cwd = vim.fn.expand('%:p:h'), text = true }
+    ):wait()
+    if git_project_or_submodule_output.code == 0
+        and git_project_or_submodule_output.stdout ~= nil then
+        -- Is a Git repo but may not be a submodule.
+        local git_superproject_output = vim.system(
+            { 'git', 'rev-parse', '--show-superproject-working-tree' },
+            { cwd = vim.fn.expand('%:p:h'), text = true }
+        ):wait()
+        if git_superproject_output.code ~= 0
+            or git_superproject_output.stdout == nil
+            or git_superproject_output.stdout == '' then
+            -- Is a Git repo, not a submodule.
+            return vim.fs.basename(git_project_or_submodule_output.stdout:sub(0, -2))
+        elseif git_superproject_output.code == 0
+            and git_superproject_output.stdout ~= nil
+            and git_superproject_output.stdout ~= '' then
+            -- Is a Git repo, and a submodule.
+            -- Material Design Icons, Arrow Right Bottom Bold
+            return vim.fs.basename(git_superproject_output.stdout:sub(0, -2))
+                .. ' \u{f17aa} '
+                .. vim.fs.basename(git_project_or_submodule_output.stdout:sub(0, -2))
+        end
+    end
+    -- Not a Git repo.
+    return ''
+end
+
+
 -- Set up pretty status bar
 
 require('lualine').setup {
@@ -30,7 +62,7 @@ require('lualine').setup {
         always_divide_middle = true,
         globalstatus = false,
         refresh = {
-            statusline = 100,
+            statusline = 2000,
             tabline = 5000,
             winbar = 5000,
         }
@@ -38,7 +70,17 @@ require('lualine').setup {
     sections = {
         lualine_a = { 'mode' },
         lualine_b = {
-            'branch',
+            -- Material Design Icons, Git
+            { get_git_project_root_and_superproject, icon = '\u{f02a2}' },
+            -- Devicons, Git Branch
+            { 'branch',                              icon = '\u{e725}' },
+            {
+                'filename',
+                path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
+                -- Modified is Material filled floppy disk, readonly is Material filled padlock.
+                symbols = { modified = '\u{f0193}', readonly = '\u{f033e}' },
+            } },
+        lualine_c = {
             'diff',
             { 'diagnostics', symbols = { error = 'E', warn = 'W', info = 'i', hint = 'h' } },
             { 'overseer', symbols = {
@@ -48,12 +90,6 @@ require('lualine').setup {
                 [require('overseer').STATUS.RUNNING] = 'r',
             } },
         },
-        lualine_c = { {
-            'filename',
-            path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
-            -- Modified is Material filled floppy disk, readonly is Material filled padlock.
-            symbols = { modified = '\u{f0193}', readonly = '\u{f033e}' },
-        } },
         lualine_x = {
             { 'lsp_status',
                 icon = '',
