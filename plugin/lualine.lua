@@ -39,9 +39,9 @@ local function get_git_project_root_and_superproject()
             and git_superproject_output.stdout ~= nil
             and git_superproject_output.stdout ~= '' then
             -- Is a Git repo, and a submodule.
-            -- Material Design Icons, Arrow Right Bottom Bold
+            -- Material Design Icons, Arrow Right Bottom
             return vim.fs.basename(git_superproject_output.stdout:sub(0, -2))
-                .. ' \u{f17aa} '
+                .. ' \u{f17a9} '
                 .. vim.fs.basename(git_project_or_submodule_output.stdout:sub(0, -2))
         end
     end
