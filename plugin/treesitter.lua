@@ -43,3 +43,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
         end
     end,
 })
+
+-- Blink shows docs in a popup window. Process it as markdown
+-- so the render-markdown plugin operates on the popup.
+vim.treesitter.language.register('markdown', { 'blink-cmp-documentation', 'blink-cmp-signature' })
