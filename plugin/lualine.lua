@@ -109,7 +109,7 @@ require('lualine').setup {
         lualine_z = { 'location' },
     },
     inactive_sections = {
-        lualine_a = { { 'filename', symbols = { modified = '*', readonly = '[R]' } } },
+        lualine_a = { { 'filename', symbols = { modified = '\u{f0193}', readonly = '\u{f033e}' } } },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
