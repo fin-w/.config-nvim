@@ -44,6 +44,8 @@ Then add the below to your `~./gitconfig` file. The colours come from `midnight.
     line-numbers-left-format = "{nm:>1}  "
     line-numbers-right-format = "{np:>1} ▏"
     line-numbers-right-style = "#364e69"
+    line-numbers-plus-style = "#42be65"
+    line-numbers-minus-style = "#fa4d56"
     line-numbers-zero-style = "#364e69"
 ```
 
