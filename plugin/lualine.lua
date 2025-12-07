@@ -51,6 +51,21 @@ local function get_git_project_root_and_superproject()
     return ''
 end
 
+local function filepath_from_git_submodule_or_repo(filepath)
+    local cwd = vim.fs.dirname(filepath)
+    local git_project_or_submodule_output = vim.system(
+        { 'git', 'rev-parse', '--show-toplevel' },
+        { cwd = cwd, text = true }
+    ):wait()
+    if git_project_or_submodule_output.code == 0
+        and git_project_or_submodule_output.stdout ~= nil then
+        -- Is a Git repo or submodule, return filepath from parent Git repo or submodule.
+        return vim.fs.relpath(git_project_or_submodule_output.stdout:sub(0, -2), filepath)
+    else
+        -- Not a Git repo or submodule, so return the relative filepath from Neovim PWD.
+        return vim.fs.relpath(vim.fn.getcwd(), filepath)
+    end
+end
 
 -- Set up pretty status bar
 
@@ -78,9 +93,10 @@ require('lualine').setup {
             { 'branch',                              icon = '\u{e725}' },
             {
                 'filename',
-                path = 1, -- 0: filename only; 1: relative path; 2: absolute path, etc
+                path = 2, -- 0: filename only; 1: relative path; 2: absolute path, etc
                 -- Modified is Material filled floppy disk, readonly is Material filled padlock.
                 symbols = { modified = '\u{f0193}', readonly = '\u{f033e}' },
+                fmt = filepath_from_git_submodule_or_repo,
             } },
         lualine_c = {
             'diff',
