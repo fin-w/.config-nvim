@@ -20,8 +20,8 @@ require('fzf-lua').setup({
     },
     fzf_colors = {
         true,
-        ['hl'] = { 'fg', 'IncSearch' },
-        ['hl+'] = { 'fg', 'IncSearch' },
+        ['hl'] = 'bright-white',
+        ['hl+'] = 'bright-white',
         ['separator'] = { 'fg', 'FloatBorder' },
         ['scrollbar'] = '#364e69',                    -- midnight palette.blue_whale
         ['preview-border'] = { 'fg', 'FloatBorder' }, -- Git uses this between fzf and previews
