@@ -296,9 +296,8 @@ local function overseer_restart_last_task()
     end
 end
 
-vim.keymap.set('n', '<Leader>bb', overseer.run_template, { desc = 'Overseer: run template' })
-vim.keymap.set('n', '<Leader>bB', overseer_restart_last_task, { desc = 'Overseer: run template' })
-vim.keymap.set('n', '<Leader>bl', overseer.load_task_bundle, { desc = 'Overseer: load task bundle' })
+vim.keymap.set('n', '<Leader>bb', overseer.run_task, { desc = 'Overseer: run task' })
+vim.keymap.set('n', '<Leader>bB', overseer_restart_last_task, { desc = 'Overseer: restart last task' })
 vim.keymap.set('n', '<Leader>br', overseer.toggle, { desc = 'Overseer: toggle window' })
 
 
