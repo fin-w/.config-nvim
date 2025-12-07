@@ -38,7 +38,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "midnight.nvim": {
-      "rev": "aed9622b71e2c108f6152d8f981dd19877d5cb2c",
+      "rev": "266eb7ad0f284a4062bb1985063987a28a6074f2",
       "src": "https://github.com/fin-w/midnight.nvim"
     },
     "mini.clue": {
