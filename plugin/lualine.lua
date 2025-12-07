@@ -53,6 +53,7 @@ end
 
 local function filepath_from_git_submodule_or_repo(filepath)
     local cwd = vim.fs.dirname(filepath)
+    if cwd == nil then return filepath end
     local git_project_or_submodule_output = vim.system(
         { 'git', 'rev-parse', '--show-toplevel' },
         { cwd = cwd, text = true }
@@ -63,7 +64,9 @@ local function filepath_from_git_submodule_or_repo(filepath)
         return vim.fs.relpath(git_project_or_submodule_output.stdout:sub(0, -2), filepath)
     else
         -- Not a Git repo or submodule, so return the relative filepath from Neovim PWD.
-        return vim.fs.relpath(vim.fn.getcwd(), filepath)
+        local relative_to_neovim_pwd = vim.fs.relpath(vim.fn.getcwd(), filepath)
+        if relative_to_neovim_pwd == nil then return filepath end
+        return relative_to_neovim_pwd
     end
 end
 
