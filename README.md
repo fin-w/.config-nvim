@@ -8,13 +8,13 @@ should be installed.
 On Arch install with:
 
 ```bash
-sudo pacman -S fzf fd git gdb lldb make zoxide
+sudo pacman -S fzf fd git gdb lldb make zoxide git-delta
 ```
 
 On Debian-based systems:
 
 ```bash
-sudo pacman -Syu git gdb lldb make
+sudo apt install git gdb lldb make git-delta
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone --depth 1 https://github.com/junegunn/fzf.git && ./install
 cargo install fd-find
@@ -23,6 +23,30 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 
 Set up is required for `zoxide` and `fzf` which may or may not be automatic, for
 example `zoxide init fish | source` in `~/.config/fish/config.fish`
+
+Git needs to be configured to use `delta` for diffs, which can be done with the following:
+
+```bash
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global merge.conflictStyle zdiff3
+```
+
+Then add the below to your `~./gitconfig` file. The colours come from midnight.nvim:
+
+```gitconfig
+[delta]
+    navigate = true
+    file-style = "#7f67bf" bold
+    file-decoration-style = "#443175" underline
+    hunk-header-style = omit
+    line-numbers = true
+    line-numbers-left-format = "{nm:>1}  "
+    line-numbers-right-format = "{np:>1} ▏"
+    line-numbers-right-style = "#364e69"
+    line-numbers-zero-style = "#364e69"
+```
+
 
 ## Language servers
 
