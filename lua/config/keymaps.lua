@@ -303,7 +303,12 @@ vim.keymap.set('n', '<Leader>br', overseer.toggle, { desc = 'Overseer: toggle wi
 
 -- QUICKER
 
-vim.keymap.set('n', '<Leader>q', require('quicker').toggle, { desc = 'Quicker: toggle quickfix', })
+vim.keymap.set('n', '<Leader>q', require('quicker').toggle, { desc = 'Quicker: toggle quickfix' })
+
+
+-- PLUGINS
+
+vim.keymap.set('n', '<Leader>uu', vim.pack.update, { desc = 'Update Neovim plugins' })
 
 
 -- EASTER EGG
