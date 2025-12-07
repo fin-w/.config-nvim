@@ -32,7 +32,7 @@ git config --global interactive.diffFilter 'delta --color-only'
 git config --global merge.conflictStyle zdiff3
 ```
 
-Then add the below to your `~./gitconfig` file. The colours come from midnight.nvim:
+Then add the below to your `~./gitconfig` file. The colours come from `midnight.nvim`:
 
 ```gitconfig
 [delta]
