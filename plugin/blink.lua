@@ -28,17 +28,21 @@ require('blink.cmp').setup({
                     label = {
                         text = function(ctx)
                             return require('colorful-menu').blink_components_text(ctx)
-                            end,
+                        end,
                         highlight = function(ctx)
                             return require('colorful-menu').blink_components_highlight(ctx)
-                            end,
+                        end,
                     },
                 },
             },
             max_height = 15,
             scrolloff = 8,
         },
-        documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        documentation = {
+            auto_show = true,
+            auto_show_delay_ms = 500,
+            update_delay_ms = 100,
+        },
         ghost_text = { enabled = false, show_without_selection = true },
         accept = { resolve_timeout_ms = 250 },
     },
