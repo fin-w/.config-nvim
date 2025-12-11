@@ -91,6 +91,10 @@ require('fzf-lua').setup({
                 },
             }
         },
+        diff = {
+            header = false,
+            winopts = { preview = { layout = 'horizontal', horizontal = 'right:80%' } },
+        },
     },
     grep = { header = false, formatter = 'path.filename_first' },
     lsp = { header = false, formatter = 'path.filename_first' },
