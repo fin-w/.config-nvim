@@ -80,6 +80,16 @@ require('fzf-lua').setup({
         commits = {
             header = false,
             winopts = { preview = { layout = 'vertical', vertical = 'down:75%' } },
+            actions = {
+                ['alt-v'] = {
+                    fn = function(selected, opts)
+                        -- Copy the commit hash of the selected entry into a register,
+                        -- then open the diff of the commit vs the parent commit
+                        require('fzf-lua').actions.git_yank_commit(selected, opts)
+                        require('fzf-lua').git_diff({ ref = vim.fn.getreg('*') .. '~' })
+                    end
+                },
+            }
         },
     },
     grep = { header = false, formatter = 'path.filename_first' },
