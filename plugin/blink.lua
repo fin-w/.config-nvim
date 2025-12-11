@@ -39,8 +39,8 @@ require('blink.cmp').setup({
             scrolloff = 8,
         },
         documentation = {
-            auto_show = true,
-            auto_show_delay_ms = 500,
+            auto_show = false,
+            -- auto_show_delay_ms = 500,
             update_delay_ms = 100,
         },
         ghost_text = { enabled = false, show_without_selection = true },
