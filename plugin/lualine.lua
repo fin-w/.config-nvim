@@ -51,7 +51,13 @@ local function get_git_project_root_and_superproject()
     return ''
 end
 
+local filetypes_to_use_verbatim = {
+    'fugitive',
+    'toggleterm',
+    'gitcommit',
+}
 local function filepath_from_git_submodule_or_repo(filepath)
+    if vim.tbl_contains(filetypes_to_use_verbatim, vim.bo.filetype) then return filepath end
     local cwd = vim.fs.dirname(filepath)
     if cwd == nil then return filepath end
     local git_project_or_submodule_output = vim.system(
