@@ -30,8 +30,8 @@ require('fzf-lua').setup({
         fzf = {
             ['tab'] = 'down',
             ['shift-tab'] = 'up',
-            ['ctrl-u'] = 'page-up',
-            ['ctrl-d'] = 'page-down',
+            ['ctrl-u'] = 'half-page-up',
+            ['ctrl-d'] = 'half-page-down',
         },
     },
     fzf_opts = {
