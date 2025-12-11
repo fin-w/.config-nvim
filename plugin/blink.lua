@@ -39,9 +39,17 @@ require('blink.cmp').setup({
             scrolloff = 8,
         },
         documentation = {
+            treesitter_highlighting = true,
             auto_show = false,
             -- auto_show_delay_ms = 500,
             update_delay_ms = 100,
+            draw = function(opts)
+                opts.default_implementation()
+                vim.schedule(function()
+                    local bufnr = opts.window:get_buf()
+                    vim.bo[bufnr].filetype = 'markdown'
+                end)
+            end,
         },
         ghost_text = { enabled = false, show_without_selection = true },
         accept = { resolve_timeout_ms = 250 },
