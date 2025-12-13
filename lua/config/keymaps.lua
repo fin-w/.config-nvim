@@ -300,6 +300,14 @@ vim.keymap.set('n', '<Leader>bb', overseer.run_task, { desc = 'Overseer: run tas
 vim.keymap.set('n', '<Leader>bB', overseer_restart_last_task, { desc = 'Overseer: restart last task' })
 vim.keymap.set('n', '<Leader>br', overseer.toggle, { desc = 'Overseer: toggle window' })
 
+-- Use Tab to scroll entries in the list, since they're 3 lines tall.
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'OverseerList',
+    callback = function()
+        vim.keymap.set('n', '<Tab>', '3j', { buffer = true })
+        vim.keymap.set('n', '<S-Tab>', '3k', { buffer = true })
+    end,
+})
 
 -- QUICKER
 
