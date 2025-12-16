@@ -81,14 +81,19 @@ require('fzf-lua').setup({
             header = false,
             winopts = { preview = { layout = 'vertical', vertical = 'down:75%' } },
             actions = {
-                ['alt-v'] = {
+                ['enter'] = {
                     fn = function(selected, opts)
-                        -- Copy the commit hash of the selected entry into a register,
-                        -- then open the diff of the commit vs the parent commit
-                        require('fzf-lua').actions.git_yank_commit(selected, opts)
-                        require('fzf-lua').git_diff({ ref = vim.fn.getreg('*') .. '~' })
+                        assert(type(selected) == "table"
+                            and type(selected[1]) == "string")
+                        -- Get the commit hash from the selected picker entry.
+                        local git_commit_to_show = assert(selected[1]:match("^[%s]*([^%s]+)"))
+                        require('fzf-lua').git_diff({
+                            ref = git_commit_to_show,
+                            cwd = opts.cwd,
+                        })
                     end
                 },
+                ['ctrl-o'] = require('fzf-lua.actions').git_checkout,
             }
         },
         diff = {
