@@ -61,12 +61,15 @@ require('fzf-lua').setup({
         },
     },
     files = {
-        header = false,
+        header    = false,
         formatter = 'path.filename_first',
-        fzf_opts = {
+        fzf_opts  = {
             -- By saving fzf history to a file, <c-n> and <c-p> move through search history.
             ['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-nvim-file-history',
         },
+        -- Default command line options:
+        -- fd_opts   = [[--color=never --hidden --type f --type l --exclude .git]],
+        fd_opts   = [[--color=never --hidden --type f --type l --exclude .git --exclude po]],
     },
     git = {
         branches = {
