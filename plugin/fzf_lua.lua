@@ -1,5 +1,6 @@
 require('fzf-lua').setup({
     { 'hide' },
+    ui_select = true,
     winopts = {
         height = 1,
         width = 1,
@@ -107,5 +108,3 @@ require('fzf-lua').setup({
     grep = { header = false, formatter = 'path.filename_first' },
     lsp = { header = false, formatter = 'path.filename_first' },
 })
-
-require('fzf-lua').register_ui_select()
