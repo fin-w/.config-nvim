@@ -105,6 +105,13 @@ require('fzf-lua').setup({
             winopts = { preview = { layout = 'horizontal', horizontal = 'right:80%' } },
         },
     },
-    grep = { header = false, formatter = 'path.filename_first' },
+    grep = {
+        header    = false,
+        formatter = 'path.filename_first',
+        -- Default command line options:
+        -- rg_opts   = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+        rg_opts   =
+        "--column --line-number --no-heading --color=always --smart-case --iglob=!po/ --max-columns=4096 -e",
+    },
     lsp = { header = false, formatter = 'path.filename_first' },
 })
