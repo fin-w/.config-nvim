@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
     group = vim.api.nvim_create_augroup('nvim-treesitter-pack-changed-update-handler', { clear = true }),
     callback = function(event)
         if event.data.kind == 'update' then
-            vim.notify('nvim-treesitter: updated plugin, updating parsers...', vim.log.levels.INFO)
+            vim.notify('nvim-treesitter: updated plugin, updating parsers…', vim.log.levels.INFO)
             require('nvim-treesitter').update()
         end
     end,
