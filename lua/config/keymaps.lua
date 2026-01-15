@@ -43,7 +43,32 @@ vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', 
     desc = 'Git: find next merge conflict marker'
 })
 
-local function get_main_branch_name()
+---@param remote_name string
+---@param force? boolean
+local function git_push(remote_name, force)
+    local flags = nil
+    if force == true then
+        flags = '-f'
+    end
+    local text_pre = force and 'Force p' or 'P'
+    vim.notify(text_pre .. 'ushing to ' .. remote_name .. '…')
+    vim.system({ 'git', 'push', flags, remote_name }, { text = true }, function(obj)
+        vim.schedule(function()
+            if obj.code == 0 and obj.stdout ~= nil and obj.stdout ~= '' then
+                vim.notify(obj.stdout:gsub('[\r\n]+$', ''), vim.log.levels.INFO)
+            elseif obj.code == 0 and obj.stderr ~= nil and obj.stderr ~= '' then
+                vim.notify(obj.stderr:gsub('[\r\n]+$', ''), vim.log.levels.INFO)
+            elseif obj.stderr ~= nil and obj.stderr ~= '' then
+                vim.notify(obj.stderr:gsub('[\r\n]+$', ''), vim.log.levels.ERROR)
+            else
+                local was_forced = force and 'force ' or ''
+                vim.notify('Failed ' .. was_forced .. 'pushing to ' .. remote_name, vim.log.levels.ERROR)
+            end
+        end)
+    end)
+end
+
+local function get_main_git_branch_name()
     local handle = io.popen('git branch --list')
     if not handle then
         print('get_main_branch_name(): Could not get branches')
@@ -61,14 +86,22 @@ end
 
 -- Switch to git main / master branch
 vim.keymap.set('n', '<Leader>gsm', function()
-    local main_branch_name = get_main_branch_name()
-
-    if get_main_branch_name then
+    local main_branch_name = get_main_git_branch_name()
+    if get_main_git_branch_name then
         vim.cmd('G switch ' .. main_branch_name)
     else
         print('Could not switch branches')
     end
 end, { desc = 'Git: switch to main branch' })
+
+-- Push current branch to origin
+vim.keymap.set('n', '<Leader>gpo', function() git_push('origin') end, { desc = 'Git: push to origin' })
+-- Force push current branch to origin
+vim.keymap.set('n', '<Leader>gPo', function() git_push('origin', true) end, { desc = 'Git: force push to origin' })
+-- Push current branch to fork
+vim.keymap.set('n', '<Leader>gpf', function() git_push('fork') end, { desc = 'Git: push to fork' })
+-- Force push current branch to fork
+vim.keymap.set('n', '<Leader>gPf', function() git_push('fork', true) end, { desc = 'Git: force push to fork' })
 
 -- Add a character to the end of the line
 vim.keymap.set('n', '];', 'mzA;<Esc>`z')
@@ -177,18 +210,6 @@ vim.api.nvim_create_user_command('CallsOutgoing', fzf.lsp_outgoing_calls, {
 -- open fugitive in a new tab
 vim.keymap.set('n', '<Leader>gg', '<Cmd>tab G<Enter>', { desc = 'Fugitive: status' })
 
--- push current branch to origin
-vim.keymap.set('n', '<Leader>gpo', '<Cmd>tab G push origin<Enter>', { desc = 'Git: push to origin' })
-
--- force push current branch to origin
-vim.keymap.set('n', '<Leader>gPo', '<Cmd>tab G push -f origin<Enter>', { desc = 'Git: force push to origin' })
-
--- push current branch to my fork
-vim.keymap.set('n', '<Leader>gpf', '<Cmd>tab G push fork<Enter>', { desc = 'Git: push to fork' })
-
--- force push current branch to my fork
-vim.keymap.set('n', '<Leader>gPf', '<Cmd>tab G push -f fork<Enter>', { desc = 'Git: force push to fork' })
-
 -- open log
 vim.keymap.set('n', '<Leader>gl', '<Cmd>tab G log<Enter>', { desc = 'Fugitive: log' })
 
@@ -200,7 +221,7 @@ vim.keymap.set('n', '<Leader>gdh', '<Cmd>tab G diff HEAD^<Enter>', { desc = 'Fug
 
 -- Open current diff of fork compared to git main / master.
 vim.keymap.set('n', '<Leader>gdm', function()
-    local main_branch_name = get_main_branch_name()
+    local main_branch_name = get_main_git_branch_name()
     if main_branch_name then
         vim.cmd('tab G diff ' .. main_branch_name)
     end
@@ -208,7 +229,7 @@ end, { desc = 'Fugitive: diff with main' })
 
 -- Rebase onto git main / master.
 vim.keymap.set('n', '<Leader>gRm', function()
-    local main_branch_name = get_main_branch_name()
+    local main_branch_name = get_main_git_branch_name()
     if main_branch_name then
         vim.cmd('G rebase ' .. main_branch_name)
     end
