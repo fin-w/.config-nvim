@@ -12,5 +12,5 @@ require('dap-view').setup({
             console = { label = 'Console' },
         }
     },
-    windows = { height = 0.5 },
+    windows = { size = 0.5 },
 })
