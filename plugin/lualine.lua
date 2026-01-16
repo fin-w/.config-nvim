@@ -2,7 +2,8 @@
 
 local function network_active()
     if vim.g.network_active == true then
-        return 'Data transfer'
+        -- Material design Sync icon
+        return '\u{f04e6}'
     else
         return ''
     end
