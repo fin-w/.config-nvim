@@ -46,22 +46,40 @@ vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', 
 ---@param remote_name string
 ---@param force? boolean
 local function git_push(remote_name, force)
-    -- Immediately close Fugitive if we're pushing changes
-    if vim.bo.filetype == 'fugitive' then vim.cmd('close') end
-    local flags = nil
+    local cwd = ''
+    if vim.bo.filetype == 'fugitive' then
+        -- Immediately close Fugitive if we're pushing changes
+        vim.cmd('close')
+        -- Fugitive was open with CWD from the previously open buffer
+        -- so we close Fugitive, return to the buffer, and use its
+        -- path as CWD for git pushing.
+        cwd = vim.fn.expand('%:p:h')
+    end
+    local command = {}
     if force == true then
-        flags = '-f'
+        command = {
+            'git',
+            'push',
+            '-f',
+            remote_name
+        }
+    else
+        command = {
+            'git',
+            'push',
+            remote_name
+        }
     end
     local text_pre = force and 'Force p' or 'P'
     vim.notify(text_pre .. 'ushing to ' .. remote_name .. '…')
-    vim.system({ 'git', 'push', flags, remote_name }, { text = true }, function(obj)
+    vim.system(command, { text = true, cwd = cwd }, function(obj)
         vim.schedule(function()
             if obj.code == 0 and obj.stdout ~= nil and obj.stdout ~= '' then
-                vim.notify(obj.stdout:gsub('[\r\n]+$', ''), vim.log.levels.INFO)
+                vim.notify(obj.stdout:gsub('[\n]+$', ''), vim.log.levels.INFO)
             elseif obj.code == 0 and obj.stderr ~= nil and obj.stderr ~= '' then
-                vim.notify(obj.stderr:gsub('[\r\n]+$', ''), vim.log.levels.INFO)
+                vim.notify(obj.stderr:gsub('[\n]+$', ''), vim.log.levels.INFO)
             elseif obj.stderr ~= nil and obj.stderr ~= '' then
-                vim.notify(obj.stderr:gsub('[\r\n]+$', ''), vim.log.levels.ERROR)
+                vim.notify(obj.stderr:gsub('[\n]+$', ''), vim.log.levels.ERROR)
             else
                 local was_forced = force and 'force ' or ''
                 vim.notify('Failed ' .. was_forced .. 'pushing to ' .. remote_name, vim.log.levels.ERROR)
