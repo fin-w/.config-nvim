@@ -58,8 +58,9 @@ local filetypes_to_use_verbatim = {
 }
 local function filepath_from_git_submodule_or_repo(filepath)
     if vim.tbl_contains(filetypes_to_use_verbatim, vim.bo.filetype) then return filepath end
+    ---@type string | nil
     local cwd = vim.fs.dirname(filepath)
-    if cwd == nil then return filepath end
+    if cwd == nil or cwd:sub(1, 7) == 'term://' then return filepath end
     local git_project_or_submodule_output = vim.system(
         { 'git', 'rev-parse', '--show-toplevel' },
         { cwd = cwd, text = true }
