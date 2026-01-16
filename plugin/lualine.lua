@@ -4,7 +4,7 @@ local function network_active()
     if vim.g.network_active == true then
         -- Font Awesome Cloud icon
         -- Material design Sync icon
-        return '\u{f0c2}\u{f04e6}'
+        return '\u{f0c2} \u{f04e6}'
     else
         return ''
     end
