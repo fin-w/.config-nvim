@@ -75,11 +75,11 @@ local function git_push(remote_name, force)
     vim.system(command, { text = true, cwd = cwd }, function(obj)
         vim.schedule(function()
             if obj.code == 0 and obj.stdout ~= nil and obj.stdout ~= '' then
-                vim.notify(obj.stdout:gsub('(\r?\n)+$', ''), vim.log.levels.INFO)
+                vim.notify(obj.stdout:gsub('[\n]+$', ''), vim.log.levels.INFO)
             elseif obj.code == 0 and obj.stderr ~= nil and obj.stderr ~= '' then
-                vim.notify(obj.stderr:gsub('(\r?\n)+$', ''), vim.log.levels.INFO)
+                vim.notify(obj.stderr:gsub('[\n]+$', ''), vim.log.levels.INFO)
             elseif obj.stderr ~= nil and obj.stderr ~= '' then
-                vim.notify(obj.stderr:gsub('(\r?\n)+$', ''), vim.log.levels.ERROR)
+                vim.notify(obj.stderr:gsub('[\n]+$', ''), vim.log.levels.ERROR)
             else
                 local was_forced = force and 'force ' or ''
                 vim.notify('Failed ' .. was_forced .. 'pushing to ' .. remote_name, vim.log.levels.ERROR)
