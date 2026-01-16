@@ -46,6 +46,7 @@ vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', 
 ---@param remote_name string
 ---@param force? boolean
 local function git_push(remote_name, force)
+    vim.g.network_active = true
     local cwd = ''
     if vim.bo.filetype == 'fugitive' then
         -- Immediately close Fugitive if we're pushing changes
@@ -85,6 +86,7 @@ local function git_push(remote_name, force)
                 vim.notify('Failed ' .. was_forced .. 'pushing to ' .. remote_name, vim.log.levels.ERROR)
             end
         end)
+        vim.g.network_active = false
     end)
 end
 

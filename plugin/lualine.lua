@@ -1,5 +1,13 @@
 -- Show these in the statusline.
 
+local function network_active()
+    if vim.g.network_active == true then
+        return 'Data transfer'
+    else
+        return ''
+    end
+end
+
 local function current_macro_being_recorded()
     local register_name = vim.fn.reg_recording()
     if register_name ~= '' then
@@ -119,6 +127,7 @@ require('lualine').setup {
             } },
         },
         lualine_x = {
+            { network_active },
             { 'lsp_status',
                 icon = '',
                 show_name = false,
