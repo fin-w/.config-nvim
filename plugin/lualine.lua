@@ -4,7 +4,7 @@ local function network_active()
     if vim.g.network_active == true then
         -- Font Awesome Cloud icon
         -- Font Awesome Sync icon
-        return '\u{f0c2} \u{f021}'
+        return '\u{f021}'
     else
         return ''
     end
@@ -129,16 +129,16 @@ require('lualine').setup {
             } },
         },
         lualine_x = {
-            { network_active },
             { 'lsp_status',
                 icon = '',
                 show_name = false,
                 symbols = {
-                    spinner = { '◐', '◓', '◑', '◒' },
+                    spinner = { '\u{f105b}' },
                     done = '',
                 },
             },
-            { current_macro_being_recorded },
+            network_active,
+            current_macro_being_recorded,
             'filetype',
         },
         lualine_y = {
