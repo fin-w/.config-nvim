@@ -53,7 +53,7 @@ local function git_push(remote_name, force)
     local cwd = vim.fn.expand('%:p:h')
     if not vim.uv.fs_stat(cwd) then
         vim.notify('git_push: Directory ' .. cwd .. ' does not exist', vim.log.levels.ERROR)
-        vim.notify('git_push: Open a buffer in the git repository that you want to push to ', vim.log.levels.INFO)
+        vim.notify('git_push: Open a buffer in the git repository that you want to push to', vim.log.levels.INFO)
         return
     end
 
@@ -85,6 +85,39 @@ local function git_push(remote_name, force)
             else
                 local was_forced = force and 'force ' or ''
                 vim.notify('Failed ' .. was_forced .. 'pushing to ' .. remote_name, vim.log.levels.ERROR)
+            end
+        end)
+        vim.g.network_active = false
+    end)
+end
+
+local function git_pull()
+    vim.g.network_active = true
+    -- Immediately close Fugitive if we're pulling changes
+    if vim.bo.filetype == 'fugitive' then vim.cmd('close') end
+
+    local cwd = vim.fn.expand('%:p:h')
+    if not vim.uv.fs_stat(cwd) then
+        vim.notify('git_pull: Directory ' .. cwd .. ' does not exist', vim.log.levels.ERROR)
+        vim.notify('git_pull: Open a buffer in the git repository that you want to pull from', vim.log.levels.INFO)
+        return
+    end
+
+    local command = {
+        'git',
+        'pull',
+    }
+    vim.notify('Pulling from repo…')
+    vim.system(command, { text = true, cwd = cwd }, function(obj)
+        vim.schedule(function()
+            if obj.code == 0 and obj.stdout ~= nil and obj.stdout ~= '' then
+                vim.notify(obj.stdout:gsub('[\n]+$', ''), vim.log.levels.INFO)
+            elseif obj.code == 0 and obj.stderr ~= nil and obj.stderr ~= '' then
+                vim.notify(obj.stderr:gsub('[\n]+$', ''), vim.log.levels.INFO)
+            elseif obj.stderr ~= nil and obj.stderr ~= '' then
+                vim.notify(obj.stderr:gsub('[\n]+$', ''), vim.log.levels.ERROR)
+            else
+                vim.notify('git_pull: Failed pulling', vim.log.levels.ERROR)
             end
         end)
         vim.g.network_active = false
@@ -237,7 +270,7 @@ vim.keymap.set('n', '<Leader>gg', '<Cmd>tab G<Enter>', { desc = 'Fugitive: statu
 vim.keymap.set('n', '<Leader>gl', '<Cmd>tab G log<Enter>', { desc = 'Fugitive: log' })
 
 -- git pull
-vim.keymap.set('n', '<Leader>guu', '<Cmd>G pull<Enter>', { desc = 'Git: pull' })
+vim.keymap.set('n', '<Leader>guu', git_pull, { desc = 'Git: pull' })
 
 -- open current diff of HEAD compared to git previous commit
 vim.keymap.set('n', '<Leader>gdh', '<Cmd>tab G diff HEAD^<Enter>', { desc = 'Fugitive: diff HEAD and previous commit' })
