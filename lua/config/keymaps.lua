@@ -47,15 +47,16 @@ vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', 
 ---@param force? boolean
 local function git_push(remote_name, force)
     vim.g.network_active = true
-    local cwd = ''
-    if vim.bo.filetype == 'fugitive' then
-        -- Immediately close Fugitive if we're pushing changes
-        vim.cmd('close')
-        -- Fugitive was open with CWD from the previously open buffer
-        -- so we close Fugitive, return to the buffer, and use its
-        -- path as CWD for git pushing.
-        cwd = vim.fn.expand('%:p:h')
+    -- Immediately close Fugitive if we're pushing changes
+    if vim.bo.filetype == 'fugitive' then vim.cmd('close') end
+
+    local cwd = vim.fn.expand('%:p:h')
+    if not vim.uv.fs_stat(cwd) then
+        vim.notify('git_push: Directory ' .. cwd .. ' does not exist', vim.log.levels.ERROR)
+        vim.notify('git_push: Open a buffer in the git repository that you want to push to ', vim.log.levels.INFO)
+        return
     end
+
     local command = {}
     if force == true then
         command = {
