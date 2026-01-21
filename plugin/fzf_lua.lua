@@ -29,6 +29,9 @@ require('fzf-lua').setup({
     },
     keymap = {
         fzf = {
+            -- This is not a keymap, it's an event. When the search term
+            -- is updated, the menu position returns to the first entry.
+            change = 'first',
             ['tab'] = 'down',
             ['shift-tab'] = 'up',
             ['ctrl-u'] = 'half-page-up',
