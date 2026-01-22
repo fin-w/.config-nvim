@@ -40,6 +40,7 @@ vim.lsp.enable({
     'rust_analyzer',
     'taplo',
     'ts_ls',
+    'yamlls',
 })
 
 -- Enable LSP inlay hinting
