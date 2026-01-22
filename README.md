@@ -80,4 +80,6 @@ wget 'https://github.com/redhat-developer/vscode-xml/releases/download/0.29.0/le
 sudo pacman -S python-lsp-server autopep8
 # TOML: taplo
 cargo install --features lsp --locked taplo-cli
+# YAML: yaml-language-server
+sudo pacman -S yaml-language-server
 ```

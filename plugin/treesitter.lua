@@ -18,6 +18,7 @@ local installed_treesitter_parsers = {
     'typescript',
     'vim',
     'vimdoc',
+    'yamlls',
 }
 
 require('nvim-treesitter').install(installed_treesitter_parsers)
