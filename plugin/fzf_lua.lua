@@ -100,7 +100,7 @@ require('fzf-lua').setup({
                         })
                     end
                 },
-                ['ctrl-o'] = require('fzf-lua.actions').git_checkout,
+                ['ctrl-enter'] = require('fzf-lua.actions').git_checkout,
             },
         },
         bcommits = {
@@ -119,7 +119,7 @@ require('fzf-lua').setup({
                         })
                     end
                 },
-                ['ctrl-o'] = require('fzf-lua.actions').git_checkout,
+                ['ctrl-enter'] = require('fzf-lua.actions').git_checkout,
             },
         },
         diff = {
