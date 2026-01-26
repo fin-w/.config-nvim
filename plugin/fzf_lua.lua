@@ -101,7 +101,26 @@ require('fzf-lua').setup({
                     end
                 },
                 ['ctrl-o'] = require('fzf-lua.actions').git_checkout,
-            }
+            },
+        },
+        bcommits = {
+            header = false,
+            winopts = { preview = { layout = 'vertical', vertical = 'down:75%' } },
+            actions = {
+                ['enter'] = {
+                    fn = function(selected, opts)
+                        assert(type(selected) == "table"
+                            and type(selected[1]) == "string")
+                        -- Get the commit hash from the selected picker entry.
+                        local git_commit_to_show = assert(selected[1]:match("^[%s]*([^%s]+)"))
+                        require('fzf-lua').git_diff({
+                            ref = git_commit_to_show,
+                            cwd = opts.cwd,
+                        })
+                    end
+                },
+                ['ctrl-o'] = require('fzf-lua.actions').git_checkout,
+            },
         },
         diff = {
             header = false,
