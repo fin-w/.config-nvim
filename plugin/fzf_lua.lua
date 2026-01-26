@@ -100,7 +100,6 @@ require('fzf-lua').setup({
                         })
                     end
                 },
-                ['ctrl-enter'] = require('fzf-lua.actions').git_checkout,
             },
         },
         bcommits = {
@@ -119,12 +118,14 @@ require('fzf-lua').setup({
                         })
                     end
                 },
-                ['ctrl-enter'] = require('fzf-lua.actions').git_checkout,
             },
         },
         diff = {
             header = false,
             winopts = { preview = { layout = 'horizontal', horizontal = 'right:80%' } },
+            actions = {
+                ['ctrl-o'] = function() require('fzf-lua.providers.git').commits({ resume = true }) end,
+            },
         },
     },
     grep = {
