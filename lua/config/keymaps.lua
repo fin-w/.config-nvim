@@ -207,14 +207,25 @@ end, { desc = 'Toggle diagnostic display between lines and inline text' })
 
 -- OIL
 
--- Open oil in Neovim CWD (typically the project's CWD)
+local function open_oil_dir(directory_to_open)
+    local current_buffer_cwd = vim.fn.expand('%:p:h')
+    local buffer_name_to_focus = vim.fn.expand('%:t')
+    require('oil').open_float(directory_to_open)
+    if directory_to_open == current_buffer_cwd then
+        vim.defer_fn(function()
+            vim.fn.search(buffer_name_to_focus)
+        end, 60)
+    end
+end
+
+-- Open Oil in Neovim CWD (typically the project's CWD).
 vim.keymap.set('n', '<Leader>fe', function()
-    require('oil').open_float(vim.fn.getcwd())
+    open_oil_dir(vim.fn.getcwd())
 end, { desc = 'Oil: open in Neovim CWD' })
 
--- Open oil in Neovim CWD of current buffer.
+-- Open Oil in CWD of current buffer.
 vim.keymap.set('n', '<Leader>fE', function()
-    require('oil').open_float(vim.fn.expand('%:p:h'))
+    open_oil_dir(vim.fn.expand('%:p:h'))
 end, { desc = 'Oil: open in buffer CWD' })
 
 -- Move up and down with Tab and Shift+Tab in Oil buffers
