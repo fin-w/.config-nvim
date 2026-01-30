@@ -265,8 +265,16 @@ vim.api.nvim_create_user_command('CallsOutgoing', fzf.lsp_outgoing_calls, {
 
 -- FUGITIVE
 
--- open fugitive in a new tab
-vim.keymap.set('n', '<Leader>gg', '<Cmd>tab G<Enter>', { desc = 'Fugitive: status' })
+-- Open Fugitive in a new tab.
+vim.keymap.set('n', '<Leader>gg', function()
+    vim.cmd('tab G')
+    -- Focus the region relating to unstaged changes
+    -- because that is where I tend to work.
+    vim.defer_fn(function()
+        vim.fn.search('Unstaged')
+        vim.api.nvim_feedkeys('j', 'n', false)
+    end, 10)
+end, { desc = 'Fugitive: status' })
 
 -- open log
 vim.keymap.set('n', '<Leader>gl', '<Cmd>tab G log<Enter>', { desc = 'Fugitive: log' })
