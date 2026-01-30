@@ -160,9 +160,11 @@ vim.keymap.set('n', '<Leader>gpf', function() git_push('fork') end, { desc = 'Gi
 vim.keymap.set('n', '<Leader>gPf', function() git_push('fork', true) end, { desc = 'Git: force push to fork' })
 
 -- Add a character to the end of the line
+vim.keymap.set('n', ']:', 'mzA:<Esc>`z')
 vim.keymap.set('n', '];', 'mzA;<Esc>`z')
-vim.keymap.set('n', '],', 'mzA,<Esc>`z')
 vim.keymap.set('n', '].', 'mzA.<Esc>`z')
+vim.keymap.set('n', '],', 'mzA,<Esc>`z')
+vim.keymap.set('n', ']<Backspace>', 'mz$x`z')
 
 -- Escape terminal input mode more intuitively
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
