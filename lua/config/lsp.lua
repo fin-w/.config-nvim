@@ -1,16 +1,6 @@
 -- Blink.cmp may have more capabilities than provided to the language server by default.
 vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities(nil, true) })
 
-vim.lsp.config('rust_analyzer', {
-    settings = {
-        ['rust-analyzer'] = {
-            check = {
-                command = 'clippy',
-            },
-        },
-    },
-})
-
 vim.lsp.config('lemminx', {
     settings = {
         xml = {
@@ -36,6 +26,16 @@ vim.lsp.config('lua_ls', {
             }
         }
     }
+})
+
+vim.lsp.config('rust_analyzer', {
+    settings = {
+        ['rust-analyzer'] = {
+            check = {
+                command = 'clippy',
+            },
+        },
+    },
 })
 
 vim.lsp.enable({
