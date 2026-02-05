@@ -15,7 +15,8 @@ vim.lsp.config('lemminx', {
     settings = {
         xml = {
             catalogs = {
-                '/etc/xml/catalog'
+                '/etc/xml/catalog',
+                'resources/xml/catalog.xml',
             }
         }
     }
