@@ -11,6 +11,16 @@ vim.lsp.config('rust_analyzer', {
     },
 })
 
+vim.lsp.config('lemminx', {
+    settings = {
+        xml = {
+            catalogs = {
+                '/etc/xml/catalog'
+            }
+        }
+    }
+})
+
 vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
