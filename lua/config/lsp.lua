@@ -56,9 +56,6 @@ vim.lsp.enable({
 
 -- Enable LSP inlay hinting
 vim.lsp.inlay_hint.enable(true)
--- Disable inlay hint hiding while in insert mode to test again if I really want it disabled for Rust.
--- vim.api.nvim_create_autocmd('InsertEnter', { callback = function() vim.lsp.inlay_hint.enable(false, { bufnr = 0 }) end })
--- vim.api.nvim_create_autocmd('InsertLeave', { callback = function() vim.lsp.inlay_hint.enable(true, { bufnr = 0 }) end })
 
 -- Please stop filling my hard drive
 vim.lsp.log.set_level(vim.log.levels.OFF)
