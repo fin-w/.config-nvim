@@ -65,20 +65,21 @@ vim.g.autoformat_by_lsp = true
 
 -- Formatting settings: first set up custom variable to hold whether the buffer uses autoformatting
 -- Disable formatting
-vim.api.nvim_create_user_command('FormatDisable', function(args)
-    if args.bang then
-        -- FormatDisable! will disable formatting just for this buffer
-        vim.b.autoformat_by_lsp = false
-    else
-        vim.g.autoformat_by_lsp = false
-    end
+vim.api.nvim_create_user_command('FormatDisable', function()
+    vim.g.autoformat_by_lsp = false
 end, {
     desc = 'Disable autoformat-on-save',
-    bang = true,
+})
+
+vim.api.nvim_create_user_command('FormatDisableThisBufferOnly', function()
+    vim.b.autoformat_by_lsp = false
+end, {
+    desc = 'Disable autoformat-on-save for the current buffer',
 })
 
 vim.api.nvim_create_user_command('FormatEnable', function()
     vim.g.autoformat_by_lsp = true
+    vim.b.autoformat_by_lsp = true
 end, {
     desc = 'Re-enable autoformat-on-save',
 })
