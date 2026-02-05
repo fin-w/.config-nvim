@@ -65,6 +65,7 @@ local filetypes_to_use_verbatim = {
     'fugitive',
     'toggleterm',
     'gitcommit',
+    'git',
 }
 local function filepath_from_git_submodule_or_repo(filepath)
     if vim.tbl_contains(filetypes_to_use_verbatim, vim.bo.filetype) then return filepath end
