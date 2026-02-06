@@ -104,6 +104,78 @@ local function filepath_from_git_submodule_or_repo(filepath)
     end
 end
 
+
+-- Component g:lsp_status_string.
+
+-- Used by lualine, the actual user-visible string of the lualine contents.
+vim.g.lsp_status_string = ''
+local lsp_progress = {}
+local slices = { "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥" }
+-- local slices = { '󰫃', '󰫄', '󰫅', '󰫆', '󰫇', '󰫈' }
+local slices_length = vim.tbl_count(slices)
+
+vim.api.nvim_create_autocmd("LspProgress", {
+    callback = function(ev)
+        local value = ev.data.params.value
+        local client_id = ev.data.client_id
+        local token = ev.data.params.token
+        local parts = {}
+        local client = vim.lsp.get_client_by_id(client_id)
+
+        if not client then return end
+
+        lsp_progress[client_id] = lsp_progress[client_id] or {}
+
+        if value.kind == "begin" then
+            lsp_progress[client_id][token] = {
+                name = client.name,
+                percent = value.percentage or 0,
+            }
+        elseif value.kind == "report" then
+            local progress = lsp_progress[client_id][token]
+            if progress then
+                progress.percent = value.percentage or progress.percent
+            end
+        else
+            lsp_progress[client_id][token] = nil
+            if not next(lsp_progress[client_id]) then
+                lsp_progress[client_id] = nil
+            end
+        end
+
+        for _, tokens in pairs(lsp_progress) do
+            local name
+            local max_percent = 0
+            local percentage_as_slice_codepoint = ''
+
+            for _, p in pairs(tokens) do
+                name = p.name
+                if p.percent and p.percent > max_percent then
+                    max_percent = p.percent
+                end
+            end
+
+            if not max_percent then percentage_as_slice_codepoint = slices[1] end
+
+            local idx = math.floor(max_percent / (100 / slices_length)) + 1
+            if idx < 1 then idx = 1 end
+            if idx > #slices then idx = #slices end
+            percentage_as_slice_codepoint = slices[idx]
+
+            if name then
+                table.insert(parts, string.format("%s %s", name, percentage_as_slice_codepoint))
+            end
+        end
+
+        local status = table.concat(parts, " ")
+        if status ~= vim.g.lsp_status_string then
+            vim.g.lsp_status_string = status
+            require('lualine').refresh()
+        end
+    end,
+})
+
+
 -- Set up pretty status bar
 
 require('lualine').setup {
@@ -146,14 +218,7 @@ require('lualine').setup {
             } },
         },
         lualine_x = {
-            { 'lsp_status',
-                icon = '',
-                show_name = false,
-                symbols = {
-                    spinner = { '\u{f105b}' },
-                    done = '',
-                },
-            },
+            'g:lsp_status_string',
             network_active,
             current_macro_being_recorded,
             'filetype',
