@@ -18,5 +18,6 @@ require('boole').setup({
         { 'vertical', 'horizontal' },
         { 'let',      'const',     'var' },
         { 'public',   'private' },
+        { 'import',   'export' },
     }
 })
