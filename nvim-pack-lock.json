@@ -42,8 +42,8 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "midnight.nvim": {
-      "rev": "11dc31ccc270de17aee16db7c5690ac1d030e43d",
-      "src": "https://github.com/fin-w/midnight.nvim"
+      "rev": "3e20d05d606b1d86d29aa1d15cd4c361262726c1",
+      "src": "https://codeberg.org/fin-w/midnight.nvim"
     },
     "mini.clue": {
       "rev": "d846600d4664dc793aa29859ad135b1fd25d648b",

@@ -13,7 +13,7 @@ vim.pack.add({
     'https://github.com/xzbdmw/colorful-menu.nvim',                 -- Improve the colours in blink-cmp completion menu.
     'https://github.com/nvim-lualine/lualine.nvim',                 -- Pretty status line.
     'https://github.com/windwp/nvim-autopairs',                     -- Convenient bracket pair handling.
-    'https://github.com/fin-w/midnight.nvim',                       -- Colour scheme.
+    'https://codeberg.org/fin-w/midnight.nvim',                     -- Colour scheme.
     'https://github.com/vague-theme/vague.nvim',                    -- Muted colour scheme
     'https://github.com/hiphish/rainbow-delimiters.nvim',           -- Rainbow brackets.
     'https://github.com/nat-418/boole.nvim',                        -- Cycle through various related words.
