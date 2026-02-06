@@ -5,6 +5,10 @@ vim.pack.add({
         src = 'https://github.com/Saghen/blink.cmp',
         version = vim.version.range('1.*'),
     },
+    { -- Better syntax highlighting.
+        src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+        version = 'main',
+    },
     'https://github.com/nvim-tree/nvim-web-devicons',               -- Required by lualine, fzf-lua, blink-cmp.
     'https://github.com/xzbdmw/colorful-menu.nvim',                 -- Improve the colours in blink-cmp completion menu.
     'https://github.com/nvim-lualine/lualine.nvim',                 -- Pretty status line.
@@ -15,7 +19,6 @@ vim.pack.add({
     'https://github.com/nat-418/boole.nvim',                        -- Cycle through various related words.
     'https://github.com/lewis6991/gitsigns.nvim',                   -- Status column git diff, hunk management.
     'https://github.com/tpope/vim-fugitive',                        -- All things git.
-    'https://github.com/nvim-treesitter/nvim-treesitter',           -- Better syntax highlighting.
     'https://github.com/nvim-treesitter/nvim-treesitter-context',   -- Display location context of cursor above buffer lines.
     'https://github.com/ibhagwan/fzf-lua',                          -- Search files, git, grep, etc.
     'https://github.com/L3MON4D3/LuaSnip',                          -- Snippet engine, needed for blink-cmp.
