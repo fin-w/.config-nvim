@@ -4,7 +4,6 @@
 
 local function network_active()
     if vim.g.network_active == true then
-        -- Font Awesome Cloud icon
         -- Font Awesome Sync icon
         return '\u{f021}'
     else
