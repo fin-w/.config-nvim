@@ -47,6 +47,7 @@ vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', 
 ---@param force? boolean
 local function git_push(remote_name, force)
     vim.g.network_active = true
+    require('lualine').refresh()
     -- Immediately close Fugitive if we're pushing changes
     if vim.bo.filetype == 'fugitive' then vim.cmd('close') end
 
@@ -88,11 +89,13 @@ local function git_push(remote_name, force)
             end
         end)
         vim.g.network_active = false
+        require('lualine').refresh()
     end)
 end
 
 local function git_pull()
     vim.g.network_active = true
+    require('lualine').refresh()
     -- Immediately close Fugitive if we're pulling changes
     if vim.bo.filetype == 'fugitive' then vim.cmd('close') end
 
@@ -121,6 +124,7 @@ local function git_pull()
             end
         end)
         vim.g.network_active = false
+        require('lualine').refresh()
     end)
 end
 
