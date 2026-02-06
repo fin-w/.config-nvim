@@ -1,5 +1,7 @@
 -- Show these in the statusline.
 
+-- Component network_active.
+
 local function network_active()
     if vim.g.network_active == true then
         -- Font Awesome Cloud icon
@@ -10,6 +12,9 @@ local function network_active()
     end
 end
 
+
+-- Component current_macro_being_recorded.
+
 local function current_macro_being_recorded()
     local register_name = vim.fn.reg_recording()
     if register_name ~= '' then
@@ -19,6 +24,9 @@ local function current_macro_being_recorded()
     end
 end
 
+
+-- Component search_count_hides_when_no_matches.
+
 local function search_count_hides_when_no_matches()
     local search_count = vim.fn.searchcount()
     if search_count.current ~= 0 then
@@ -27,6 +35,9 @@ local function search_count_hides_when_no_matches()
         return ''
     end
 end
+
+
+-- Component get_git_project_root_and_superproject.
 
 local function get_git_project_root_and_superproject()
     local git_project_or_submodule_output = vim.system(
@@ -61,12 +72,16 @@ local function get_git_project_root_and_superproject()
     return ''
 end
 
+
+-- Component filename reformatting.
+
 local filetypes_to_use_verbatim = {
     'fugitive',
     'toggleterm',
     'gitcommit',
     'git',
 }
+
 local function filepath_from_git_submodule_or_repo(filepath)
     if vim.tbl_contains(filetypes_to_use_verbatim, vim.bo.filetype) then return filepath end
     if filepath:sub(1, 7) == 'term://' then return filepath end
