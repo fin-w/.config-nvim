@@ -14,7 +14,7 @@ vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 
 -- YEETUS DELEETUS
-vim.keymap.set('n', 'x', '_x')
+-- vim.keymap.set('n', 'x', '_x')
 
 -- Select, yank or delete everything in the buffer.
 vim.keymap.set('n', 'vaa', 'ggVG')
