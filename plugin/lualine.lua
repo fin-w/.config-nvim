@@ -84,6 +84,7 @@ local filetypes_to_use_verbatim = {
     'gitcommit',
     'git',
     'nvim-pack',
+    'checkhealth',
 }
 
 local function filepath_from_git_submodule_or_repo(filepath)
