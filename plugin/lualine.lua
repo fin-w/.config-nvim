@@ -14,6 +14,10 @@ end
 
 -- Component current_macro_being_recorded.
 
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
+    callback = function() require('lualine').refresh() end
+})
+
 local function current_macro_being_recorded()
     local register_name = vim.fn.reg_recording()
     if register_name ~= '' then
