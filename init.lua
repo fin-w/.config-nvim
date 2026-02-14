@@ -29,6 +29,7 @@ vim.pack.add({
     'https://github.com/theHamsta/nvim-dap-virtual-text',           -- Virtual text showing contents of variables when using nvim-dap.
     'https://github.com/akinsho/toggleterm.nvim',                   -- Pop-up terminals.
     'https://github.com/stevearc/overseer.nvim',                    -- Task runner.
+    'https://github.com/mfussenegger/nvim-lint',                    -- Linting e.g. for cppcheck feedback in the editor.
     'https://github.com/stevearc/oil.nvim',                         -- File manager.
     'https://github.com/stevearc/quicker.nvim',                     -- Smarter quickfix list.
     'https://github.com/nvim-mini/mini.clue',                       -- Remind me of my keymaps.

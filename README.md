@@ -83,3 +83,10 @@ cargo install --features lsp --locked taplo-cli
 # YAML: yaml-language-server
 sudo pacman -S yaml-language-server
 ```
+
+## Linters
+
+```bash
+# C++: cppcheck
+sudo pacman -S cppcheck
+```

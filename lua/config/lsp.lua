@@ -137,3 +137,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'ga', vim.diagnostic.setqflist, { buffer = true })
     end,
 })
+
+
+--- LINTING
+
+-- Set up specific linting that's useful for KDE.
+local cppcheck = require('lint').linters.cppcheck
+table.insert(cppcheck.args, 1, '--library=qt')
+table.insert(cppcheck.args, 1, '--library=kde')
+table.insert(cppcheck.args, 1, '--enable=warning,style,performance')
+table.insert(cppcheck.args, 1, '--check-level=exhaustive')
+
+-- Activate the linter.
+require('lint').linters_by_ft = {
+    cpp = { 'cppcheck' },
+}
+
+-- Run any available linters for the filetype.
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost' }, {
+    callback = function() require('lint').try_lint() end
+})
