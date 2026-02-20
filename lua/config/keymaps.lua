@@ -138,15 +138,14 @@ local function get_main_git_branch_name()
     return nil
 end
 
--- Switch to git main / master branch
-vim.keymap.set('n', '<Leader>gsm', function()
+local function git_switch_main()
     local main_branch_name = get_main_git_branch_name()
     if get_main_git_branch_name then
         vim.cmd('G switch ' .. main_branch_name)
     else
         print('Could not switch branches')
     end
-end, { desc = 'Git: switch to main branch' })
+end
 
 -- search for next instance of a git commit hash, and copy it to the clipboard
 vim.keymap.set('n', '<Leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>', { desc = 'Yank next occurance of git hash' })
@@ -161,6 +160,9 @@ vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: sel
 vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', {
     desc = 'Git: find next merge conflict marker'
 })
+
+-- Switch to git main / master branch
+vim.keymap.set('n', '<Leader>gsm', git_switch_main, { desc = 'Git: switch to main branch' })
 
 -- Push current branch to origin
 vim.keymap.set('n', '<Leader>gpo', function() git_push('origin') end, { desc = 'Git: push to origin' })
