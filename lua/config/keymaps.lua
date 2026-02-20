@@ -34,6 +34,9 @@ vim.keymap.set('n', '<PageDown>', '*')
 -- paste over a word from buffer without yanking the word
 vim.keymap.set('n', '<Leader>p', 'viwP', { desc = 'Paste over word without changing register' })
 
+
+-- GIT
+
 -- search for next instance of a git commit hash, and copy it to the clipboard
 vim.keymap.set('n', '<Leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>', { desc = 'Yank next occurance of git hash' })
 
@@ -165,6 +168,9 @@ vim.keymap.set('n', '<Leader>gPo', function() git_push('origin', true) end, { de
 vim.keymap.set('n', '<Leader>gpf', function() git_push('fork') end, { desc = 'Git: push to fork' })
 -- Force push current branch to fork
 vim.keymap.set('n', '<Leader>gPf', function() git_push('fork', true) end, { desc = 'Git: force push to fork' })
+
+
+-- EDITING
 
 -- Add a character to the end of the line
 vim.keymap.set('n', ']:', 'mzA:<Esc>`z')
