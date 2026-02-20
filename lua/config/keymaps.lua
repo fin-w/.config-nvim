@@ -138,6 +138,77 @@ local function get_main_git_branch_name()
     return nil
 end
 
+-- Copy the equivalent Gitlab URL into the clipboard, including the file and line number.
+---@type boolean
+---@param s vim.SystemCompleted
+local function valid_stdout(s)
+    if s.code == 0
+        or s.stdout ~= nil
+        or s.stdout ~= ''
+    then
+        return true
+    end
+    return false
+end
+
+---@type string
+---@param git_url string
+local function transform_git_url_to_https(git_url)
+    ---@type string
+    local transformed_url
+    if git_url:match('git@') then
+        -- Git SSH URL
+        local domain = git_url:gsub('git@', ''):gsub(':.*', '')
+        local path = git_url:gsub('.*:', ''):gsub('.git', '')
+        transformed_url = 'https://' .. domain .. '/' .. path .. '/'
+    elseif git_url:match('https://') then
+        -- HTTPS URL
+        transformed_url = git_url
+    end
+    local blob = git_url:match('github.com') and 'blob/' or '-/blob/'
+    return transformed_url .. blob
+end
+
+local function yank_git_url_file_and_line()
+    local url_object = vim.system({
+        'git',
+        'remote',
+        'get-url',
+        'origin'
+    }, { text = true }):wait()
+    if not valid_stdout(url_object) then return end
+    local git_url = url_object.stdout:gsub('[\n]+$', '')
+    local url = transform_git_url_to_https(git_url)
+    -- vim.notify('git_url: ' .. git_url)
+
+    local branch_object = vim.system({
+        'git',
+        'rev-parse',
+        '--abbrev-ref',
+        'HEAD'
+    }, { text = true }):wait()
+    if not valid_stdout(branch_object) then return end
+    local branch = branch_object.stdout:gsub('[\n]+$', '')
+
+    local git_root_project_or_submodule_object = vim.system(
+        { 'git', 'rev-parse', '--show-toplevel' },
+        { cwd = vim.fn.expand('%:p:h'), text = true }
+    ):wait()
+    if not valid_stdout(git_root_project_or_submodule_object) then return end
+
+    -- Convert from string or nil, to string only.
+    local git_root = git_root_project_or_submodule_object.stdout:gsub('[\n]+$', '') or ''
+    local current_buffer_filepath = vim.fn.expand('%:p')
+    local filepath = (vim.fs.relpath(git_root, current_buffer_filepath) or '')
+
+    local line_number = vim.fn.line('.')
+
+    local link = url .. branch .. '/' .. filepath .. '?#L' .. line_number
+
+    vim.notify(link)
+    vim.fn.setreg('+', link)
+end
+
 local function git_switch_main()
     local main_branch_name = get_main_git_branch_name()
     if get_main_git_branch_name then
