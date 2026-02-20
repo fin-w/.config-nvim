@@ -1,6 +1,13 @@
 -- Blink.cmp may have more capabilities than provided to the language server by default.
 vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities(nil, true) })
 
+vim.lsp.config('clangd', {
+    cmd = {
+        "clangd",
+        "--clang-tidy",
+    }
+})
+
 vim.lsp.config('lemminx', {
     settings = {
         xml = {
