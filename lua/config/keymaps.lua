@@ -37,18 +37,6 @@ vim.keymap.set('n', '<Leader>p', 'viwP', { desc = 'Paste over word without chang
 
 -- GIT
 
--- search for next instance of a git commit hash, and copy it to the clipboard
-vim.keymap.set('n', '<Leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>', { desc = 'Yank next occurance of git hash' })
-
--- pick the left buffer or right buffer in a git merge conflict view?
-vim.keymap.set('n', '<Leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: select left version of diff conflict' })
-vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })
-
--- go to next marker of git merge conflict in file
-vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', {
-    desc = 'Git: find next merge conflict marker'
-})
-
 ---@param remote_name string
 ---@param force? boolean
 local function git_push(remote_name, force)
@@ -159,6 +147,20 @@ vim.keymap.set('n', '<Leader>gsm', function()
         print('Could not switch branches')
     end
 end, { desc = 'Git: switch to main branch' })
+
+-- search for next instance of a git commit hash, and copy it to the clipboard
+vim.keymap.set('n', '<Leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>', { desc = 'Yank next occurance of git hash' })
+-- Simplify opening a specific line in a git repo online.
+vim.keymap.set('n', '<Leader>guc', yank_git_url_file_and_line, { desc = 'Yank Git file and line to open in a browser' })
+
+-- pick the left buffer or right buffer in a git merge conflict view?
+vim.keymap.set('n', '<Leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: select left version of diff conflict' })
+vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })
+
+-- go to next marker of git merge conflict in file
+vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', {
+    desc = 'Git: find next merge conflict marker'
+})
 
 -- Push current branch to origin
 vim.keymap.set('n', '<Leader>gpo', function() git_push('origin') end, { desc = 'Git: push to origin' })
