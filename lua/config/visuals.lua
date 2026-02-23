@@ -58,6 +58,9 @@ vim.opt.diffopt:append({
     'inline:char',
 })
 
+-- Don't highlight capitalisation errors when spellchecking.
+vim.cmd('set spellcapcheck=')
+
 -- Briefly highlight the yanked text.
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
