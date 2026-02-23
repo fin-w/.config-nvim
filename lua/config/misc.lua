@@ -17,6 +17,6 @@ vim.filetype.add({
 vim.api.nvim_create_autocmd('FileType', {
     pattern = 'gitcommit',
     callback = function()
-        vim.cmd [[ setlocal spell spelllang=cy,en ]]
+        vim.cmd('setlocal spell spelllang=cy,en')
     end
 })
