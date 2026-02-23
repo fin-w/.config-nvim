@@ -43,12 +43,12 @@ vim.opt.list = true
 -- customise visual representation of characters that usually are invisible
 vim.opt.listchars = {
     -- eol = '↵',
-    -- trail = '→░▒▓',
-    trail = '🮶',
+    trail = '→',
     nbsp = '‿',
     leadmultispace = '▏   ',
     extends = '▶',
     precedes = '◀',
+    -- tab = '┠╌┨',
     tab = '» ',
 }
 
