@@ -13,8 +13,8 @@ vim.filetype.add({
     }
 })
 
--- Use Cymraeg and English languages
-vim.cmd('set spelllang=cy,en')
+-- Use Cymraeg and English languages when spellchecking.
+vim.opt.spelllang = { 'cy', 'en' }
 
 -- Use the spell checkers when writing git commit messages.
 vim.api.nvim_create_autocmd('FileType', {
