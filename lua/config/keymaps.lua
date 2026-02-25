@@ -16,10 +16,11 @@ vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 -- YEETUS DELEETUS
 vim.keymap.set('n', 'x', '"_x')
 
--- Select, yank or delete everything in the buffer.
+-- Select, yank, delete, or reflow everything in the buffer.
 vim.keymap.set('n', 'vaa', 'ggVG')
 vim.keymap.set('n', 'yaa', 'mzggVGy<Esc>`z')
 vim.keymap.set('n', 'daa', 'ggdG')
+vim.keymap.set('n', 'gwaa', 'ggVGgw')
 
 -- Scroll up and down with mouse wheel / trackpad
 vim.keymap.set('n', '<ScrollWheelUp>', '2k')
