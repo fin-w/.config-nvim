@@ -13,10 +13,13 @@ vim.filetype.add({
     }
 })
 
--- Use the Cymraeg and English spell checkers when writing git commit messages.
+-- Use Cymraeg and English languages
+vim.cmd('set spelllang=cy,en')
+
+-- Use the spell checkers when writing git commit messages.
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'gitcommit',
+    pattern = { 'gitcommit', 'markdown' },
     callback = function()
-        vim.cmd('setlocal spell spelllang=cy,en')
+        vim.cmd('setlocal spell')
     end
 })
