@@ -27,10 +27,10 @@ vim.api.nvim_create_autocmd('FileType', {
             if vim.api.nvim_win_get_config(0).relative == '' then
                 -- Use the spell checkers.
                 vim.opt_local.spell = true
+                -- The paragraph reflows as you type.
+                vim.opt_local.formatoptions:append('a')
                 -- Only set the following for commit message buffers.
                 if callback_args.match == 'gitcommit' then
-                    -- The paragraph reflows as you type.
-                    vim.opt_local.formatoptions:append('a')
                     -- Insert some newlines to avoid reflowing the git overview text by accident.
                     vim.api.nvim_buf_set_lines(0, 0, 0, true, { '', '', '' })
                     vim.cmd('silent write')
