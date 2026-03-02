@@ -38,6 +38,6 @@ vim.api.nvim_create_autocmd('FileType', {
                     vim.api.nvim_feedkeys("ggi", "n", false)
                 end
             end
-        end, 10)
+        end, 100)
     end
 })
