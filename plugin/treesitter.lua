@@ -12,6 +12,7 @@ local installed_treesitter_parsers = {
     'lua',
     'markdown',
     'markdown_inline',
+    'perl',
     'python',
     'query',
     'rust',
