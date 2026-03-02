@@ -377,10 +377,13 @@ vim.keymap.set('n', '<Leader>gg', function()
     -- Focus the region relating to unstaged changes
     -- because that is where I tend to work.
     vim.defer_fn(function()
-        if vim.fn.search('Unstaged') ~= 0 then
+        if vim.fn.search('Unstaged') ~= 0
+            or vim.fn.search('Untracked') ~= 0
+            or vim.fn.search('Staged') ~= 0
+        then
             vim.api.nvim_feedkeys('j', 'n', false)
         end
-    end, 10)
+    end, 20)
 end, { desc = 'Fugitive: status' })
 
 -- open log
