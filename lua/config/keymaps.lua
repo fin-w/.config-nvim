@@ -256,22 +256,25 @@ vim.keymap.set('n', '].', 'mzA.<Esc>`z')
 vim.keymap.set('n', '],', 'mzA,<Esc>`z')
 vim.keymap.set('n', ']<Backspace>', 'mz$x`z')
 
--- Escape terminal input mode more intuitively
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
--- open terminal
-vim.keymap.set('n', '<Leader>tt', '<Cmd>tab term<Enter>i', { desc = 'Terminal in Neovim CWD' })
+-- TOGGLETERM
+
+-- Open / close terminal
+vim.keymap.set({ 'n', 't' }, '<F9>', function()
+    require('overseer').close()
+    vim.cmd('execute v:count . "ToggleTerm"')
+end, { desc = 'ToggleTerm terminal in Neovim CWD' })
 
 -- Open terminal in same dir as current buffer
-vim.keymap.set('n', '<Leader>tT', function()
+vim.keymap.set({ 'n', 't' }, '<F10>', function()
     local cwd = vim.fn.expand('%:p:h')
-    vim.cmd('tab term')
-    local channel = vim.bo.channel
-    vim.api.nvim_chan_send(channel, 'cd ' .. cwd .. '\nclear\n')
-    vim.api.nvim_feedkeys('i', 'n', false)
-end, { desc = 'Terminal in buffer CWD' })
+    require('overseer').close()
+    vim.cmd('execute v:count . "ToggleTerm dir=' .. cwd .. '"')
+end, { desc = 'ToggleTerm terminal in buffer CWD' })
 
--- Open the current buffer in a new 'fullscreen' tab, but preserve the current window layout.
+-- Open the current buffer in a new 'fullscreen' tab, but preserve the current
+-- window layout so closing the tab will revert back to the original layout
+-- (previous tab).
 vim.api.nvim_create_user_command('Maximise', function()
     vim.cmd('tabnew %')
 end, { desc = 'Open the current buffer in a new tab so you can edit it fullscreen' })
