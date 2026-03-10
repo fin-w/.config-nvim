@@ -165,7 +165,9 @@ local function transform_git_url_to_https(git_url)
         transformed_url = 'https://' .. domain .. '/' .. path .. '/'
     elseif git_url:match('https://') then
         -- HTTPS URL
-        transformed_url = git_url
+        -- Check for https.*[.]git pattern and if found, ensure the URL ends in
+        -- a forward slash.
+        transformed_url = git_url:gsub('.git', '/')
     end
     local blob = git_url:match('github.com') and 'blob/' or '-/blob/'
     return transformed_url .. blob
@@ -181,7 +183,6 @@ local function yank_git_url_file_and_line()
     if not valid_stdout(url_object) then return end
     local git_url = url_object.stdout:gsub('[\n]+$', '')
     local url = transform_git_url_to_https(git_url)
-    -- vim.notify('git_url: ' .. git_url)
 
     local branch_object = vim.system({
         'git',
