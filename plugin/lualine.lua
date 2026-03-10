@@ -86,6 +86,7 @@ local filetypes_to_use_verbatim = {
     'nvim-pack',
     'checkhealth',
     'qf',
+    'gitsigns-blame',
 }
 
 local function filepath_from_git_submodule_or_repo(filepath)
