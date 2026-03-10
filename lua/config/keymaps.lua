@@ -262,14 +262,16 @@ vim.keymap.set('n', ']<Backspace>', 'mz$x`z')
 -- Open / close terminal
 vim.keymap.set({ 'n', 't' }, '<F9>', function()
     require('overseer').close()
-    vim.cmd('execute v:count . "ToggleTerm"')
+    -- Terminal 1, height 12
+    require('toggleterm').toggle(1, 12)
 end, { desc = 'ToggleTerm terminal in Neovim CWD' })
 
 -- Open terminal in same dir as current buffer
 vim.keymap.set({ 'n', 't' }, '<F10>', function()
     local cwd = vim.fn.expand('%:p:h')
     require('overseer').close()
-    vim.cmd('execute v:count . "ToggleTerm dir=' .. cwd .. '"')
+    -- Terminal 2, height 12
+    require('toggleterm').toggle(2, 12, cwd)
 end, { desc = 'ToggleTerm terminal in buffer CWD' })
 
 -- Open the current buffer in a new 'fullscreen' tab, but preserve the current
