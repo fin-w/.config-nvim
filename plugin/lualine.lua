@@ -86,6 +86,7 @@ local filetypes_to_use_verbatim = {
     'nvim-pack',
     'checkhealth',
     'qf',
+    'man',
     'gitsigns-blame',
 }
 
