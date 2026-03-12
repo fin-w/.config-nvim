@@ -230,10 +230,10 @@ vim.keymap.set('n', '<Leader>guc', yank_git_url_file_and_line, { desc = 'Yank Gi
 vim.keymap.set('n', '<Leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: select left version of diff conflict' })
 vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })
 
--- go to next marker of git merge conflict in file
-vim.keymap.set('n', '<Leader>gcn', '/\\(<<<<<<<\\|=======\\|>>>>>>>\\)<Enter>', {
-    desc = 'Git: find next merge conflict marker'
-})
+-- Go to next marker of git merge conflict in file, seven < , = , | , or >
+vim.keymap.set('n', '<Leader>gcn', function()
+    vim.fn.search([[\(<\{7\}\|=\{7\}\|[|]\{7\}\|>\{7\}\)]])
+end, { desc = 'Git: find next merge conflict marker' })
 
 -- Switch to git main / master branch
 vim.keymap.set('n', '<Leader>gsm', git_switch_main, { desc = 'Git: switch to main branch' })
