@@ -87,45 +87,14 @@ require('fzf-lua').setup({
         commits = {
             header = false,
             winopts = { preview = { layout = 'vertical', vertical = 'down:75%' } },
-            actions = {
-                ['enter'] = {
-                    fn = function(selected, opts)
-                        assert(type(selected) == "table"
-                            and type(selected[1]) == "string")
-                        -- Get the commit hash from the selected picker entry.
-                        local git_commit_to_show = assert(selected[1]:match("^[%s]*([^%s]+)"))
-                        require('fzf-lua').git_diff({
-                            ref = git_commit_to_show,
-                            cwd = opts.cwd,
-                        })
-                    end
-                },
-            },
         },
         bcommits = {
             header = false,
             winopts = { preview = { layout = 'vertical', vertical = 'down:75%' } },
-            actions = {
-                ['enter'] = {
-                    fn = function(selected, opts)
-                        assert(type(selected) == "table"
-                            and type(selected[1]) == "string")
-                        -- Get the commit hash from the selected picker entry.
-                        local git_commit_to_show = assert(selected[1]:match("^[%s]*([^%s]+)"))
-                        require('fzf-lua').git_diff({
-                            ref = git_commit_to_show,
-                            cwd = opts.cwd,
-                        })
-                    end
-                },
-            },
         },
         diff = {
             header = false,
             winopts = { preview = { layout = 'horizontal', horizontal = 'right:80%' } },
-            actions = {
-                ['ctrl-o'] = function() require('fzf-lua.providers.git').commits({ resume = true }) end,
-            },
         },
     },
     grep = {
