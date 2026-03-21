@@ -232,7 +232,9 @@ vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: sel
 
 -- Go to next marker of git merge conflict in file, seven < , = , | , or >
 vim.keymap.set('n', '<Leader>gcn', function()
-    vim.fn.search([[\(<\{7\}\|=\{7\}\|[|]\{7\}\|>\{7\}\)]])
+    vim.fn.search(
+        [[\(<\{7\}\|=\{7\}\|[|]\{7\}\|>\{7\}\)]]
+    )
 end, { desc = 'Git: find next merge conflict marker' })
 
 -- Switch to git main / master branch
