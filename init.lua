@@ -14,6 +14,7 @@ vim.pack.add({
     'https://github.com/nvim-lualine/lualine.nvim',                 -- Pretty status line.
     'https://github.com/windwp/nvim-autopairs',                     -- Convenient bracket pair handling.
     'https://codeberg.org/fin-w/midnight.nvim',                     -- Colour scheme.
+    'https://github.com/danfry1/lume',                              -- Lavendar colour scheme.
     'https://github.com/hiphish/rainbow-delimiters.nvim',           -- Rainbow brackets.
     'https://github.com/nat-418/boole.nvim',                        -- Cycle through various related words.
     'https://github.com/lewis6991/gitsigns.nvim',                   -- Status column git diff, hunk management.

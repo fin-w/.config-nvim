@@ -37,6 +37,10 @@
       "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "lume": {
+      "rev": "90e195dc574aa680594983566a396446e6b12b1b",
+      "src": "https://github.com/danfry1/lume"
+    },
     "midnight.nvim": {
       "rev": "1f89b21e5edaa9468fd9b4b192b923ad0bf14edc",
       "src": "https://codeberg.org/fin-w/midnight.nvim"
