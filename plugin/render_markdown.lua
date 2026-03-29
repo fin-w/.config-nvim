@@ -1,19 +1,18 @@
 require('render-markdown').setup({
-    sign = {
-        enabled = false,
-    },
+    sign = { enabled = false },
     heading = {
         icons = { ' \u{f03a4} ', ' \u{f03a7} ', ' \u{f03aa} ', ' \u{f03ad} ', ' \u{f03b1} ', ' \u{f03b3} ' },
         position = 'inline',
-        width = 'block',
-        border = true,
-        backgrounds = {
-            'Visual',
-        },
+        backgrounds = { 'Visual' },
     },
     code = {
-        position = 'right',
-        width = 'block',
+        language_border = '▄',
+        language_left = '██',
+        language_right = '██',
+        position = 'left',
+        width = 'full',
+        below = '▀',
+        border = 'thin',
     },
     checkbox = {
         -- "Checkbox", Nerdfonts Seti UI + Custom
@@ -21,7 +20,5 @@ require('render-markdown').setup({
         -- "Checkbox Unchecked", Nerdfonts Seti UI + Custom
         unchecked = { icon = '\u{e640}' },
     },
-    completions = {
-        lsp = { enabled = true }
-    },
+    completions = { lsp = { enabled = true } },
 })
