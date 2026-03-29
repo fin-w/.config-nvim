@@ -1,4 +1,6 @@
 require('render-markdown').setup({
+    latex = { enabled = false },
+    yaml = { enabled = false },
     sign = { enabled = false },
     heading = {
         icons = { ' \u{f03a4} ', ' \u{f03a7} ', ' \u{f03aa} ', ' \u{f03ad} ', ' \u{f03b1} ', ' \u{f03b3} ' },
