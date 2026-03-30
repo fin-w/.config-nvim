@@ -18,6 +18,7 @@ vim.pack.add({
     'https://github.com/hiphish/rainbow-delimiters.nvim',           -- Rainbow brackets.
     'https://github.com/nat-418/boole.nvim',                        -- Cycle through various related words.
     'https://github.com/lewis6991/gitsigns.nvim',                   -- Status column git diff, hunk management.
+    'https://github.com/barrettruth/diffs.nvim',                    -- Treesitter syntax highlighting in Fugitive diffs.
     'https://github.com/tpope/vim-fugitive',                        -- All things git.
     'https://github.com/nvim-treesitter/nvim-treesitter-context',   -- Display location context of cursor above buffer lines.
     'https://github.com/ibhagwan/fzf-lua',                          -- Search files, git, grep, etc.

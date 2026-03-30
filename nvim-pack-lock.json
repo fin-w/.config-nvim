@@ -21,6 +21,10 @@
       "rev": "b51a659459df8d078201aefc995db8175ed55e84",
       "src": "https://github.com/xzbdmw/colorful-menu.nvim"
     },
+    "diffs.nvim": {
+      "rev": "0cb16a0e2384f1d3dd6330f6ea517de8e07aa8e8",
+      "src": "https://github.com/barrettruth/diffs.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -42,7 +46,7 @@
       "src": "https://github.com/danfry1/lume"
     },
     "midnight.nvim": {
-      "rev": "1f89b21e5edaa9468fd9b4b192b923ad0bf14edc",
+      "rev": "6aa03bb9d3803f7c3dc7b4b222a7adbb212dd985",
       "src": "https://codeberg.org/fin-w/midnight.nvim"
     },
     "mini.clue": {
