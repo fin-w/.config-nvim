@@ -9,8 +9,8 @@ require('render-markdown').setup({
     },
     code = {
         language_border = '▄',
-        language_left = '██',
-        language_right = '██',
+        language_left = '',
+        language_right = '',
         position = 'left',
         width = 'full',
         below = '▀',
