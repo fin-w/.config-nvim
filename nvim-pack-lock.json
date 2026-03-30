@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "bde73a6886b607246095aa59f396de5e0d036890",
+      "rev": "c9e7b7bfbd01f949164988ee1684035468e1995c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/danfry1/lume"
     },
     "midnight.nvim": {
-      "rev": "6aa03bb9d3803f7c3dc7b4b222a7adbb212dd985",
+      "rev": "e5f0fa4d5b6850b1f0c7a23786ec03465c17c765",
       "src": "https://codeberg.org/fin-w/midnight.nvim"
     },
     "mini.clue": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-dap": {
-      "rev": "2a8799ad91a1495c6bdf753f9b2179b3ff0f5bba",
+      "rev": "4f5deb110d9ff8994d96c21df95e2271d11214f9",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
