@@ -107,4 +107,8 @@ vim.api.nvim_create_autocmd('RecordingLeave', {
 })
 
 -- TUI
-require('vim._extui').enable({})
+require('vim._core.ui2').enable({
+    -- This line is required to enable the popup menu like the default _extui
+    -- config previously was set up.
+    msg = { target = 'msg' },
+})
