@@ -38,8 +38,7 @@ vim.api.nvim_create_autocmd('VimLeavePre', {
     pattern = '*',
     callback = function()
         if vim.g.savesession then
-            local session_path = 'Session.vim'
-            vim.cmd('mks! ' .. session_path)
+            vim.cmd('mks! Session.vim')
         end
     end
 })
