@@ -231,11 +231,7 @@ vim.keymap.set('n', '<Leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: sel
 vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })
 
 -- Go to next marker of git merge conflict in file, seven < , = , | , or >
-vim.keymap.set('n', '<Leader>gcn', function()
-    vim.fn.search(
-        [[\(<\{7\}\|=\{7\}\|[|]\{7\}\|>\{7\}\)]]
-    )
-end, { desc = 'Git: find next merge conflict marker' })
+vim.keymap.set('n', '<Leader>gcn', [[/[<>=|]\{7\}<Enter>]], { desc = 'Git: find next merge conflict marker' })
 
 -- Switch to git main / master branch
 vim.keymap.set('n', '<Leader>gsm', git_switch_main, { desc = 'Git: switch to main branch' })
