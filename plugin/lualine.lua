@@ -113,10 +113,8 @@ local function filepath_from_git_submodule_or_repo(filepath)
 end
 
 
--- Component g:lsp_status_string.
+-- Component lualine_lsp.
 
--- Used by lualine, the actual user-visible string of the lualine contents.
-vim.g.lsp_status_string = ''
 local lsp_progress = {}
 local slices = { "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥" }
 -- local slices = { '󰫃', '󰫄', '󰫅', '󰫆', '󰫇', '󰫈' }
@@ -176,8 +174,9 @@ vim.api.nvim_create_autocmd("LspProgress", {
         end
 
         local status = table.concat(parts, " ")
-        if status ~= vim.g.lsp_status_string then
-            vim.g.lsp_status_string = status
+        -- First copy out the table.
+        if status ~= require('states').lualine_lsp then
+            require('states').lualine_lsp = status
             require('lualine').refresh()
         end
     end,
@@ -226,7 +225,7 @@ require('lualine').setup {
             } },
         },
         lualine_x = {
-            'g:lsp_status_string',
+            'require("states").lualine_lsp',
             network_active,
             current_macro_being_recorded,
             'filetype',
