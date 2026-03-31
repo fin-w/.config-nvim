@@ -68,9 +68,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end
 })
 
--- Global network activity status
-vim.g.network_active = false
-
 -- INLINE DIAGNOSTICS
 -- Icon in front of inline diagnostics - see keymap for this also
 vim.diagnostic.config({ virtual_text = { prefix = '◀', } })

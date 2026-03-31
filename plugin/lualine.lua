@@ -1,16 +1,5 @@
 -- Show these in the statusline.
 
--- Component network_active.
-
-local function network_active()
-    if vim.g.network_active == true then
-        -- Font Awesome Sync icon
-        return '\u{f021}'
-    else
-        return ''
-    end
-end
-
 
 -- Component current_macro_being_recorded.
 
@@ -175,8 +164,8 @@ vim.api.nvim_create_autocmd("LspProgress", {
 
         local status = table.concat(parts, " ")
         -- First copy out the table.
-        if status ~= require('states').lualine_lsp then
-            require('states').lualine_lsp = status
+        if status ~= require('states').lualine.lsp then
+            require('states').lualine.lsp = status
             require('lualine').refresh()
         end
     end,
@@ -225,8 +214,8 @@ require('lualine').setup {
             } },
         },
         lualine_x = {
-            'require("states").lualine_lsp',
-            network_active,
+            'require("states").lualine.lsp',
+            require("states").lualine.network,
             current_macro_being_recorded,
             'filetype',
         },

@@ -42,7 +42,7 @@ vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<Enter>', { desc = 'Remove search h
 ---@param remote_name string
 ---@param force? boolean
 local function git_push(remote_name, force)
-    vim.g.network_active = true
+    require('states').network_active = true
     require('lualine').refresh()
     -- Immediately close Fugitive if we're pushing changes
     if vim.bo.filetype == 'fugitive' then vim.cmd('close') end
@@ -84,13 +84,13 @@ local function git_push(remote_name, force)
                 vim.notify('Failed ' .. was_forced .. 'pushing to ' .. remote_name, vim.log.levels.ERROR)
             end
         end)
-        vim.g.network_active = false
+        require('states').network_active = false
         require('lualine').refresh()
     end)
 end
 
 local function git_pull()
-    vim.g.network_active = true
+    require('states').network_active = true
     require('lualine').refresh()
     -- Immediately close Fugitive if we're pulling changes
     if vim.bo.filetype == 'fugitive' then vim.cmd('close') end
@@ -119,7 +119,7 @@ local function git_pull()
                 vim.notify('git_pull: Failed pulling', vim.log.levels.ERROR)
             end
         end)
-        vim.g.network_active = false
+        require('states').network_active = false
         require('lualine').refresh()
     end)
 end
