@@ -1,25 +1,6 @@
 local unsaved_icon = '\u{f0193}'
 local readonly_icon = '\u{f033e}'
 
--- Show these in the statusline.
-
-
--- Component current_macro_being_recorded.
-
-vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
-    callback = function() require('lualine').refresh() end
-})
-
-local function current_macro_being_recorded()
-    local register_name = vim.fn.reg_recording()
-    if register_name ~= '' then
-        return 'Recording macro (' .. register_name .. ')'
-    else
-        return ''
-    end
-end
-
-
 -- Component search_count_hides_when_no_matches.
 
 local function search_count_hides_when_no_matches()
@@ -94,8 +75,8 @@ require('lualine').setup {
         },
         lualine_x = {
             'require("states.lualine").lsp',
-            require("states.lualine").network,
-            current_macro_being_recorded,
+            require('states.lualine').network,
+            require('states.lualine').current_macro_being_recorded,
             'filetype',
         },
         lualine_y = {

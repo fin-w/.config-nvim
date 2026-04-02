@@ -30,5 +30,16 @@ return {
             return
                 require('states').git_project_or_superproject
         end
-    end
+    end,
+
+    ---@type function
+    ---@return string
+    current_macro_being_recorded = function()
+        local register_name = vim.fn.reg_recording()
+        if register_name ~= '' then
+            return 'Recording macro (' .. register_name .. ')'
+        else
+            return ''
+        end
+    end,
 }

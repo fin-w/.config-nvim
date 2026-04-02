@@ -82,6 +82,11 @@ end
 
 -- AUTO COMMANDS
 
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
+    callback = function() require('lualine').refresh() end
+})
+
+
 vim.api.nvim_create_autocmd('BufEnter', {
     callback = function(event_args)
         vim.schedule(function()
