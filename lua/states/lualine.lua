@@ -42,4 +42,15 @@ return {
             return ''
         end
     end,
+
+    ---@type function
+    ---@return string
+    search_count_hides_when_no_matches = function()
+        local search_count = vim.fn.searchcount()
+        if search_count.current ~= 0 then
+            return search_count.current .. '/' .. search_count.total
+        else
+            return ''
+        end
+    end,
 }

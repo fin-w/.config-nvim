@@ -1,18 +1,6 @@
 local unsaved_icon = '\u{f0193}'
 local readonly_icon = '\u{f033e}'
 
--- Component search_count_hides_when_no_matches.
-
-local function search_count_hides_when_no_matches()
-    local search_count = vim.fn.searchcount()
-    if search_count.current ~= 0 then
-        return search_count.current .. '/' .. search_count.total
-    else
-        return ''
-    end
-end
-
-
 -- Set up pretty status bar
 
 require('lualine').setup {
@@ -80,7 +68,7 @@ require('lualine').setup {
             'filetype',
         },
         lualine_y = {
-            { search_count_hides_when_no_matches },
+            require('states.lualine').search_count_hides_when_no_matches,
             'progress'
         },
         lualine_z = { 'location' },
