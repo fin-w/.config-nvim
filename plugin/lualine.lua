@@ -66,6 +66,11 @@ require('lualine').setup {
                 fmt = function(filepath_with_icons)
                     local processed_filename = require('states.lualine').filepath
 
+                    -- FIXME: this is a bad fix for the first open buffer
+                    -- having no filepath until you switch buffers. Needs
+                    -- refactoring really.
+                    if processed_filename == '' then return filepath_with_icons end
+
                     if filepath_with_icons:match(unsaved_icon) then
                         processed_filename = processed_filename
                             .. ' ' .. unsaved_icon
