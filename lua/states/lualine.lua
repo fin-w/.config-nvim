@@ -8,7 +8,7 @@ return {
     ---@type function
     ---@return string
     network = function()
-        if require('states').network_active then
+        if require('states.data').network_active then
             -- Font Awesome Sync icon
             return '\u{f021}'
         else
@@ -19,15 +19,15 @@ return {
     ---@type function
     ---@return string
     git_project = function()
-        if require('states').git_subproject ~= '' then
+        if require('states.data').git_subproject ~= '' then
             return
-                require('states').git_project_or_superproject
+                require('states.data').git_project_or_superproject
                 -- Material Design Icons, Arrow Right Bottom
                 .. ' \u{f17a9} '
-                .. require('states').git_subproject
+                .. require('states.data').git_subproject
         else
             return
-                require('states').git_project_or_superproject
+                require('states.data').git_project_or_superproject
         end
     end
 }
