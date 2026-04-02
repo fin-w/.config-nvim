@@ -160,14 +160,27 @@ local function transform_git_url_to_https(git_url)
     local transformed_url
     if git_url:match('git@') then
         -- Git SSH URL
-        local domain = git_url:gsub('git@', ''):gsub(':.*', '')
-        local path = git_url:gsub('.*:', ''):gsub('.git', '')
-        transformed_url = 'https://' .. domain .. '/' .. path .. '/'
+        local domain = git_url
+            :gsub('^ssh://', '')
+            :gsub('^git@', '')
+            :gsub(':.*', '')
+            :gsub('.git$', '')
+
+        local path = git_url
+            :gsub('.*:', '')
+            :gsub('.git', '')
+        if path ~= '' then path = path .. '/' end
+        transformed_url = 'https://' .. domain .. '/' .. path
+        vim.notify('original\t' .. git_url
+            .. '\ndomain\t' .. domain
+            .. '\npath\t' .. path
+            .. '\nfinal\t' .. transformed_url)
     elseif git_url:match('https://') then
         -- HTTPS URL
         -- Check for https.*[.]git pattern and if found, ensure the URL ends in
         -- a forward slash.
         transformed_url = git_url:gsub('.git', '/')
+        vim.notify(git_url .. '\n' .. transformed_url)
     end
     local blob = git_url:match('github.com') and 'blob/' or '-/blob/'
     return transformed_url .. blob
