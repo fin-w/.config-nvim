@@ -19,6 +19,7 @@ return {
     ---@type function
     ---@return string
     git_project = function()
+        -- FIXME: shouldn't these be states.data ???
         if require('states').git_subproject ~= '' then
             return
                 require('states').git_project_or_superproject
