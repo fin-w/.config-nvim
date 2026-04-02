@@ -34,6 +34,8 @@ vim.keymap.set('n', '<PageDown>', '*')
 
 -- paste over a word from buffer without yanking the word
 vim.keymap.set('n', '<Leader>p', 'viwP', { desc = 'Paste over word without changing register' })
+vim.keymap.set('v', [[<Leader>']], [[c''<Esc>P]], { desc = 'Surround visual selection with single quotes' })
+vim.keymap.set('v', [[<Leader>"]], [[c""<Esc>P]], { desc = 'Surround visual selection with double quotes' })
 
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<Enter>', { desc = 'Remove search highlight' })
 
