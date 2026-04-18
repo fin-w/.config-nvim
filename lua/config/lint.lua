@@ -9,23 +9,21 @@ local severity_map = {
     ["information"] = vim.diagnostic.severity.INFO,
 }
 
-return {
+require('lint').linters.kde_optimised_cppcheck = {
+    name = 'kdecppcheck',
     cmd = "cppcheck",
     stdin = false,
     args = {
         "--enable=warning,style,performance,information",
-        function()
-            if vim.bo.filetype == "cpp" then
-                return "--language=c++"
-            else
-                return "--language=c"
-            end
-        end,
+        "--check-level=exhaustive",
+        "--language=c++",
+        "--library=qt",
+        "--library=kde",
         "--inline-suppr",
         "--quiet",
         function()
-            if vim.fn.isdirectory("build") == 1 then
-                return "--cppcheck-build-dir=build"
+            if vim.fn.isdirectory(".cache/cppcheck") == 1 then
+                return "--cppcheck-build-dir=.cache/cppcheck"
             else
                 return nil
             end
