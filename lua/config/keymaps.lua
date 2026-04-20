@@ -367,6 +367,7 @@ vim.keymap.set('n', '<Leader>fv', fzf.registers, { desc = 'Fzf-lua: registers' }
 vim.keymap.set('n', '<Leader>fd', fzf.lsp_workspace_diagnostics, { desc = 'Fzf-lua: LSP diagnostics' })
 vim.keymap.set('n', '<Leader>fD', fzf.diagnostics_workspace, { desc = 'Fzf-lua: diagnostics' })
 vim.keymap.set('n', '<Leader>f"', fzf.registers, { desc = 'Fzf-lua: registers' })
+vim.keymap.set('n', '<Leader>fu', fzf.undotree, { desc = 'Fzf-lua: undotree' })
 vim.keymap.set('n', '<Leader>gb', function() fzf.git_branches({ cwd = vim.fn.expand('%:p:h') }) end, {
     desc = 'Fzf-lua: git branches (in submodule or repository)'
 })
