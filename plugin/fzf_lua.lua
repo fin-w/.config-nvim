@@ -104,6 +104,9 @@ require('fzf-lua').setup({
         -- rg_opts   = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
         rg_opts   =
         "--column --line-number --no-heading --color=always --smart-case --iglob=!po/ --max-columns=4096 -e",
+        fzf_opts  = {
+            ['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-nvim-grep-history',
+        },
     },
     lsp = { header = false, formatter = 'path.filename_first' },
 })
