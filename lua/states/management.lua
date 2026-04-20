@@ -6,6 +6,7 @@ local filetypes_to_use_verbatim = {
     'gitsigns-blame',
     'man',
     'nvim-pack',
+    'nvim-undotree',
     'oil',
     'qf',
     'toggleterm',
