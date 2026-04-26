@@ -22,7 +22,7 @@
       "src": "https://github.com/xzbdmw/colorful-menu.nvim"
     },
     "diffs.nvim": {
-      "rev": "77a5c7518bab5e396a778b96e46795a7c879131b",
+      "rev": "9e76d42a0f5a935bc28fc8e18577115c12fdc1bf",
       "src": "https://github.com/barrettruth/diffs.nvim"
     },
     "friendly-snippets": {
@@ -30,11 +30,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "834246377489f9a1e6d4df570a7874a48c644b56",
+      "rev": "33321eba594f530e23a6b8970ba0b5fd695c8bba",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
+      "rev": "6d808f99bd63303646794406e270bd553ad7792e",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lualine.nvim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "03c22bb2bc0d6ed60ee6f7351f8a5e65dd2e80d3",
+      "rev": "01ad4537bac9a0843e72c9615fa7fcaa69b119eb",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-dap-virtual-text": {
@@ -74,7 +74,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
+      "rev": "21db1fd40cbcbf1524ae154ab8f394fdf085749a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -107,7 +107,7 @@
       "src": "https://github.com/hiphish/rainbow-delimiters.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "0fd43fb4b1f073931c4b481f5f3b7cea3749e190",
+      "rev": "d67113f11384c0dad96fced2f7b91f1fc811e97f",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "todo-comments.nvim": {
