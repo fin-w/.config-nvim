@@ -12,6 +12,7 @@ require('fzf-lua').setup({
             wrap = true,
             title_pos = 'left',
         },
+        border = 'none',
     },
     hls = {
         title = 'Title',
