@@ -92,8 +92,9 @@ vim.api.nvim_create_autocmd('BufEnter', {
     callback = function(event_args)
         vim.schedule(function()
             if vim.tbl_contains(filetypes_to_use_verbatim, vim.bo.filetype)
-                or event_args.file:sub(1, 7) == 'term://' then
-                -- Special case, don't present buffer data in a custom way.
+                or not vim.uv.fs_access(event_args.file, 'r') then
+                -- Special case, don't present buffer data in a custom way and
+                -- don't process file name.
                 require('states.data').git_project_or_superproject = ''
                 require('states.data').git_subproject = ''
                 require('states.lualine').filepath = event_args.file
