@@ -13,7 +13,9 @@ vim.filetype.add({
         kcfgc = 'dosini',
         notifyrc = 'dosini',
         lokalize = 'dosini',
-        lokalizerc = 'dosini',
+    },
+    pattern = {
+        ['.*/%.config/[a-z]+rc'] = 'dosini',
     }
 })
 
