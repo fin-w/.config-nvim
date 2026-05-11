@@ -6,10 +6,14 @@ vim.opt.clipboard:append('unnamedplus')
 vim.opt.wrap = true
 vim.opt.linebreak = true
 
--- In KDE, *.rc files are XML.
+-- KDE uses a fair number of recognised filetypes with different extensions.
 vim.filetype.add({
     extension = {
         rc = 'xml',
+        kcfgc = 'dosini',
+        notifyrc = 'dosini',
+        lokalize = 'dosini',
+        lokalizerc = 'dosini',
     }
 })
 
