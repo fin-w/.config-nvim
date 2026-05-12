@@ -6,13 +6,15 @@ vim.opt.clipboard:append('unnamedplus')
 vim.opt.wrap = true
 vim.opt.linebreak = true
 
--- KDE uses a fair number of recognised filetypes with different extensions.
+-- For example, KDE uses a fair number of recognised filetypes with different
+-- extensions. JSONL is not quite JSON but eh, good enough.
 vim.filetype.add({
     extension = {
         rc = 'xml',
         kcfgc = 'dosini',
         notifyrc = 'dosini',
         lokalize = 'dosini',
+        jsonl = 'json',
     },
     pattern = {
         ['.*/%.config/[a-z]+rc'] = 'dosini',
