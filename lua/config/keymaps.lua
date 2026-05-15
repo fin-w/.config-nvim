@@ -56,21 +56,13 @@ local function git_push(remote_name, force)
         return
     end
 
-    local command = {}
-    if force == true then
-        command = {
-            'git',
-            'push',
-            '-f',
-            remote_name
-        }
-    else
-        command = {
-            'git',
-            'push',
-            remote_name
-        }
-    end
+    local command = {
+        'git',
+        'push',
+        remote_name
+    }
+    if force then table.insert(command, 3, '-f') end
+
     local text_pre = force and 'Force p' or 'P'
     vim.notify(text_pre .. 'ushing to ' .. remote_name .. '…')
     vim.system(command, { text = true, cwd = cwd }, function(obj)
