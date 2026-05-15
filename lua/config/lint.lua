@@ -66,6 +66,7 @@ local function run_cppcheck_and_publish_diagnostics()
     end)
 end
 
+-- TODO: it's a bit overeager to always run this when Neovim opens...
 run_cppcheck_and_publish_diagnostics()
 
 local debounce_timer = nil
