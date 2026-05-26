@@ -64,7 +64,7 @@ vim.cmd('set spellcapcheck=')
 -- Briefly highlight the yanked text.
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
-        vim.hl.on_yank({ higroup = 'Visual', timeout = 400 })
+        vim.hl.hl_op({ higroup = 'Visual', timeout = 400 })
     end
 })
 
