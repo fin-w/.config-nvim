@@ -1,5 +1,5 @@
 require('render-markdown').setup({
-    latex = { enabled = false },
+    latex = { enabled = true },
     yaml = { enabled = false },
     sign = { enabled = false },
     heading = {

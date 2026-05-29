@@ -9,6 +9,7 @@ local installed_treesitter_parsers = {
     'gitcommit',
     'html',
     'javascript',
+    'latex',
     'lua',
     'markdown',
     'markdown_inline',
