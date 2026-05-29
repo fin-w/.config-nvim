@@ -68,10 +68,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end
 })
 
--- INLINE DIAGNOSTICS
--- Icon in front of inline diagnostics - see keymap for this also
-vim.diagnostic.config({ virtual_text = { prefix = '◀', } })
 
+-- INLINE DIAGNOSTICS
 -- Diagnostics colours in line numbers rather than in a separate gutter
 vim.diagnostic.config({
     signs = {
@@ -92,7 +90,6 @@ vim.diagnostic.config({
 
 
 -- MACRO INDICATOR
-
 vim.api.nvim_create_autocmd('RecordingLeave', {
     callback = function()
         vim.schedule(function()
@@ -102,6 +99,7 @@ vim.api.nvim_create_autocmd('RecordingLeave', {
         end)
     end
 })
+
 
 -- TUI
 require('vim._core.ui2').enable({

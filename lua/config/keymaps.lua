@@ -295,21 +295,6 @@ end, { desc = 'I found a new way to exit Vim' })
 -- force formatting with LSP
 vim.keymap.set('n', '<Leader>cf', vim.lsp.buf.format, { desc = 'Format with LSP if possible' })
 
--- Toggle virtual lines / text for diagnostics
-vim.keymap.set('n', 'gl', function()
-    local lines_enabled = not vim.diagnostic.config().virtual_lines
-    vim.diagnostic.config({
-        virtual_lines = lines_enabled,
-        virtual_text = function()
-            if lines_enabled then
-                return false
-            else
-                return { prefix = '◀' }
-            end
-        end,
-    })
-end, { desc = 'Toggle diagnostic display between lines and inline text' })
-
 
 -- OIL
 
