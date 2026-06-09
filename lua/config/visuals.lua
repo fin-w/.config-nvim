@@ -10,7 +10,7 @@ vim.opt.laststatus = 0
 -- hide built in status line in favour of lualine
 vim.opt.statusline = '0'
 -- hide command line when not in use, and INSERT flag etc
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 -- hide the file tabs
 vim.opt.showtabline = 0
 -- keep cursor in centre of screen (smaller val would give lines above / below cursor
