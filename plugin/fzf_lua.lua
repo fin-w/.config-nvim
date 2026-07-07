@@ -1,6 +1,6 @@
 require('fzf-lua').setup({
     { 'hide' },
-    ui_select = true,
+    ui_select = {},
     winopts = {
         height = 1,
         width = 1,
