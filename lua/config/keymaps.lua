@@ -444,6 +444,20 @@ vim.keymap.set('n', '<Leader>tb', gitsigns.toggle_current_line_blame, { desc = '
 vim.keymap.set('n', '<Leader>hd', gitsigns.diffthis, { desc = 'Gitsigns: open diff' })
 vim.keymap.set('n', '<Leader>td', gitsigns.toggle_deleted, { desc = 'Gitsigns: toggle deleted lines' })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = 'gitsigns-blame',
+    callback = function()
+        vim.keymap.set('n', '<Tab>', function()
+                vim.fn.search([[[╺┍] [a-z0-9]\{8\}]])
+            end,
+            { buffer = true, desc = 'Gitsigns: Next commit' })
+        vim.keymap.set('n', '<S-Tab>', function()
+                vim.fn.search([[[╺┍] [a-z0-9]\{8\}]], 'b')
+            end,
+            { buffer = true, desc = 'Gitsigns: Previous commit' })
+    end
+})
+
 
 -- DAP
 
