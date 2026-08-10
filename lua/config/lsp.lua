@@ -35,16 +35,30 @@ vim.lsp.config('lua_ls', {
     }
 })
 
-vim.lsp.config('rust_analyzer', {
-    settings = {
-        ['rust-analyzer'] = {
-            check = {
-                command = 'clippy',
-            },
+vim.api.nvim_create_user_command('RustAnalyzerLinuxTarget', function()
+    vim.lsp.enable('rust_analyzer', false)
+    vim.lsp.config('rust_analyzer', {
+        settings = {
+            ['rust-analyzer'] = require('states.data').rust_analyzer_default_settings,
         },
-    },
-})
+    })
+    vim.lsp.enable('rust_analyzer')
+end)
 
+vim.api.nvim_create_user_command('RustAnalyzerWasmTarget', function()
+    vim.lsp.enable('rust_analyzer', false)
+    vim.lsp.config('rust_analyzer', {
+        settings = {
+            ['rust-analyzer'] = require('states.data').rust_analyzer_wasm_target_settings,
+        },
+    })
+    vim.lsp.enable('rust_analyzer')
+end)
+
+-- By default, check the linux build target.
+vim.cmd('RustAnalyzerLinuxTarget')
+
+-- NOTE: rust-analyzer is enabled with the user commands above, so is missing here.
 vim.lsp.enable({
     'bashls',
     'clangd',
@@ -55,7 +69,6 @@ vim.lsp.enable({
     'lemminx',
     'lua_ls',
     'pylsp',
-    'rust_analyzer',
     'taplo',
     'ts_ls',
     'yamlls',
