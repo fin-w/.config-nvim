@@ -365,6 +365,10 @@ vim.api.nvim_create_user_command('CallsOutgoing', fzf.lsp_outgoing_calls, {
     desc = 'Fzf-lua: items called by symbol under cursor'
 })
 
+-- Overview of the contents of a file.
+vim.api.nvim_create_user_command('Map', fzf.lsp_document_symbols, {
+    desc = 'Fzf-lua: overview of functions etc. in the file'
+})
 
 -- FUGITIVE
 
