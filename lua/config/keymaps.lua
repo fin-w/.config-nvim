@@ -497,6 +497,7 @@ local function overseer_restart_last_task()
             overseer.STATUS.SUCCESS,
             overseer.STATUS.FAILURE,
             overseer.STATUS.CANCELED,
+            overseer.STATUS.RUNNING,
         },
         sort = task_list.sort_finished_recently
     })
