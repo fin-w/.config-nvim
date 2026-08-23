@@ -25,6 +25,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- set a border around all non-fullscreen windows
 vim.opt.winborder = 'rounded'
+vim.opt.pumborder = 'rounded'
 -- highlight cursor line
 vim.opt.cursorline = false
 vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter' }, { callback = function() vim.opt_local.cursorline = true end })
