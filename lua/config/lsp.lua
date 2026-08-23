@@ -70,7 +70,7 @@ vim.lsp.enable({
     'lua_ls',
     'pylsp',
     'taplo',
-    'ts_ls',
+    'tsc',
     'yamlls',
 })
 

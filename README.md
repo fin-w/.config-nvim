@@ -59,8 +59,8 @@ sudo pacman -S clang
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # HTML: html
 npm install --save vscode-html-languageservice
-# Typescript: ts_ls
-npm install -g typescript-language-server typescript
+# Typescript: tsc
+npm install -g typescript
 # JSON: vscode-json-languageservice
 npm install --save vscode-json-languageservice
 
