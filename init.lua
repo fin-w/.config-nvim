@@ -47,3 +47,4 @@ require('config.visuals')
 require('config.keymaps')
 require('config.lsp')
 require('config.lint')
+vim.o.exrc = true
