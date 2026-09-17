@@ -82,7 +82,6 @@ vim.lsp.log.set_level(vim.log.levels.OFF)
 
 -- Enable formatting
 vim.g.autoformat_by_lsp = true
-vim.b.autoformat_by_lsp = true
 
 -- Formatting settings: first set up custom variable to hold whether the buffer uses autoformatting
 -- Disable formatting
@@ -92,15 +91,8 @@ end, {
     desc = 'Disable autoformat-on-save',
 })
 
-vim.api.nvim_create_user_command('FormatDisableThisBufferOnly', function()
-    vim.b.autoformat_by_lsp = false
-end, {
-    desc = 'Disable autoformat-on-save for the current buffer',
-})
-
 vim.api.nvim_create_user_command('FormatEnable', function()
     vim.g.autoformat_by_lsp = true
-    vim.b.autoformat_by_lsp = true
 end, {
     desc = 'Re-enable autoformat-on-save',
 })
@@ -118,7 +110,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.api.nvim_create_autocmd('BufWritePre', {
                 buffer = args.buf,
                 callback = function()
-                    if vim.g.autoformat_by_lsp and vim.b.autoformat_by_lsp then
+                    if vim.g.autoformat_by_lsp then
                         vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
                     end
                 end,
