@@ -287,10 +287,14 @@ vim.api.nvim_create_user_command('Maximise', function()
     vim.cmd('tabnew %')
 end, { desc = 'Open the current buffer in a new tab so you can edit it fullscreen' })
 
--- I'm always typing :Wq rather than :wq so at this point I might as well make it official.
+-- Some convenience keymaps for lazy typing: I'm always typing :Wq rather than
+-- :wq so at this point I might as well make it official.
 vim.api.nvim_create_user_command('Wq', function()
     vim.cmd('wq')
 end, { desc = 'I found a new way to exit Vim' })
+vim.api.nvim_create_user_command('Wa', function() vim.cmd('wa') end)
+vim.api.nvim_create_user_command('E', function() vim.cmd('e') end)
+vim.api.nvim_create_user_command('E!', function() vim.cmd('e!') end)
 
 -- force formatting with LSP
 vim.keymap.set('n', '<Leader>cf', vim.lsp.buf.format, { desc = 'Format with LSP if possible' })
