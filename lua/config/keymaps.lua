@@ -293,8 +293,13 @@ vim.api.nvim_create_user_command('Wq', function()
     vim.cmd('wq')
 end, { desc = 'I found a new way to exit Vim' })
 vim.api.nvim_create_user_command('Wa', function() vim.cmd('wa') end)
-vim.api.nvim_create_user_command('E', function() vim.cmd('e') end)
-vim.api.nvim_create_user_command('E!', function() vim.cmd('e!') end)
+vim.api.nvim_create_user_command('E', function(args)
+    if args.bang then
+        vim.cmd('e!')
+    else
+        vim.cmd('e')
+    end
+end, { bang = true })
 
 -- force formatting with LSP
 vim.keymap.set('n', '<Leader>cf', vim.lsp.buf.format, { desc = 'Format with LSP if possible' })
