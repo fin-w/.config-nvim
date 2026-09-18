@@ -1,5 +1,4 @@
 require('blink.cmp').setup({
-    enabled = function() return not vim.tbl_contains({ 'gitcommit' }, vim.bo.filetype) end,
     keymap = {
         preset = 'super-tab',
         ['<C-c>'] = { 'cancel', 'fallback' },
@@ -72,7 +71,7 @@ require('blink.cmp').setup({
         }
     },
     sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'conventional_commits', 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
             cmdline = {
                 min_keyword_length = function(ctx)
@@ -80,7 +79,30 @@ require('blink.cmp').setup({
                     if ctx.mode == 'cmdline' and string.find(ctx.line, ' ') == nil then return 3 end
                     return 0
                 end
-            }
+            },
+            conventional_commits = {
+                name = 'Conventional Commits',
+                module = 'blink-cmp-conventional-commits',
+                enabled = function()
+                    return vim.bo.filetype == 'gitcommit'
+                end,
+                opts = {
+                    completion = {
+                        items = {
+                            { type = 'nodwedd',     doc = 'feature' },
+                            { type = 'trwsio',      doc = 'fix' },
+                            { type = 'dogfennaeth', doc = 'docs' },
+                            { type = 'arddull',     doc = 'style' },
+                            { type = 'ailffactora', doc = 'refactor' },
+                            { type = 'perfformiad', doc = 'performance' },
+                            { type = 'profi',       doc = 'test' },
+                            { type = 'tasg',        doc = 'chore' },
+                            { type = 'cicd',        doc = 'cicd' },
+                            { type = 'dychwelyd',   doc = 'revert' },
+                        },
+                    },
+                },
+            },
         },
     },
     snippets = { preset = 'luasnip' },

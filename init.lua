@@ -9,6 +9,7 @@ vim.pack.add({
     'https://github.com/Saghen/blink.cmp',                          -- Fast auto-completions.
     'https://github.com/nvim-tree/nvim-web-devicons',               -- Required by lualine, fzf-lua, blink-cmp.
     'https://github.com/xzbdmw/colorful-menu.nvim',                 -- Improve the colours in blink-cmp completion menu.
+    'https://github.com/disrupted/blink-cmp-conventional-commits',  -- Better commits messages
     'https://github.com/nvim-lualine/lualine.nvim',                 -- Pretty status line.
     'https://github.com/windwp/nvim-autopairs',                     -- Convenient bracket pair handling.
     'https://codeberg.org/fin-w/midnight.nvim',                     -- Colour scheme.
