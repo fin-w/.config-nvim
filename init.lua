@@ -1,14 +1,12 @@
 require('config.restore')
 
 vim.pack.add({
-    { -- Fast auto-completions.
-        src = 'https://github.com/Saghen/blink.cmp',
-        version = vim.version.range('1.*'),
-    },
     { -- Better syntax highlighting.
         src = 'https://github.com/nvim-treesitter/nvim-treesitter',
         version = 'main',
     },
+    'https://github.com/Saghen/blink.lib',                          -- Required for blink.cmp
+    'https://github.com/Saghen/blink.cmp',                          -- Fast auto-completions.
     'https://github.com/nvim-tree/nvim-web-devicons',               -- Required by lualine, fzf-lua, blink-cmp.
     'https://github.com/xzbdmw/colorful-menu.nvim',                 -- Improve the colours in blink-cmp completion menu.
     'https://github.com/nvim-lualine/lualine.nvim',                 -- Pretty status line.
@@ -47,4 +45,19 @@ require('config.visuals')
 require('config.keymaps')
 require('config.lsp')
 require('config.lint')
+
+-- Run custom per-project lua code in .nvim.lua files.
 vim.o.exrc = true
+
+-- Handle required post-install updates and binary building.
+vim.api.nvim_create_autocmd('PackChanged', {
+    desc = 'Handle nvim-treesitter and blink updates',
+    group = vim.api.nvim_create_augroup('post-updates', { clear = true }),
+    callback = function(event)
+        if event.data.kind == 'update' then
+            require('blink.cmp').build():pwait()
+            vim.notify('nvim-treesitter: updated plugin, updating parsers…', vim.log.levels.INFO)
+            require('nvim-treesitter').update()
+        end
+    end,
+})
