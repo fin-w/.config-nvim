@@ -60,6 +60,7 @@ require('lualine').setup {
                 [require('overseer').STATUS.SUCCESS] = 'S',
                 [require('overseer').STATUS.RUNNING] = 'r',
             } },
+            require('states.lualine').glab_ci,
         },
         lualine_x = {
             'require("states.lualine").lsp',
@@ -86,3 +87,17 @@ require('lualine').setup {
     inactive_winbar = {},
     extensions = {},
 }
+
+---@param name string
+---@param fg_from string | nil
+local function set_glab_ci_highlight(name, fg_from)
+    local bg = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal', link = false }).bg
+    local fg = fg_from and vim.api.nvim_get_hl(0, { name = fg_from, link = false }).fg or nil
+    vim.api.nvim_set_hl(0, name, { fg = fg, bg = bg })
+end
+set_glab_ci_highlight('GitlabCIReset')
+set_glab_ci_highlight('GitlabCIFailed', 'DiagnosticError')
+set_glab_ci_highlight('GitlabCIManual', 'DiagnosticInfo')
+set_glab_ci_highlight('GitlabCIRunning', 'DiagnosticHint')
+set_glab_ci_highlight('GitlabCICanceled', 'DiagnosticWarn')
+set_glab_ci_highlight('GitlabCISuccess', 'DiagnosticOk')

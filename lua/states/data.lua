@@ -8,6 +8,12 @@ return {
     ---@type string
     git_subproject = '',
 
+    ---@type table  -- ordered list of { iid = integer, counts = table<string, integer> }, one per pipeline on the current commit
+    glab_ci_pipelines = {},
+
+    ---@type table  -- raw job objects from the last poll across all pipelines, as returned by `glab api`
+    glab_ci_last_jobs = {},
+
     ---@type table
     rust_analyzer_default_settings = {
         check = {

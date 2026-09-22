@@ -81,6 +81,139 @@ local function filepath_from_git_submodule_or_repo(filepath)
 end
 
 
+-- MANAGE GITLAB CI STATE
+
+local glab_ci_timer = nil
+
+local function stop_glab_ci_polling()
+    if glab_ci_timer then
+        glab_ci_timer:stop()
+        glab_ci_timer:close()
+        glab_ci_timer = nil
+    end
+end
+
+-- GitLab reports queued-but-not-started jobs as 'created', which is
+-- indistinguishable from 'pending' for our purposes, so merge them.
+---@param status string
+---@return string
+local function normalize_glab_ci_job_status(status)
+    return status == 'created' and 'pending' or status
+end
+
+---@return boolean
+local function poll_glab_ci()
+    local cwd = vim.fn.expand('%:p:h')
+    -- Query by commit SHA, not branch ref, so pipelines triggered by tags
+    -- (or merge requests) pointing at the current commit are found too.
+    vim.system({ 'git', 'rev-parse', 'HEAD' }, { text = true, cwd = cwd }, function(sha_obj)
+        if sha_obj.code ~= 0 or not sha_obj.stdout then
+            stop_glab_ci_polling()
+            return
+        end
+        local sha = sha_obj.stdout:gsub('%s+$', '')
+
+        vim.system(
+            { 'glab', 'api', ('projects/:id/pipelines?sha=%s&per_page=20'):format(sha) },
+            { text = true, cwd = cwd },
+            function(pipelines_obj)
+                if pipelines_obj.code ~= 0 or not pipelines_obj.stdout or pipelines_obj.stdout == '' then
+                    stop_glab_ci_polling()
+                    return
+                end
+                local ok, pipelines = pcall(vim.json.decode, pipelines_obj.stdout)
+                if not ok or vim.tbl_isempty(pipelines) then
+                    stop_glab_ci_polling()
+                    return
+                end
+                table.sort(pipelines, function(a, b) return a.iid < b.iid end)
+
+                local counts_by_pipeline_id = {}
+                local all_jobs = {}
+                local remaining = #pipelines
+                local all_done = true
+
+                for _, pipeline in ipairs(pipelines) do
+                    vim.system(
+                        { 'glab', 'api', ('projects/:id/pipelines/%d/jobs'):format(pipeline.id) },
+                        { text = true, cwd = cwd },
+                        function(jobs_obj)
+                            vim.schedule(function()
+                                local counts = {}
+                                if jobs_obj.code == 0 and jobs_obj.stdout and jobs_obj.stdout ~= '' then
+                                    local jok, jobs = pcall(vim.json.decode, jobs_obj.stdout)
+                                    if jok then
+                                        for _, job in ipairs(jobs) do
+                                            local status = normalize_glab_ci_job_status(job.status)
+                                            counts[status] = (counts[status] or 0) + 1
+                                            if status == 'running' or status == 'pending' then
+                                                all_done = false
+                                            end
+                                            table.insert(all_jobs, job)
+                                        end
+                                    end
+                                end
+                                counts_by_pipeline_id[pipeline.id] = counts
+
+                                remaining = remaining - 1
+                                if remaining == 0 then
+                                    local ordered_pipelines = {}
+                                    for _, p in ipairs(pipelines) do
+                                        table.insert(ordered_pipelines,
+                                            { iid = p.iid, counts = counts_by_pipeline_id[p.id] })
+                                    end
+                                    require('states.data').glab_ci_pipelines = ordered_pipelines
+                                    require('states.data').glab_ci_last_jobs = all_jobs
+                                    require('lualine').refresh()
+
+                                    if all_done then stop_glab_ci_polling() end
+                                end
+                            end)
+                        end
+                    )
+                end
+            end
+        )
+    end)
+    return true
+end
+
+local function start_glab_ci_polling()
+    stop_glab_ci_polling() -- restart if a previous poll is still running
+    if not poll_glab_ci() then
+        stop_glab_ci_polling()
+    else
+        glab_ci_timer = vim.uv.new_timer()
+        if glab_ci_timer ~= nil then
+            glab_ci_timer:start(10000, 10000, vim.schedule_wrap(poll_glab_ci))
+        end
+    end
+end
+
+---@param job_id integer
+local function play_glab_ci_job(job_id)
+    local cwd = vim.fn.expand('%:p:h')
+    vim.system(
+        { 'glab', 'api', '--method', 'POST', ('projects/:id/jobs/%d/play'):format(job_id) },
+        { text = true, cwd = cwd },
+        function(obj)
+            vim.schedule(function()
+                if obj.code ~= 0 then
+                    vim.notify('Failed to start GitLab CI job ' .. job_id, vim.log.levels.ERROR)
+                    return
+                end
+                start_glab_ci_polling()
+            end)
+        end
+    )
+end
+
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'GitPushToGitlabWithCICD',
+    callback = start_glab_ci_polling,
+})
+
+
 -- AUTO COMMANDS
 
 vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
@@ -175,3 +308,8 @@ vim.api.nvim_create_autocmd("LspProgress", {
         end
     end,
 })
+
+
+return {
+    play_glab_ci_job = play_glab_ci_job,
+}

@@ -80,6 +80,11 @@ local function git_push(remote_name, force)
         end)
         require('states.data').network_active = false
         require('lualine').refresh()
+        if obj.code == 0 and remote_name == 'origin' then
+            vim.schedule(function()
+                vim.api.nvim_exec_autocmds('User', { pattern = 'GitPushToGitlabWithCICD' })
+            end)
+        end
     end)
 end
 
@@ -378,6 +383,29 @@ vim.api.nvim_create_user_command('CallsOutgoing', fzf.lsp_outgoing_calls, {
 vim.api.nvim_create_user_command('Map', fzf.lsp_document_symbols, {
     desc = 'Fzf-lua: overview of functions etc. in the file'
 })
+
+-- Pick a blocked (manual) GitLab CI job to start.
+vim.api.nvim_create_user_command('GitlabCIManual', function()
+    local manual_jobs = vim.tbl_filter(
+        function(job) return job.status == 'manual' end,
+        require('states.data').glab_ci_last_jobs
+    )
+    if vim.tbl_isempty(manual_jobs) then
+        vim.notify('No blocked GitLab CI jobs found', vim.log.levels.WARN)
+        return
+    end
+
+    vim.ui.select(manual_jobs, {
+        prompt = 'Blocked GitLab CI job:',
+        format_item = function(job)
+            local pipeline_ref = job.pipeline and job.pipeline.ref or '?'
+            local pipeline_iid = job.pipeline and (job.pipeline.iid or job.pipeline.id) or '?'
+            return ('%s (%s) [%s #%s]'):format(job.name, job.stage, pipeline_ref, pipeline_iid)
+        end,
+    }, function(job)
+        if job then require('states.management').play_glab_ci_job(job.id) end
+    end)
+end, { desc = 'Pick and start a blocked GitLab CI job' })
 
 -- FUGITIVE
 
