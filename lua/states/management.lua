@@ -14,6 +14,49 @@ local filetypes_to_use_verbatim = {
 
 -- MANAGE GIT STATES
 
+-- TODO: actually finish this so it gets the git project root.
+--
+-- what was i going to use it for?...
+local function git_project_root()
+    local git_project_or_submodule_output = vim.system(
+        { 'git', 'rev-parse', '--show-toplevel' },
+        { cwd = vim.fn.expand('%:p:h'), text = true }
+    ):wait()
+    if git_project_or_submodule_output.code == 0
+        and git_project_or_submodule_output.stdout ~= nil then
+        -- Is a Git repo but may not be a submodule.
+        local git_superproject_output = vim.system(
+            { 'git', 'rev-parse', '--show-superproject-working-tree' },
+            { cwd = vim.fn.expand('%:p:h'), text = true }
+        ):wait()
+        if git_superproject_output.code ~= 0
+            or git_superproject_output.stdout == nil
+            or git_superproject_output.stdout == '' then
+            -- Is a Git repo, not a submodule.
+            -- sub() to get rid of the trailing newline.
+            require('states.data').git_project_or_superproject =
+                vim.fs.basename(git_project_or_submodule_output.stdout:sub(0, -2))
+            require('states.data').git_subproject = ''
+        elseif git_superproject_output.code == 0
+            and git_superproject_output.stdout ~= nil
+            and git_superproject_output.stdout ~= '' then
+            -- Is a Git repo, and a submodule.
+            -- sub() to get rid of the trailing newline.
+            require('states.data').git_project_or_superproject =
+                vim.fs.basename(git_superproject_output.stdout:sub(0, -2))
+            require('states.data').git_subproject =
+                vim.fs.basename(git_project_or_submodule_output.stdout
+                    :sub(0, -2))
+        else
+            -- Not a Git repo.
+            require('states.data').git_project_or_superproject = ''
+            require('states.data').git_subproject = ''
+        end
+    end
+end
+
+local a = git_project_root()
+
 local function get_git_project_sub_sup()
     local git_project_or_submodule_output = vim.system(
         { 'git', 'rev-parse', '--show-toplevel' },
