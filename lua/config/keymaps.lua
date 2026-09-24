@@ -546,7 +546,21 @@ local function overseer_restart_last_task()
     end
 end
 
-vim.keymap.set('n', '<Leader>bb', overseer.run_task, { desc = 'Overseer: run task' })
+local function overseer_run_task()
+    local git_project_or_submodule_output = vim.system(
+        { 'git', 'rev-parse', '--show-toplevel' },
+        { cwd = vim.fn.expand('%:p:h'), text = true }
+    ):wait()
+
+    if git_project_or_submodule_output.code == 0
+        and git_project_or_submodule_output.stdout ~= nil then
+        overseer.run_task({ search_params = { dir = git_project_or_submodule_output.stdout } })
+    else
+        overseer.run_task()
+    end
+end
+
+vim.keymap.set('n', '<Leader>bb', overseer_run_task, { desc = 'Overseer: run task' })
 vim.keymap.set('n', '<Leader>bB', overseer_restart_last_task, { desc = 'Overseer: restart last task' })
 vim.keymap.set('n', '<Leader>br', overseer.toggle, { desc = 'Overseer: toggle window' })
 
