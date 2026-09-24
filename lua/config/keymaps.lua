@@ -238,6 +238,9 @@ vim.keymap.set('n', '<Leader>yc', '/[a-z0-9]\\{40\\}<Enter>yiw:noh<Enter>', { de
 -- Simplify opening a specific line in a git repo online.
 vim.keymap.set('n', '<Leader>guc', yank_git_url_file_and_line, { desc = 'Yank Git file and line to open in a browser' })
 
+-- Check GitLab pipeline status
+vim.keymap.set('n', '<Leader>ci', function() require('states.management').start_glab_ci_polling() end, { desc = 'GitLab: Check CI Pipeline' })
+
 -- pick the left buffer or right buffer in a git merge conflict view?
 vim.keymap.set('n', '<Leader>gch', '<Cmd>diffget //2<Enter>', { desc = 'Git: select left version of diff conflict' })
 vim.keymap.set('n', '<Leader>gcl', '<Cmd>diffget //3<Enter>', { desc = 'Git: select right version of diff conflict' })

@@ -355,4 +355,6 @@ vim.api.nvim_create_autocmd("LspProgress", {
 
 return {
     play_glab_ci_job = play_glab_ci_job,
+    start_glab_ci_polling = start_glab_ci_polling,
+    poll_glab_ci = poll_glab_ci,
 }
