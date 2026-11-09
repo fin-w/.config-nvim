@@ -84,6 +84,10 @@ sudo pacman -S python-lsp-server autopep8
 cargo install --features lsp --locked taplo-cli
 # YAML: yaml-language-server
 sudo pacman -S yaml-language-server
+# DJLint for HTML containing Go template syntax. uv is a simple way to install,
+# other methods are available
+sudo pacman -S uv
+uv tool install djlint
 ```
 
 ## Linters

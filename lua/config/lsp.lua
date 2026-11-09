@@ -8,6 +8,12 @@ vim.lsp.config('clangd', {
     }
 })
 
+vim.lsp.config("djlint", {
+    cmd = { "djlint", "--lsp" },
+    filetypes = { "html", "htmldjango", "jinja", "jinja.html", "handlebars", "liquid", "gotmpl" },
+    root_markers = { "pyproject.toml", "djlint.toml", ".djlint.toml", ".djlintrc", ".git" },
+})
+
 vim.lsp.config('lemminx', {
     settings = {
         xml = {
@@ -63,6 +69,7 @@ vim.lsp.enable({
     'bashls',
     'clangd',
     'cssls',
+    'djlint',
     'fish_lsp',
     'html',
     'jsonls',
