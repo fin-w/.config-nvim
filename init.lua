@@ -51,19 +51,16 @@ vim.o.exrc = true
 
 -- Handle required post-install updates.
 vim.api.nvim_create_autocmd('PackChanged', {
-    desc = 'Handle nvim-treesitter updates',
+    desc = 'Handle post-update jobs',
     group = vim.api.nvim_create_augroup('post-updates', { clear = true }),
     callback = function(event)
         if event.data.kind == 'update' then
-            vim.notify('nvim-treesitter: updated plugin, updating parsers…', vim.log.levels.INFO)
-            require('nvim-treesitter').update()
-            vim.notify('If blink.cmp was updated, restart Neovim to rebuild the Rust binary.', vim.log.levels.INFO)
+            if event.data.spec.name == 'nvim-treesitter' then
+                require('nvim-treesitter').update()
+            elseif event.data.spec.name == 'blink.cmp'
+                or event.data.spec.name == 'blink.lib' then
+                require('blink.cmp').build():pwait()
+            end
         end
     end,
 })
-
-
--- After loading the config, potentially rebuild the blink.cmp binary. Does
--- nothing if there is nothing to do. After an update to blink.cmp the binary
--- needs rebuilding.
-require('blink.cmp').build():pwait()
