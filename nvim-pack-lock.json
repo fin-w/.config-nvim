@@ -37,11 +37,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "22f0bbd3140a8a3b34fec75e5a640513ca6d4ce3",
+      "rev": "ded1c96d3d9d74634287d722431c26690968a4bf",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "ef707fb93301a9b856f36eae4c8f56f5b988a794",
+      "rev": "dc7698f932792a764d3db95fedee26c38e728355",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lualine.nvim": {
@@ -53,7 +53,7 @@
       "src": "https://codeberg.org/fin-w/midnight.nvim"
     },
     "mini.clue": {
-      "rev": "57f1f9542e8f7f0c3325825359939410940c55fc",
+      "rev": "c8f246f080d4a7907990199151464978b43c9406",
       "src": "https://github.com/nvim-mini/mini.clue"
     },
     "nvim-autopairs": {
@@ -77,11 +77,11 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "993d048db0d83d8e8ba3f9cb376456321acdcce3",
+      "rev": "05588aab66016c6836634b87ca2d392d097515f2",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "19bdfc04f40ed2ccb3340591d125f759b0406875",
+      "rev": "04f17886f75416dfdc25374c950a52c63f0e98fe",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -110,7 +110,7 @@
       "src": "https://github.com/hiphish/rainbow-delimiters.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "9c235bedc4f96145e63fcad5b78cd78bce8822c4",
+      "rev": "8801162e041e34c64d0d1397cd1f353a14b01950",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
