@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd('FileType', {
         -- Only set the following for commit message buffers.
         if callback_args.match == 'gitcommit' then
             -- The paragraph reflows as you type.
-            vim.opt_local.formatoptions:append('a')
+            vim.bo.formatoptions = vim.bo.formatoptions .. 'a'
             -- Insert some newlines to avoid reflowing the git overview text by accident.
             vim.api.nvim_buf_set_lines(callback_args.buf, 0, 0, true, { '', '', '' })
             vim.cmd('silent write')
