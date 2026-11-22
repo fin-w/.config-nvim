@@ -52,3 +52,5 @@ vim.api.nvim_create_autocmd('FileType', {
         end
     end,
 })
+
+vim.api.nvim_create_user_command('Reflow', function() vim.bo.formatoptions = vim.bo.formatoptions .. 'a' end)
